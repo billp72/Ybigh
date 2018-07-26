@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Ybigh demo</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="libs/boostrap4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<style>
+
+			body{
+				/*background-color: #b54d4d;*/
+        		margin: 0px;
+        		height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <% var dt = data.length; %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul id="menu" class="navbar-nav">
+                <% for(var i=0; i<dt; i++) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/<%= data[i].link %>'>
+                              <%= data[i].name %>
+                          </a>
+                    </li>
+              <% } %>
+          </ul>
+      </div>
+  </nav>
+		<div id="welcome">
+
+			<h4>*STAGE 1 CATEGORIES, TERMS, CONCEPTS AND SPECIFIC OBJECTS*</h4>
+		 	<br />
+			Each term, concept or specific object presented may invoke personal feelings, spark a particular philosophical interest, connect with you on spiritual level, all three or none at all. Based on your understanding of the term [word] presented, it’s up to you to reflect on your life’s experience and select the category, or categories, you feel best fit it.
+			<br /><br />
+			You can select from 0 (skipping it altogether) to all 4 of these categories for any given term, concept or specific object:<br /><br />
+			<ul>
+				<li>Man's View of Himself/Herself (abbreviated to 'Himself')</li>
+				<li>Man's Connections with Other than Himself/Herself</li>
+				<li>Man's View of the World</li>
+				<li>Man's Physical Activities</li>
+			</ul>
+			One stumbling block we’ve noticed so far is with the phrasing of the categories and, specifically, the use of the word “Man.”  Man simply means the <i>universal man</i> of which you are an example. As such, you may:<br /><br /> 
+            <ul>
+				<li>personalize any or all terms, concepts or specific objects to yourself</li>
+				<li>think of others exclusively</li>
+				<li>think of yourself and others together</li>
+            </ul>
+			Selecting closer to white shows a higher sense of spirituality (or substance) while selecting more towards the base color is more material.
+			<br /><br />
+			<img src="img/s1Img.jpg" style="float:left; margin:0 0 10px 0;"/>
+			
+		</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script type="text/javascript" src="libs/boostrap4/js/bootstrap.min.js"></script>
+	</body>
+</html>

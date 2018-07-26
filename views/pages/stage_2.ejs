@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Ybigh demo</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="author" content="ybigh">
+  <!--<link rel="stylesheet" type="text/css" href="libs/boostrap4/css/bootstrap.min.css">-->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <style type="text/css">
+  body {
+    height: 100%;   
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+  #next{
+    background-color: #A8A8A8;
+  }
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+  <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <% var dt = data.length; %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul id="menu" class="navbar-nav">
+                <% for(var i=0; i<dt; i++) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/?page=<%= data[i].link.replace(/\s/g, '') %>'>
+                              <%= data[i].link %>
+                          </a>
+                    </li>
+              <% } %>
+          </ul>
+      </div>
+  </nav>-->
+  <div id="overlay"></div>
+  <div id="buttons">
+    <input onclick="window.location.href='/Stage1'" type="button" id="home" class="btn" value="Back" /><br />
+    <input type="button" id="check" class="btn" value="Check Selections" /><br />
+    <input type="button" id="submit" class="btn" value="Submit" disabled /><br />
+    <input type="button" id="next" class="btn" value="Next Symbol" disabled />
+  </div>
+  <div id="info">
+    <div class="closeContainer">
+      <div class="close"><a href="#" id="closew">X</a></div>
+    </div>
+      <ul id="msg"></ul>
+  </div>
+  <div id="container"></div>
+
+  <!--<script type="text/javascript" src="scripts/three.min.71.js"></script>   -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/71/three.js"></script>
+  <script type="text/javascript" src="js/Projector.js"></script>
+  <script type="text/javascript" src="js/CanvasRenderer.js"></script>
+  <script type="text/javascript" src="js/OrbitControls.js"></script>
+  <script type="text/javascript" src="js/THREEx.WindowResize.js"></script>
+  <script type="text/javascript" src="js/stats.min.js"></script>
+  <script type="text/javascript" src="js/s2.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--<script type="text/javascript" src="libs/boostrap4/js/bootstrap.min.js"></script>-->
+  <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+  <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>-->
+
+
+</body>
+</html>

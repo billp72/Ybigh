@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Ybigh demo</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="libs/boostrap4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<style>
+
+			body{
+				/*background-color: #b54d4d;*/
+        		margin: 0px;
+        		height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <% var dt = data.length; %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul id="menu" class="navbar-nav">
+                <% for(var i=0; i<dt; i++) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/<%= data[i].link %>'>
+                              <%= data[i].name %>
+                          </a>
+                    </li>
+              <% } %>
+          </ul>
+      </div>
+  </nav>
+		<div id="welcome">
+			<h2>Welcome to Ybigh</h2>
+
+
+					Artificial intelligence and machine learning today is impressive.  It
+					can drive cars, play chess and predict our buying habits online. While
+					AI is becoming an invaluable part of industry and retailer's tech
+					stacks, it currently give us very little insight into what people
+					really value or think.  The type of information collected by companies
+					is mostly what we purchase, our browsing histories,
+					where we go on vacation and what videos we watch. This makes up only a
+					small part of who we are as people though.  Ybigh is positioned to change all
+					that.  Ybigh is not a replacement for AI but rather another layer that
+					should help drive important understandings of ourselves and each
+					other.
+					<br /><br />
+					<h4>How is Ybigh different?</h4>
+					Using a custom graphical interface, users are able to characterize and evaluate words (symbols) with respect to:<br /><br />
+					<ul>
+						<li>Self and the human experience</li>
+						<li>'Good’ and ‘ill, ‘beauty’ and ‘peril’</li>
+						<li>Necessity and consequence</li>
+					</ul>
+
+					<h4>Why try Ybigh?</h4>
+
+					<ul>
+						<li>See what Ybigh has to say about your Dignity</li>
+						<li>To contribute to and use a catalog of ideas, terms and specific
+objects and their value</li>
+						<li>Find new perspectives on good you could gain from and ill you can avoid</li>
+						
+					</ul>
+
+					<h4>Who would use Ybigh?</h4>
+
+					<ul>
+						<li>Individuals and groups who wish to gain insight of themselves and others</li>
+						<li>Those who wish to benefit from others’ insight into people or groups like themselves</li>
+						<li>Those who wish to benefit from others’ judgments about things (symbols)</li>
+					</ul>
+
+                   <h4>Long-term goal</h4>
+
+                   To grow the sphere in which Ai operates and become an enormously powerful tool for helping people develop business and personal relationships.<br /><br />
+
+		</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script type="text/javascript" src="libs/boostrap4/js/bootstrap.min.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "ybigh",
+  "version": "1.0.0",
+  "description": "Ybigh personality project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billp72/Ybigh.git"
+  },
+  "author": "William R Pope <epop.bill@gmail.com> (http://netcreative.org/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/billp72/Ybigh/issues"
+  },
+  "homepage": "https://github.com/billp72/Ybigh#readme",
+  "dependencies": {
+    "body-parser": "1.18.3",
+    "client-sessions": "0.8.0",
+    "ejs": "2.6.1",
+    "express": "4.16.3",
+    "mysql": "2.16.0"
+  }
+}

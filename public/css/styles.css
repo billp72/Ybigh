@@ -1,0 +1,212 @@
+#overlay{
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);;
+    background-image: url("../img/tenor.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    display: none;
+  }
+
+
+  .cl{
+    width:150px;
+    height: 10px;
+    position: absolute;
+    font-size: 14px;
+    padding: 0px 0;
+    margin: 0;
+    border: 1px solid #C8C8C8;
+
+  }
+  .cl.word {
+    width:150px;
+    height:15px;
+    z-index: 1000;
+    top:33px;
+    /*left:38.2%;*/
+    font-size: 14px;
+    text-align: center;
+    padding: 0px 0;
+    font-weight: 600;
+    margin: 0;
+      /*display: inline-block;*/
+    border: 1px solid #C8C8C8;
+      /*border-radius: 4px;*/
+      /*box-sizing: border-box;*/
+  }
+  .cl.world{
+    top:10px;
+
+  }
+  .cl.others{
+    top:21px;
+    
+  }
+  .cl.activities{
+    top:50px;
+   
+  }
+  .cl.himself{
+    top:61px;
+      
+  }
+  /*
+    left:440px;
+    top:500px;
+  */
+  .selections{
+    position: relative;
+    z-index: 1000;
+    width: 50px;
+    left:44.5%;
+    top:280px;
+  }
+  #submit{
+    background-color: #A8A8A8;
+  }
+  #stage{
+    background-color: #A8A8A8;
+  }
+  #next{
+    cursor: pointer;
+  }
+  .btn{
+    background-color: #4f87ff; /* blue */
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width:120px;
+  }
+
+  #prev{
+    display: none;
+
+  }
+  #clear{
+    background-color: #A8A8A8;
+  }
+
+  .text-label{
+    color: black;
+    font-weight: 400;
+    width: 80px;
+    text-align: center;
+  }
+  .info-text{
+    opacity: 0.4;
+  }
+  .tet-label{
+    color: grey;
+    font-weight: 400;
+  }
+  #info {
+    /*overflow: auto; visible*/
+    overflow: hidden;
+    position: absolute;
+    top: 5px;
+    width: 240px;
+    height: 200px;
+    text-align: center;
+    z-index: 100;
+    display:none;
+    
+  }
+  .btn{
+    background-color: #4f87ff; /* blue */
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    margin-bottom: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 150px;
+  }
+  .stage1_btns{
+    margin-left: 21%;
+  }
+  #buttons{
+    position: absolute;
+    top: 5px;
+    right:5px;
+  }
+  #submit{
+    background-color: #A8A8A8;
+  }
+
+  #check{
+    cursor: pointer;
+  }
+  .term{
+    font-weight: 600;
+  }
+  #info .closeContainer{
+    position: relative;
+  }
+  #info .close{
+    position: absolute;
+    top:0;
+    right: 0;
+  }
+  #info .close a{
+    font-weight: 600;
+  }
+  #info ul#msg{
+    list-style-type: none;
+    padding: 15px;
+    background-color: #2f96b4;
+    opacity: 0.9;
+  }
+  .message{
+    font-weight: 600;
+  }
+  #msg li.singularity{
+    color: white;
+  }
+  #msg li.good{
+    color: white;
+  }
+  #msg li.ill{
+    color:white;
+  }
+  #msg li.indifferent{
+    color:white;
+  }
+  #labels{
+    position: relative;
+  }
+  #welcome ol,  #welcome ul li{
+    /*font-weight: 600;*/
+  }
+  /*#383535;*/
+  #welcome{
+      width:70%; 
+      margin:0 auto;
+      padding:20px;
+      color: black;
+      font-family: 'inconsolata';
+      font-size: 16px;
+      line-height: 18px;
+  }
+  input:focus {
+    outline:none;
+  }
+	canvas{
+    background-color:white;
+	}
+
+ 
+
