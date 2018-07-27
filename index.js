@@ -112,7 +112,7 @@ app.get('/:name', function(req, res, next) {
 
   let id = !!req.session.user ? req.session.user : 'not';
 
-  let sql = 'SELECT email FROM users WHERE email='+mysql.escape(id);
+  let sql = 'SELECT * FROM users WHERE id='+mysql.escape(id);
 
   connection.query(sql, function (error, result, fields) {
        if (error) throw error;
@@ -165,19 +165,19 @@ app.post('/Signup', function(req, res, next) {
   
     if(req.body.email){
 
-        let sql = 'SELECT email FROM users WHERE email = ?';
+        let sql = 'SELECT * FROM users WHERE email = ?';
    
         connection.query(sql, mysql.escape(req.body.email), function (error, result_user, fields){
 
          if(!error){
-         
+          
             if(result_user.length > 0){
-
+                
                 if(!!req.session.user){
-                    results[results.length-1].msg = 'That email already exists';
+                    results[results.length-1].msg = 'You are already logged in';
                     res.render('pages/index', {data: results});
                 }else{
-                    req.session.user = mysql.escape(req.body.email);
+                    req.session.user = mysql.escape(result_user[0].id);
                     results[results.length-1].msg = 'New session created';
                     res.render('pages/index', {data: results});
                 }
@@ -186,10 +186,10 @@ app.post('/Signup', function(req, res, next) {
                 let user = {'email': mysql.escape(req.body.email)}
                 let sql_insert = "INSERT INTO users SET ?";
 
-                connection.query(sql_insert, user, function (err, db){
+                connection.query(sql_insert, user, function (err, row){
                     if (err) throw err;
-
-                    req.session.user = mysql.escape(req.body.email);
+               
+                    req.session.user = row.insertId;
 
                     results[results.length-1].msg = 'Email sent. Please proceed to "How to use"';
 
@@ -212,7 +212,7 @@ app.post('/Signup', function(req, res, next) {
 });
 
 
-app.listen(3000, function() { console.log('listening'); });
+app.listen(3001, function() { console.log('listening'); });
 
 //var book = new Book({author: result[0]});
         //book.save(function(err, author){});
