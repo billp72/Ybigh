@@ -77,6 +77,7 @@ var bookSchema = new Schema({
     publish_date: String,
     description: String
 });*/
+app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -212,7 +213,9 @@ app.post('/Signup', function(req, res, next) {
 });
 
 
-app.listen(3001, function() { console.log('listening'); });
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+});
 
 //var book = new Book({author: result[0]});
         //book.save(function(err, author){});
