@@ -799,14 +799,14 @@ Ybigh = {
         
             let userID = 39;//localStorage.getItem('userID');
 
-            if(!!userID){
+            if(!userID){
 
-                $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+                /*$.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
 
                     window.localStorage.setItem('userID', data.geobytesipaddress);
                     return (typeof func === 'function') ? func(localStorage.getItem('userID')) : localStorage.getItem('userID');
 
-                });
+                });*/
 
             }else{
                return (typeof func === 'function') ? func(userID) : userID;
