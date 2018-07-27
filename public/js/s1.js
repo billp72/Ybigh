@@ -797,9 +797,9 @@ Ybigh = {
     },
     getUserID:function(func){
         
-            let userID = localStorage.getItem('userID');
+            let userID = 39;//localStorage.getItem('userID');
 
-            if(!userID){
+            if(!!userID){
 
                 $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
 
