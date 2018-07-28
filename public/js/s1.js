@@ -797,16 +797,16 @@ Ybigh = {
     },
     getUserID:function(func){
         
-            let userID = 39;//localStorage.getItem('userID');
+            let userID = localStorage.getItem('userID');
 
             if(!userID){
 
-                /*$.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+                $.getJSON('https://ipapi.co/json/', function(data) {
 
-                    window.localStorage.setItem('userID', data.geobytesipaddress);
+                    window.localStorage.setItem('userID', data.ip);
                     return (typeof func === 'function') ? func(localStorage.getItem('userID')) : localStorage.getItem('userID');
 
-                });*/
+                });
 
             }else{
                return (typeof func === 'function') ? func(userID) : userID;
