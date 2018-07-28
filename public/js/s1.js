@@ -773,7 +773,8 @@ Ybigh = {
                         $(".cl"+"."+Ybigh.paths[i].objID).css({'background-color': new_color.c}); 
                         //.trigger('change').removeClass('color-picker-binded');
               }
-            }).mousemove(function (e) {    
+            });
+            Ybigh.$colors.on('mousemove touchmove',function (e) {    
                 //e.preventDefault();
                 let mouseX=parseInt(e.clientX-offsetX);
                 let mouseY=parseInt(e.clientY-offsetY);
@@ -787,9 +788,9 @@ Ybigh = {
 
             });
 
-        $("body").mouseup(function () {
+        /*$("body").mouseup(function () {
             //if (!Ybigh.mouse_is_inside) Ybigh.close();
-        });
+        });*/
       
     },
     selectionRecs:function(){
