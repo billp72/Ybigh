@@ -8,6 +8,7 @@ const mysql      = require('mysql');
 const express    = require('express');
 const bodyParser = require('body-parser');
 const session    = require('client-sessions');
+const device     = require('express-device');
 const app        = express();
 //const router     = express.Router();
 
@@ -80,6 +81,10 @@ var bookSchema = new Schema({
 app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(device.capture({ parseUserAgent: true }));
+
+device.enableDeviceHelpers(app);
+device.enableViewRouting(app);
 
 //var Book = mongoose.model('Book', bookSchema);
 
