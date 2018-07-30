@@ -612,6 +612,8 @@ Ybigh = {
      
     },
     show: function () {
+        var isMobile = $("#phone").html();
+        console.log(isMobile)
         var input = $('.word');
         //var position = input.offset();
         var paths = [];
@@ -634,8 +636,10 @@ Ybigh = {
         
         Ybigh.$colors
             .on("click touchstart",function (e) {
-                let x = e.clientX,
-                y = e.clientY;
+                let touchEvent = (isMobile==="true" ? e.changedTouches[0] : e);
+                
+                let x = touchEvent.clientX,
+                y = touchEvent.clientY;
                 let mouseX=parseInt(x-offsetX);
                 let mouseY=parseInt(y-offsetY);
                 var i=0
@@ -649,7 +653,7 @@ Ybigh = {
                 } 
                 if(insideCL){
                     
-                        let new_color = Ybigh.get_color(e);
+                        let new_color = Ybigh.get_color(touchEvent);
 
                         if(Ybigh.paths[i].objID == "world"){
 
@@ -774,10 +778,11 @@ Ybigh = {
                         //.trigger('change').removeClass('color-picker-binded');
               }
             });
-            Ybigh.$colors.on('mousemove touchmove',function (e) {    
+            Ybigh.$colors.on('mousemove touchmove',function (e) {
+                let touchEvent = (isMobile==="true" ? e.changedTouches[0] : e);    
                 //e.preventDefault();
-                let mouseX=parseInt(e.clientX-offsetX);
-                let mouseY=parseInt(e.clientY-offsetY);
+                let mouseX=parseInt(touchEvent.clientX-offsetX);
+                let mouseY=parseInt(touchEvent.clientY-offsetY);
                 for(var j=0; j<Ybigh.paths.length; j++){   
 
                     let inside=Ybigh.colorctx.isPointInPath(Ybigh.paths[j], mouseX,mouseY);
