@@ -35,25 +35,17 @@
   <div id="welcome">
     <% if(!is_phone){ %>
     <p>Sign Up / Sign In</p>
-    <form action="/Signup" method="post" onsubmit="return checkForm(this);"><input type="email" name="email" placeholder="your email" value=""><button class="submit" type="submit">Submit</button></form>
+    <form action="/Signup" method="post"><input type="email" name="email" placeholder="your email" value=""><button name="btn" class="submit" type="submit">Submit</button></form>
     <br />
     <div class="message"><%= data[dt-1].msg %></div>
     <br /><br />
     Your email serves to sign you in and as a means for us to send you a questionair. The answers to the questions will not be shared or sold but used simply to help us calibrate the system so we can give you better feedback in the future. <br /><br />Sincerely, <br /><br />Ybigh team.
     <% } else{ %>
-      Currently, we're only supporting tablet and desktop/laptop devices. We hope to support [all] device types in the near future
+      We're only supporting tablet and desktop/laptop devices currently. We hope to support [all] device types in the near future
     <% } %>
   </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="libs/boostrap4/js/bootstrap.min.js"></script>
-    <script>
-      function checkForm(form)
-      {
-
-        form.myButton.disabled = true;
-        return true;
-      }
-   
-    </script>
+    
 </body>
 </html>

@@ -1,3 +1,8 @@
+
+/*css bootstrap override*/
+.navbar.navbar-expand-lg.navbar-light.bg-light{
+  background-color: transparent !important;
+}
 #overlay{
     position: fixed;
     z-index: 1000;
@@ -79,6 +84,7 @@
   .btn{
     background-color: #4f87ff; /* blue */
     border: none;
+    border-radius:0;
     color: white;
     padding: 5px 20px;
     margin-bottom: 5px;
