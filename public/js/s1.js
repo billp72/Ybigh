@@ -621,8 +621,8 @@ Ybigh = {
     
         Ybigh.$colors  = $('<canvas height="555" width="555"></canvas>');
         Ybigh.$colors.css({
-            /*'width':'20%',
-            'max-width':'1000px'*/
+            /*'width':'100%',
+            'max-width':'1000px',*/
             'margin': '0 auto 0 auto',
             'display': 'block'
         });
@@ -635,7 +635,9 @@ Ybigh = {
         Ybigh.render(true);
         
         Ybigh.$colors
-            .on("click touchstart",function (e) {
+            .on('touchstart mouseup',function (e) {
+                e.preventDefault();
+
                 let touchEvent = (isMobile==="true" ? e.changedTouches[0] : e);
                 
                 let x = touchEvent.clientX,
@@ -778,7 +780,8 @@ Ybigh = {
                         //.trigger('change').removeClass('color-picker-binded');
               }
             });
-            Ybigh.$colors.on('mousemove touchmove',function (e) {
+            Ybigh.$colors.on('touchmove mousemove',function (e) {
+                e.preventDefault();
                 let touchEvent = (isMobile==="true" ? e.changedTouches[0] : e);    
                 //e.preventDefault();
                 let mouseX=parseInt(touchEvent.clientX-offsetX);

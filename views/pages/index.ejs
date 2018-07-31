@@ -33,7 +33,7 @@
   </nav>
   
   <div id="welcome">
-    <% if(is_phone){ %>
+    <% if(!is_phone){ %>
     <p>Sign Up / Sign In</p>
     <form action="/Signup" method="post"><input type="email" name="email" placeholder="your email" value=""><button name="btn" class="submit" type="submit">Submit</button></form>
     <br />
