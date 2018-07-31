@@ -780,12 +780,11 @@ Ybigh = {
                         //.trigger('change').removeClass('color-picker-binded');
               }
             });
-            Ybigh.$colors.on('touchmove mousemove',function (e) {
+            Ybigh.$colors.on('mousemove',function (e) {
                 e.preventDefault();
-                let touchEvent = (isMobile==="true" ? e.changedTouches[0] : e);    
-                //e.preventDefault();
-                let mouseX=parseInt(touchEvent.clientX-offsetX);
-                let mouseY=parseInt(touchEvent.clientY-offsetY);
+             
+                let mouseX=parseInt(e.clientX-offsetX);
+                let mouseY=parseInt(e.clientY-offsetY);
                 for(var j=0; j<Ybigh.paths.length; j++){   
 
                     let inside=Ybigh.colorctx.isPointInPath(Ybigh.paths[j], mouseX,mouseY);
