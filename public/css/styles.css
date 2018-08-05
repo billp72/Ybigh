@@ -69,8 +69,8 @@
     position: relative;
     z-index: 1000;
     width: 50px;
-    left:44.5%;
-    top:280px;
+    left:243px;
+    top:300px;
   }
   #submit{
     background-color: #A8A8A8;
@@ -100,9 +100,9 @@
     display: none;
 
   }
-  #clear{
+  /*#clear{
     background-color: #A8A8A8;
-  }
+  }*/
 
   .text-label{
     color: black;

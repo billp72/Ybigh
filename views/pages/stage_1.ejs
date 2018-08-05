@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Ybigh</title>
+  <title>Ybigh S1</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta name="author" content="ybigh">
   <meta name="description" content="The HTML5 Herald">
@@ -22,8 +22,6 @@
 
 <body>
 
- <div id="container">
-  <!--<input type="color-picker" value=""/>-->
   <div class="selections">
     <input type="text" class="cl word"></input>
     <div class="cl world"></div>
@@ -48,11 +46,11 @@
                         <input type="button" id="prev" class="btn nav-link" value="Previous Term" />
                     </li>
                     <li class="nav-item">
-                        <input type="button" id="clear" class="btn nav-link" value="Clear Selections" disabled="true" />
+                        <input type="button" id="clear" class="btn nav-link" value="Clear Selections" />
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <input type="button" id="submit" class="btn nav-link" value="Submit All" />
-                    </li>
+                    </li>-->
                     <li class="nav-item">
                          <input type="button" id="stage" class="btn nav-link" value="Next Stage" disabled="true" />
                     </li>
@@ -61,7 +59,7 @@
   </nav>
   <div class="stage1_btns">
   </div>
- </div>
+
  <div id="overlay"></div>
   <span id="phone" style="visibility:hidden;"><%= is_mobile %></span>
   
@@ -69,6 +67,7 @@
   <script type="text/javascript" src="libs/boostrap4/js/bootstrap.min.js"></script>
   <script src="js/path2d_polly.js"></script>
   <script src="js/findIndex_pollyfill.js"></script>
+  <script src="js/absoluteBoundingRec.js"></script>
   <script src="js/s1.js"></script> 
 
 </body>

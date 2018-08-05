@@ -1,8 +1,5 @@
 /*
-example usage. 
-
-Below shows how one might parse XML, save it to a noSQL DB
-and render the results.
+Ybigh simple server
 */
 const mysql      = require('mysql');
 const express    = require('express');
@@ -12,12 +9,6 @@ const device     = require('express-device');
 const app        = express();
 //const router     = express.Router();
 
-//var MongoClient = require('mongodb').MongoClient;
-//var mongoose = require('mongoose');
-//var assert = require('assert');
-//var url = 'mongodb://127.0.0.1/Books';
-//var xml = "<root>Item one</root>";
-//mongoose.connect(url);
 let results = [
     {
         name:"Introduction",
@@ -68,16 +59,6 @@ setInterval(function () {
     connection.query('SELECT 1');
 }, 5000);
 
-/*var Schema = mongoose.Schema;
-
-var bookSchema = new Schema({
-    author: String
-    title: String,
-    genre: String,
-    price: String,
-    publish_date: String,
-    description: String
-});*/
 app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -217,17 +198,11 @@ app.post('/Signup', function(req, res, next) {
     
 });
 
+app.post('/symbol', function(req, res, next){
+  console.log(req.body);
+});
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
 
-//var book = new Book({author: result[0]});
-        //book.save(function(err, author){});
-
-            /*Book.collection.insertMany(result.catalog.book, function(err,r) {
-                assert.equal(null, err);
-                assert.equal(12, r.insertedCount);
-
-                db.close();
-          })*/

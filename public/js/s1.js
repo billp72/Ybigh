@@ -612,25 +612,20 @@ Ybigh = {
      
     },
     show: function () {
-        var isMobile = $("#phone").html();
-        console.log(isMobile)
-        var input = $('.word');
-        //var position = input.offset();
-        var paths = [];
+        var isMobile = $("#phone").html(),
+            input = $('.word'),
+            paths = [];
+
         let insideCL;
     
-        Ybigh.$colors  = $('<canvas height="555" width="555"></canvas>');
-        Ybigh.$colors.css({
-            /*'width':'100%',
-            'max-width':'1000px',*/
-            'margin': '0 auto 0 auto',
-            'display': 'block'
-        });
-        $('#container').append(Ybigh.$colors.fadeIn());
+        Ybigh.$colors  = $('<canvas id="can" height="553" width="553"></canvas>');
+        
+        $('body').append(Ybigh.$colors.fadeIn());
         Ybigh.colorctx = Ybigh.$colors[0].getContext('2d');
-        var canvasOffset= Ybigh.$colors[0].getBoundingClientRect();
-        var offsetX=canvasOffset.left;
-        var offsetY=canvasOffset.top;
+
+        var canvasOffset= getAbsoluteBoundingRect(Ybigh.$colors[0]),
+            offsetX=canvasOffset.left,
+            offsetY=canvasOffset.top;
 
         Ybigh.render(true);
         
@@ -641,10 +636,11 @@ Ybigh = {
                 let touchEvent = (isMobile==="true" ? e.changedTouches[0] : e);
                 
                 let x = touchEvent.clientX,
-                y = touchEvent.clientY;
-                let mouseX=parseInt(x-offsetX);
-                let mouseY=parseInt(y-offsetY);
-                var i=0
+                    y = touchEvent.clientY,
+                    mouseX=parseInt(x-offsetX),
+                    mouseY=parseInt(y-offsetY);
+
+                var i=0;
                 for(i=0; i<Ybigh.paths.length; i++){
 
                     insideCL=Ybigh.colorctx.isPointInPath(Ybigh.paths[i], mouseX,mouseY);
@@ -800,27 +796,7 @@ Ybigh = {
         });*/
       
     },
-    selectionRecs:function(){
-
-    },
-    getUserID:function(func){
-        
-            let userID = localStorage.getItem('userID');
-
-            if(!userID){
-
-                $.getJSON('https://ipapi.co/json/', function(data) {
-
-                    window.localStorage.setItem('userID', data.ip);
-                    return (typeof func === 'function') ? func(localStorage.getItem('userID')) : localStorage.getItem('userID');
-
-                });
-
-            }else{
-               return (typeof func === 'function') ? func(userID) : userID;
-            }
-        
-    },
+  
     bind_inputs: function (userID) {
         //$('input[type="color-picker"]').not('.color-picker-binded').each(function () {
             $("#overlay").css("display","block");
@@ -873,29 +849,23 @@ Ybigh = {
         }
      
        obj.length = 0;
+       Ybigh.submit();
 
     },
     submit: function(){
+      
+        $.ajax({
+            type: "POST",
+            url: "/symbol",
+            dataType: 'json', 
+            data: JSON.stringify(Ybigh.saveAllSelections),
+            success: function(res){
+                console.log(res);
+                Ybigh.saveAllSelections.length = 0;
 
-        //$.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
-               
-        let userID = Ybigh.getUserID()
-        if(!!userID){
-
-            Ybigh.saveAllSelections.push(userID);
-              
-            $.ajax({
-                type: "POST",
-                url: "http://netcreative.org/Ybigh/app/write_results.php", 
-                data: JSON.stringify(Ybigh.saveAllSelections),
-                success: function(res){
-                    console.log(res);
-                    Ybigh.saveAllSelections.length = 0;
-
-                }
-            });
-        }
-       //});
+            }
+        });
+        
     },
     close: function () {
         Ybigh.$colors.fadeOut(Ybigh.$colors.remove);
@@ -911,11 +881,16 @@ Ybigh = {
         var pos_x = e.pageX - Ybigh.$colors.offset().left;
         var pos_y = e.pageY - Ybigh.$colors.offset().top;
         var data = Ybigh.colorctx.getImageData(pos_x, pos_y, 1, 1).data;
-         
+
+        var percentX = (pos_x / $('#can').width()) * 100;
+        var percentY = (pos_y / $('#can').height()) * 100;
+    
         return {
             c: '#' + Ybigh.to_hex(data[0]) + Ybigh.to_hex(data[1]) + Ybigh.to_hex(data[2]),
             x: pos_x,
-            y: pos_y
+            y: pos_y,
+            percentx: percentX,
+            percenty: percentY
         }
     },
     
@@ -1041,5 +1016,5 @@ Ybigh = {
         
     }
 };
-Ybigh.getUserID(Ybigh.bind_inputs);
+Ybigh.bind_inputs();
 
