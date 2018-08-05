@@ -36,12 +36,17 @@ let results = [
     }
     
 ]
-
-var connection = mysql.createConnection({
+/*
   host     : 'equalmatchch.db.5035656.hostedresource.com', 
   user     : 'equalmatchch',
   password : 'Eqmatch@ch72',
   database : 'equalmatchch'
+*/
+var connection = mysql.createConnection({
+  host     : 'Ybighdb.db.5035656.3c5.hostedresource.net', 
+  user     : 'Ybighdb',
+  password : 'Ybigh@1data',
+  database : 'Ybighdb'
 });
  
 connection.connect();
@@ -99,7 +104,7 @@ app.get('/:name', function(req, res, next) {
 
   let id = !!req.session.user ? req.session.user : 'not';
 
-  let sql = 'SELECT * FROM users WHERE id='+mysql.escape(id);
+  let sql = 'SELECT * FROM auth WHERE id_user='+mysql.escape(id);
 
   connection.query(sql, function (error, result, fields) {
        if (error) throw error;
@@ -152,7 +157,7 @@ app.post('/Signup', function(req, res, next) {
   
     if(req.body.email){
 
-        let sql = 'SELECT * FROM users WHERE email = ?';
+        let sql = 'SELECT * FROM auth WHERE email_user = ?';
    
         connection.query(sql, mysql.escape(req.body.email), function (error, result_user, fields){
 
@@ -170,8 +175,8 @@ app.post('/Signup', function(req, res, next) {
                 }
                 
             }else{
-                let user = {'email': mysql.escape(req.body.email)}
-                let sql_insert = "INSERT INTO users SET ?";
+                let user = {'email_user': mysql.escape(req.body.email)}
+                let sql_insert = "INSERT INTO auth SET ?";
 
                 connection.query(sql_insert, user, function (err, row){
                     if (err) throw err;
