@@ -169,7 +169,7 @@ app.post('/Signup', function(req, res, next) {
                     results[results.length-1].msg = 'You are already logged in';
                     res.render('pages/index', {data: results});
                 }else{
-                    req.session.user = mysql.escape(result_user[0].id);
+                    req.session.user = mysql.escape(result_user[0].id_user);
                     results[results.length-1].msg = 'New session created';
                     res.render('pages/index', {data: results});
                 }
