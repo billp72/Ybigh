@@ -825,7 +825,7 @@ Ybigh = {
     },
     save: function(obj){
 
-        let stub = {name:Ybigh.data[Ybigh.index-1], c:0, x:-1, y:-1, category:0, clicked:0};
+        let stub = {name:Ybigh.data[Ybigh.index-1], c:0, x:-1, y:-1,percentx:-1,percenty:-1, category:0, clicked:0};
 
         if(obj.length === 3 || obj.length === 0){
 
