@@ -19,6 +19,10 @@ let results = [
         link:"Signup"
     },
     {
+        name:"Dashboard",
+        link:"dashboard"
+    },
+    {
         name:"How to use",
         link:"Howtouse"
     },

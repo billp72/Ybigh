@@ -27,26 +27,11 @@
 </head>
 
 <body>
-  <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <% var dt = data.length; %>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul id="menu" class="navbar-nav">
-                <% for(var i=0; i<dt; i++) { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href='/?page=<%= data[i].link.replace(/\s/g, '') %>'>
-                              <%= data[i].link %>
-                          </a>
-                    </li>
-              <% } %>
-          </ul>
-      </div>
-  </nav>-->
+
   <div id="overlay"></div>
   <div id="buttons">
     <input onclick="window.location.href='/Stage1'" type="button" id="home" class="btn" value="Back" /><br />
+    <input onclick="window.location.href='/'" type="button" id="dashboard" class="btn nav-link" value="Dashboard" /><br />
     <input type="button" id="check" class="btn" value="Check Selections" /><br />
     <input type="button" id="submit" class="btn" value="Submit" disabled /><br />
     <input type="button" id="next" class="btn" value="Next Symbol" disabled />
