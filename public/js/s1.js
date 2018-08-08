@@ -877,6 +877,7 @@ Ybigh = {
                 console.log(res);
                 Ybigh.saveAllSelections.length = 0;
                 $(".cl.word").val("");
+                Ybigh.current = '';
 
             }
         });
