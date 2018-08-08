@@ -756,6 +756,12 @@ Ybigh = {
     },
     next: function(){
 
+        if(!Ybigh.current){
+            alert('click to add any of the words on the left');
+
+            return;
+        }
+
         $(".cl.world").css({'background-color':'white'});
         $(".cl.others").css({'background-color':'white'});
         $(".cl.activities").css({'background-color':'white'});

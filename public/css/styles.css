@@ -3,6 +3,14 @@
 .navbar.navbar-expand-lg.navbar-light.bg-light{
   background-color: transparent !important;
 }
+.btn.nav-link.whitebl, .btn.nav-link.whitebl:hover, .btn.nav-link.whitebl:visited, .btn.nav-link.whitebl:active, .btn.nav-link.whitebl:link{
+  color: white;
+  font-weight: 600;
+}
+.nav-item.override .nav-link.whitebl:focus, .navbar-light.whitebl .nav-link.whitebl:hover{
+  color: white;
+  font-weight: 600;
+}
 #overlay{
     position: fixed;
     z-index: 1000;
@@ -81,6 +89,7 @@
     left:210px;
     top:300px;
   }
+
   #stage{
     background-color: #A8A8A8;
   }
