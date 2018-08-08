@@ -737,7 +737,7 @@ Ybigh = {
                                 $(".word").val($(this).html().toUpperCase());
                                 $(this).remove();
                                 Ybigh.data.splice(index, 1);
-
+                                //Ybigh.data.length < 5 Ybigh.bind_inputs
                                 dataList.prepend('<div id="block" style="z-index:1000; position:absolute; height:500px; width:200px; background-color:rgba(0, 0, 0, 0.01);"></div>');
                                  
                               
@@ -846,7 +846,7 @@ Ybigh = {
 
     },
     saveAll: function(){
-        var confirmed = confirm("WARNING! Pressing OK will submit the above list with NO selections. If you feel you've made all your selections already, then hit OK. Otherwise press cancel");
+        var confirmed = confirm("WARNING! Pressing OK will submit ALL terms in the above list with NO selections. If you feel you've made all your selections already, then hit OK. Otherwise press cancel");
 
         if(confirmed){
 
