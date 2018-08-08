@@ -485,7 +485,8 @@ Ybigh = {
     index:0,
     timeoutHandle:'',
     paths:[],
-    saveSelection: [],
+    current:'',
+    saveSelection:[],
     saveAllSelections:[],
     counter_hash:[],
     click_counter:0,
@@ -494,7 +495,6 @@ Ybigh = {
     red:null,
     yellow:null,
     data:null,
-    userID:null,
     
     to_hex: function (dec) {
         hex = dec.toString(16);
@@ -515,101 +515,10 @@ Ybigh = {
        
         Ybigh.timeoutHandle = window.setTimeout(function(){
             Ybigh.show();
-            Ybigh.index++;
-
+            //Ybigh.index++;
+            
         },500);
         //Ybigh.next();
-    },
-    startCounterPrevious: function(){
-        var input = $('.word');
-        Ybigh.timeoutHandle = window.setTimeout(function(){
-            Ybigh.show();
-            Ybigh.index--;
-            input.val(Ybigh.data[Ybigh.index].toUpperCase());
-            Ybigh.index++;
-        },500);
-    },
-    previous: function(){
-        Ybigh.index--;
-        Ybigh.index = Ybigh.index == 0 ? 1 : Ybigh.index;
-        $(".cl.world").css({'background-color':'white'});
-        $(".cl.others").css({'background-color':'white'});
-        $(".cl.activities").css({'background-color':'white'});
-        $(".cl.himself").css({'background-color':'white'});
-        Ybigh.blue = null;
-        Ybigh.green = null;
-        Ybigh.red = null;
-        Ybigh.yellow = null;
-        Ybigh.saveSelection.length = 0;
-        Ybigh.closePrevious();
-
-    },
-    next: function(){
-        var input = $('.word');
-        var i=0;
-
-        Ybigh.index = !!Ybigh.data[Ybigh.index] ? Ybigh.index : 0;
-        input.val(Ybigh.data[Ybigh.index].toUpperCase());
-
-        $(".cl.world").css({'background-color':'white'});
-        $(".cl.others").css({'background-color':'white'});
-        $(".cl.activities").css({'background-color':'white'});
-        $(".cl.himself").css({'background-color':'white'});
-        $("#submit").prop('disabled',false).css({'background-color':'#4f87ff','cursor':'pointer'});
-
-        Ybigh.close();
-        //Ybigh.saveSelection = Object.values(Ybigh.saveSelection.reduce((c, v) => Object.assign(c, {[v.category]: v}), {}));
-        let result = Ybigh.counter_hash.filter(function(value, index, self){
-            return self.findIndex(function(innerValue){
-                return innerValue.category == value.category}) === index;
-            }).map(function(item){
-                return { 
-                    count: Ybigh.counter_hash.filter(function(innerItem){
-                    return innerItem.category == item.category
-                    }).reduce(function(min, item){
-                    return (item.count < min) ? item.count : min; }).count, 
-                    category: item.category
-                };
-            });
-
-        
-
-        for(i; i<result.length;i++){
-
-            if(Ybigh.yellow && Ybigh.yellow.category === result[i].category){//0x01
-                Ybigh.yellow.clicked = result[i].count;
-                Ybigh.saveSelection.push(Ybigh.yellow);
-            }
-
-            if(Ybigh.green && Ybigh.green.category === result[i].category){//0x02
-                Ybigh.green.clicked = result[i].count;
-                Ybigh.saveSelection.push(Ybigh.green);
-            }
-
-            if(Ybigh.red && Ybigh.red.category === result[i].category){//0x04
-                Ybigh.red.clicked = result[i].count;
-                Ybigh.saveSelection.push(Ybigh.red);
-            }
-
-            if(Ybigh.blue && Ybigh.blue.category === result[i].category){//0x08
-                Ybigh.blue.clicked = result[i].count;
-                Ybigh.saveSelection.push(Ybigh.blue);
-            }
-            
-        }
-
-        Ybigh.saveSelection.sort(function(a, b) {
-            return (a.count - b.count);
-        });
-
-        //alert("You've selected "+Ybigh.saveSelection.length+" category(s) for "+Ybigh.saveSelection[0].name);
-
-        Ybigh.save(Ybigh.saveSelection);
-        Ybigh.blue = null;
-        Ybigh.green = null;
-        Ybigh.red = null;
-        Ybigh.yellow = null;
-     
     },
     show: function () {
         var isMobile = $("#phone").html(),
@@ -620,7 +529,8 @@ Ybigh = {
     
         Ybigh.$colors  = $('<canvas id="can" height="553" width="553"></canvas>');
         
-        $('body').append(Ybigh.$colors.fadeIn());
+        $('#container').append(Ybigh.$colors.fadeIn());
+ 
         Ybigh.colorctx = Ybigh.$colors[0].getContext('2d');
 
         var canvasOffset= getAbsoluteBoundingRect(Ybigh.$colors[0]),
@@ -632,6 +542,12 @@ Ybigh = {
         Ybigh.$colors
             .on('touchstart mouseup',function (e) {
                 e.preventDefault();
+
+                if(!Ybigh.current){
+                    alert('Click a term on the left then make selection(s)');
+
+                    return;
+                }
 
                 let touchEvent = (isMobile==="true" ? e.changedTouches[0] : e);
                 
@@ -672,7 +588,7 @@ Ybigh = {
                             Ybigh.colorctx.fill();
 
                             Ybigh.click_counter += 1;
-                            new_color.name = Ybigh.data[Ybigh.index-1];
+                            new_color.name = Ybigh.current; //Ybigh.data[Ybigh.index-1];
                             new_color.category = 0x08;
                             Ybigh.blue = new_color;
                                 
@@ -701,7 +617,7 @@ Ybigh = {
                             Ybigh.colorctx.fill();
 
                             Ybigh.click_counter += 1;
-                            new_color.name = Ybigh.data[Ybigh.index-1];
+                            new_color.name = Ybigh.current;
                             new_color.category = 0x02; //
                             Ybigh.green = new_color;
 
@@ -731,7 +647,7 @@ Ybigh = {
                             Ybigh.colorctx.fill();
 
                             Ybigh.click_counter += 1;
-                            new_color.name = Ybigh.data[Ybigh.index-1];
+                            new_color.name = Ybigh.current;
                             new_color.category = 0x04;
                             Ybigh.red = new_color;
 
@@ -760,7 +676,7 @@ Ybigh = {
                             Ybigh.colorctx.fill();
 
                             Ybigh.click_counter += 1;
-                            new_color.name = Ybigh.data[Ybigh.index-1];
+                            new_color.name = Ybigh.current;
                             new_color.category = 0x01;
                             Ybigh.yellow = new_color;
 
@@ -804,17 +720,32 @@ Ybigh = {
             window.setTimeout(function(){
                               //mock response
                 Ybigh.data = model.data;
-                var _submit = $("#submit");
 
-                $(".word").val(Ybigh.data[Ybigh.index].toUpperCase());
                 $("#next").click(Ybigh.next);
-                $("#prev").click(Ybigh.previous);
                 $("#clear").click(Ybigh.clear);
-                _submit.click(Ybigh.submit);
-                _submit.prop('disabled',true);
-
-                Ybigh.index +=1;
+                $("#submit_all").click(Ybigh.saveAll);
+         
                 Ybigh.show();
+
+                var dataList = $('#word_list');
+                var c = true;
+                $.each(Ybigh.data, function (index, val) {
+                    var element = $("<li id=\"" + this +"\">" + this + "</li>")
+                         .on('touchstart mouseup', function () { 
+                                //alert('hello from binded function call '+$(this).html()) 
+                                Ybigh.current = $(this).html();
+                                $(".word").val($(this).html().toUpperCase());
+                                $(this).remove();
+                                Ybigh.data.splice(index, 1);
+
+                                dataList.prepend('<div id="block" style="z-index:1000; position:absolute; height:500px; width:200px; background-color:rgba(0, 0, 0, 0.01);"></div>');
+                                 
+                              
+                                    
+                                //disable list
+                            });
+                    dataList.append(element);
+                });
 
                 $("#overlay").css("display","none");
                 
@@ -823,9 +754,70 @@ Ybigh = {
         
         //}).addClass('color-picker-binded');
     },
+    next: function(){
+
+        $(".cl.world").css({'background-color':'white'});
+        $(".cl.others").css({'background-color':'white'});
+        $(".cl.activities").css({'background-color':'white'});
+        $(".cl.himself").css({'background-color':'white'});
+        $("#block").remove();
+
+        Ybigh.close();
+
+        //Ybigh.saveSelection = Object.values(Ybigh.saveSelection.reduce((c, v) => Object.assign(c, {[v.category]: v}), {}));
+        let result = Ybigh.counter_hash.filter(function(value, index, self){
+            return self.findIndex(function(innerValue){
+                return innerValue.category == value.category}) === index;
+            }).map(function(item){
+                return { 
+                    count: Ybigh.counter_hash.filter(function(innerItem){
+                    return innerItem.category == item.category
+                    }).reduce(function(min, item){
+                    return (item.count < min) ? item.count : min; }).count, 
+                    category: item.category
+                };
+            });
+
+        for(var i=0; i<result.length;i++){
+
+            if(Ybigh.yellow && Ybigh.yellow.category === result[i].category){//0x01
+                Ybigh.yellow.clicked = result[i].count;
+                Ybigh.saveSelection.push(Ybigh.yellow);
+            }
+
+            if(Ybigh.green && Ybigh.green.category === result[i].category){//0x02
+                Ybigh.green.clicked = result[i].count;
+                Ybigh.saveSelection.push(Ybigh.green);
+            }
+
+            if(Ybigh.red && Ybigh.red.category === result[i].category){//0x04
+                Ybigh.red.clicked = result[i].count;
+                Ybigh.saveSelection.push(Ybigh.red);
+            }
+
+            if(Ybigh.blue && Ybigh.blue.category === result[i].category){//0x08
+                Ybigh.blue.clicked = result[i].count;
+                Ybigh.saveSelection.push(Ybigh.blue);
+            }
+            
+        }
+
+        Ybigh.saveSelection.sort(function(a, b) {
+            return (a.count - b.count);
+        });
+
+        Ybigh.save(Ybigh.saveSelection);
+        Ybigh.saveSelection.length = 0;
+        Ybigh.blue = null;
+        Ybigh.green = null;
+        Ybigh.red = null;
+        Ybigh.yellow = null;
+     
+    },
     save: function(obj){
 
-        let stub = {name:Ybigh.data[Ybigh.index-1], c:0, x:-1, y:-1,percentx:-1,percenty:-1, category:0, clicked:0};
+        let names = obj.length > 0 ? obj[0].name : Ybigh.current;
+        let stub = {name:names, c:0, x:-1, y:-1,percentx:-1,percenty:-1, category:0, clicked:0};
 
         if(obj.length === 3 || obj.length === 0){
 
@@ -844,6 +836,7 @@ Ybigh = {
                 obj.push(stub);
             }
         }
+
         for(let j=0;j<obj.length;j++){
             Ybigh.saveAllSelections.push(obj[j]);
         }
@@ -852,16 +845,32 @@ Ybigh = {
        Ybigh.submit();
 
     },
+    saveAll: function(){
+        var confirmed = confirm("WARNING! Pressing OK will submit the above list with NO selections. If you feel you've made all your selections already, then hit OK. Otherwise press cancel");
+
+        if(confirmed){
+
+            let i=0;
+    
+            for(i;i<Ybigh.data.length;i++){
+                Ybigh.saveAllSelections.push({name:Ybigh.data[i], c:0, x:-1, y:-1,percentx:-1,percenty:-1, category:0, clicked:0});
+            }
+
+            Ybigh.next();
+        }
+
+        $("#block").remove();
+    },
     submit: function(){
       
         $.ajax({
             type: "POST",
             url: "/symbol",
-            dataType: 'json', 
             data: JSON.stringify(Ybigh.saveAllSelections),
             success: function(res){
                 console.log(res);
                 Ybigh.saveAllSelections.length = 0;
+                $(".cl.word").val("");
 
             }
         });
@@ -871,10 +880,6 @@ Ybigh = {
         Ybigh.$colors.fadeOut(Ybigh.$colors.remove);
         Ybigh.startCounter();
 
-    },
-    closePrevious: function(){
-        Ybigh.$colors.fadeOut(Ybigh.$colors.remove);
-        Ybigh.startCounterPrevious();
     },
     get_color: function (e) {
 

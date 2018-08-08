@@ -53,7 +53,7 @@ setInterval(function () {
     connection.query('SELECT 1');
 }, 5000);
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 5001));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(device.capture({ parseUserAgent: true }));
@@ -193,7 +193,9 @@ app.post('/Signup', function(req, res, next) {
 });
 
 app.post('/symbol', function(req, res, next){
-  console.log(req.body);
+  //console.log(req.body);
+  res.set({'Content-Type': 'text/plain'});
+  res.send('submitted');
 });
 
 app.listen(app.get('port'), function() {
