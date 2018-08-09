@@ -482,7 +482,7 @@ let model = {
 }
 
 Ybigh = {
-    index:0,
+    counter:0,
     timeoutHandle:'',
     paths:[],
     current:'',
@@ -688,7 +688,8 @@ Ybigh = {
                             //console.log(new_color);
                         }
 
-                        $(".cl"+"."+Ybigh.paths[i].objID).css({'background-color': new_color.c}); 
+                        $(".cl"+"."+Ybigh.paths[i].objID).css({'background-color': new_color.c});
+                        
                         //.trigger('change').removeClass('color-picker-binded');
               }
             });
@@ -721,31 +722,27 @@ Ybigh = {
                               //mock response
                 Ybigh.data = model.data;
 
-                $("#next").click(Ybigh.next);
+                //$("#next").click(Ybigh.next);
                 $("#clear").click(Ybigh.clear);
-                $("#submit_all").click(Ybigh.saveAll);
+                $("#done").click(Ybigh.done);
          
                 Ybigh.show();
-
+                var prev;
                 var dataList = $('#word_list');
                 var c = true;
                 $.each(Ybigh.data, function (index, val) {
                     var element = $("<li id=\"" + this +"\">" + this + "</li>")
                          .on('touchstart mouseup', function () { 
-                                //alert('hello from binded function call '+$(this).html()) 
+                                
                                 Ybigh.current = $(this).html();
                                 $(".word").val($(this).html().toUpperCase());
-                                $(this).remove();
-                                Ybigh.data.splice(index, 1);
-                                //Ybigh.data.length < 5 Ybigh.bind_inputs
-                                if(Ybigh.data.length < 21){
-                                    $(".dis").prop('disabled', false).removeClass("dis");
+                                $(this).css({"font-style":"italic"});
+
+                                if(Ybigh.blue || Ybigh.green || Ybigh.red || Ybigh.yellow){
+                                    Ybigh.next(this, prev);
                                 }
-                                dataList.prepend('<div id="block" style="z-index:1000; position:absolute; height:500px; width:200px; background-color:rgba(0, 0, 0, 0.01);"></div>');
-                                 
-                              
-                                    
-                                //disable list
+                                $(prev).css({"font-style":"normal"});
+                                prev = this;
                             });
                     dataList.append(element);
                 });
@@ -757,19 +754,13 @@ Ybigh = {
         
         //}).addClass('color-picker-binded');
     },
-    next: function(evt){
-
-        if(!Ybigh.current && evt.target.id !== 'submit_all'){
-            alert('click to add any word on the right');
-
-            return;
-        }
+    next: function(cur, prev){
 
         $(".cl.world").css({'background-color':'white'});
         $(".cl.others").css({'background-color':'white'});
         $(".cl.activities").css({'background-color':'white'});
         $(".cl.himself").css({'background-color':'white'});
-        $("#block").remove();
+        //$("#block").remove();
 
         Ybigh.close();
 
@@ -815,6 +806,7 @@ Ybigh = {
             return (a.count - b.count);
         });
 
+        Ybigh.submit(Ybigh.saveSelection, cur, prev);
         Ybigh.save(Ybigh.saveSelection);
         Ybigh.saveSelection.length = 0;
         Ybigh.blue = null;
@@ -824,63 +816,41 @@ Ybigh = {
      
     },
     save: function(obj){
-
-        let names = obj.length > 0 ? obj[0].name : Ybigh.current;
-        let stub = {name:names, c:0, x:-1, y:-1,percentx:-1,percenty:-1, category:0, clicked:0};
-
-        if(obj.length === 3 || obj.length === 0){
-
-            obj.push(stub);
-
-        }else if(obj.length === 2){
-
-            for(let i=0;i<2;i++){
-
-               obj.push(stub);
-            }
-        }else if(obj.length === 1 && !!obj[0].c){
-       
-            for(let i=0;i<3;i++){
-
-                obj.push(stub);
-            }
-        }
-
-        for(let j=0;j<obj.length;j++){
-            Ybigh.saveAllSelections.push(obj[j]);
+        let i=0;
+        for(i;i<obj.length;i++){
+            Ybigh.saveAllSelections.push(obj[i]);
         }
      
        obj.length = 0;
-       Ybigh.submit();
-
     },
-    saveAll: function(e){
-        var confirmed = confirm("WARNING! Pressing OK will submit ALL terms as non-selected in the above list. If you feel you've made all your selections, then hit OK. Otherwise press cancel and resume selecting");
-
-        if(confirmed){
-
-            let i=0;
-    
-            for(i;i<Ybigh.data.length;i++){
-                Ybigh.saveAllSelections.push({name:Ybigh.data[i], c:0, x:-1, y:-1,percentx:-1,percenty:-1, category:0, clicked:0});
-            }
-
-            Ybigh.next(e);
+    done: function(e){
+        if(!!Ybigh.yellow || !!Ybigh.blue || !!Ybigh.red || !!Ybigh.green){
+            Ybigh.next();
         }
-
-        $("#block").remove();
+        window.location.href='/Stage2';    
     },
-    submit: function(){
+    submit: function(obj, cur, prev){
       
         $.ajax({
             type: "POST",
             url: "/symbol",
-            data: JSON.stringify(Ybigh.saveAllSelections),
+            data: JSON.stringify(obj),
+            error: function(jqXHR, textStatus, errorThrown){
+
+            },
             success: function(res){
                 console.log(res);
-                Ybigh.saveAllSelections.length = 0;
-                $(".cl.word").val("");
-                Ybigh.current = '';
+                obj.length = 0;
+                Ybigh.counter += 1;
+
+                if(!!cur){
+                    Ybigh.current = $(cur).html();
+                    $(".word").val($(cur).html().toUpperCase());
+                    $(prev).css({'font-weight':'600'});
+                }
+                if(Ybigh.counter > 3){
+                    $("#done").prop("disabled", false).removeClass("dis");
+                }
 
             }
         });
