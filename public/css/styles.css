@@ -89,7 +89,9 @@
     left:210px;
     top:300px;
   }
-
+  .btn.nav-link.dis{
+    background-color: #A8A8A8 !important;
+  }
   #stage{
     background-color: #A8A8A8;
   }

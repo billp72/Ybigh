@@ -738,6 +738,9 @@ Ybigh = {
                                 $(this).remove();
                                 Ybigh.data.splice(index, 1);
                                 //Ybigh.data.length < 5 Ybigh.bind_inputs
+                                if(Ybigh.data.length < 21){
+                                    $(".dis").prop('disabled', false).removeClass("dis");
+                                }
                                 dataList.prepend('<div id="block" style="z-index:1000; position:absolute; height:500px; width:200px; background-color:rgba(0, 0, 0, 0.01);"></div>');
                                  
                               
@@ -754,10 +757,10 @@ Ybigh = {
         
         //}).addClass('color-picker-binded');
     },
-    next: function(){
+    next: function(evt){
 
-        if(!Ybigh.current){
-            alert('click to add any of the words on the left');
+        if(!Ybigh.current && evt.target.id !== 'submit_all'){
+            alert('click to add any word on the left');
 
             return;
         }
@@ -851,8 +854,8 @@ Ybigh = {
        Ybigh.submit();
 
     },
-    saveAll: function(){
-        var confirmed = confirm("WARNING! Pressing OK will submit ALL terms in the above list with NO selections. If you feel you've made all your selections already, then hit OK. Otherwise press cancel");
+    saveAll: function(e){
+        var confirmed = confirm("WARNING! Pressing OK will submit ALL terms as non-selected in the above list. If you feel you've made all your selections, then hit OK. Otherwise press cancel and resume selecting");
 
         if(confirmed){
 
@@ -862,7 +865,7 @@ Ybigh = {
                 Ybigh.saveAllSelections.push({name:Ybigh.data[i], c:0, x:-1, y:-1,percentx:-1,percenty:-1, category:0, clicked:0});
             }
 
-            Ybigh.next();
+            Ybigh.next(e);
         }
 
         $("#block").remove();
