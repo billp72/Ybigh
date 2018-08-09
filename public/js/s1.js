@@ -544,7 +544,7 @@ Ybigh = {
                 e.preventDefault();
 
                 if(!Ybigh.current){
-                    alert('Click a term on the left then make selection(s)');
+                    alert('Click a term on the right then make selection(s)');
 
                     return;
                 }
@@ -760,7 +760,7 @@ Ybigh = {
     next: function(evt){
 
         if(!Ybigh.current && evt.target.id !== 'submit_all'){
-            alert('click to add any word on the left');
+            alert('click to add any word on the right');
 
             return;
         }
