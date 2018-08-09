@@ -487,7 +487,6 @@ Ybigh = {
     paths:[],
     current:'',
     saveSelection:[],
-    saveAllSelections:[],
     counter_hash:[],
     click_counter:0,
     blue:null,
@@ -733,6 +732,7 @@ Ybigh = {
                 $.each(Ybigh.data, function (index, val) {
                     var element = $("<li id=\"" + this +"\">" + this + "</li>")
                          .on('touchstart mouseup', function () { 
+                                //TODO check for bold class and retireve previous state
                                 
                                 Ybigh.current = $(this).html();
                                 $(".word").val($(this).html().toUpperCase());
@@ -807,7 +807,7 @@ Ybigh = {
         });
 
         Ybigh.submit(Ybigh.saveSelection, cur, prev);
-        Ybigh.save(Ybigh.saveSelection);
+
         Ybigh.saveSelection.length = 0;
         Ybigh.blue = null;
         Ybigh.green = null;
@@ -815,13 +815,8 @@ Ybigh = {
         Ybigh.yellow = null;
      
     },
-    save: function(obj){
-        let i=0;
-        for(i;i<obj.length;i++){
-            Ybigh.saveAllSelections.push(obj[i]);
-        }
-     
-       obj.length = 0;
+    getPreviousState: function(){
+
     },
     done: function(e){
         if(!!Ybigh.yellow || !!Ybigh.blue || !!Ybigh.red || !!Ybigh.green){
@@ -846,7 +841,7 @@ Ybigh = {
                 if(!!cur){
                     Ybigh.current = $(cur).html();
                     $(".word").val($(cur).html().toUpperCase());
-                    $(prev).css({'font-weight':'600'});
+                    $(prev).css({'font-weight':'600'});//make this addClass
                 }
                 if(Ybigh.counter > 3){
                     $("#done").prop("disabled", false).removeClass("dis");
