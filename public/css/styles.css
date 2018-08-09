@@ -29,7 +29,8 @@
   #word_list{
     height:480px; 
     width:200px; 
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   #word_list li{
     list-style-type: none;
