@@ -494,7 +494,6 @@ Ybigh = {
     red:null,
     yellow:null,
     data:null,
-    state:false,
     
     to_hex: function (dec) {
         hex = dec.toString(16);
