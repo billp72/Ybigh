@@ -494,12 +494,14 @@ Ybigh = {
     red:null,
     yellow:null,
     data:null,
+    state:null,
     
     to_hex: function (dec) {
         hex = dec.toString(16);
         return hex.length == 2 ? hex : '0' + hex;
     },
     clear: function(){
+
         Ybigh.$colors.fadeOut(Ybigh.$colors.remove);
         Ybigh.timeoutHandle = window.setTimeout(function(){
             Ybigh.show();
@@ -728,12 +730,21 @@ Ybigh = {
                 Ybigh.show();
                 var prev;
                 var dataList = $('#word_list');
-                var c = true;
+       
                 $.each(Ybigh.data, function (index, val) {
                     var element = $("<li id=\"" + this +"\">" + this + "</li>")
                          .on('touchstart mouseup', function () { 
                                 //TODO check for bold class and retireve previous state
-                                
+                                if(Ybigh.state && !Ybigh.blue && !Ybigh.green && !Ybigh.red && !Ybigh.yellow){
+                                    $(prev).removeClass('make-bold');
+                                }
+                                if($(this).attr('class') === 'make-bold'){
+                                    Ybigh.getPreviousState(this);
+                                    Ybigh.state = true;
+                                    prev = this;
+                                    return;
+                                }
+
                                 Ybigh.current = $(this).html();
                                 $(".word").val($(this).html().toUpperCase());
                                 $(this).css({"font-style":"italic"});
@@ -743,6 +754,7 @@ Ybigh = {
                                 }
                                 $(prev).css({"font-style":"normal"});
                                 prev = this;
+                                Ybigh.state = false;
                             });
                     dataList.append(element);
                 });
@@ -815,8 +827,45 @@ Ybigh = {
         Ybigh.yellow = null;
      
     },
-    getPreviousState: function(){
+    getPreviousState: function(t){
 
+        var state = [
+                    {"c":"#81dea2","x":329,"y":92,"percentx":59.49367088607595,"percenty":16.636528028933093,"name":"Lie","category":2,"clicked":1},
+                    {"c":"#cadbff","x":451,"y":278,"percentx":81.55515370705244,"percenty":50.27124773960217,"name":"Lie","category":8,"clicked":2},
+                    {"c":"#ffe3e2","x":156,"y":283,"percentx":28.20976491862568,"percenty":51.17540687160941,"name":"Lie","category":4,"clicked":3},
+                    {"c":"#e0ffa2","x":266,"y":489,"percentx":48.10126582278481,"percenty":88.42676311030742,"name":"Lie","category":1,"clicked":4}
+        ]
+        
+
+        for(var i=0; i<state.length; i++){
+
+            Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
+            Ybigh.colorctx.fillStyle = "#000000";  
+            Ybigh.colorctx.fillRect(state[i].x-2, state[i].y-2, 4, 4);
+
+            switch(state[i].category){
+                case 1:
+                    $(".cl.himself").css({'background-color': state[i].c});
+                    break;
+                case 2:
+                    $(".cl.others").css({'background-color': state[i].c});
+                    break;
+                case 4:
+                    $(".cl.activities").css({'background-color': state[i].c});
+                    break;
+                case 8:
+                    $(".cl.world").css({'background-color': state[i].c});
+                    break;
+                default:
+                    $(".cl.world").css({'background-color': '#ffffff'});
+                    $(".cl.activities").css({'background-color': '#ffffff'});
+                    $(".cl.others").css({'background-color': '#ffffff'});
+                    $(".cl.himself").css({'background-color': '#ffffff'});
+            }
+            
+        }
+        Ybigh.current = state[0].name;
+        $(".word").val("test state".toUpperCase());
     },
     done: function(e){
         if(!!Ybigh.yellow || !!Ybigh.blue || !!Ybigh.red || !!Ybigh.green){
@@ -841,7 +890,7 @@ Ybigh = {
                 if(!!cur){
                     Ybigh.current = $(cur).html();
                     $(".word").val($(cur).html().toUpperCase());
-                    $(prev).css({'font-weight':'600'});//make this addClass
+                    $(prev).addClass('make-bold');//make this addClass
                 }
                 if(Ybigh.counter > 3){
                     $("#done").prop("disabled", false).removeClass("dis");

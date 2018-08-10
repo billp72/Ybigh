@@ -18,7 +18,9 @@
     background-position: center;
     display: none;
   }
-
+  .make-bold{
+    font-weight:600;
+  }
   #word_list{
     height:480px; 
     width:200px; 
