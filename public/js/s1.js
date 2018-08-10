@@ -764,7 +764,9 @@ Ybigh = {
                                 $(this).css({"font-style":"italic"});
 
                                 if(Ybigh.blue || Ybigh.green || Ybigh.red || Ybigh.yellow){
-                                    Ybigh.next(this, prev);
+                                    if(Ybigh.current !== $(prev).html()){
+                                        Ybigh.next(this, prev);
+                                    }
                                 }
                                 
                                 $(prev).css({"font-style":"normal"});
