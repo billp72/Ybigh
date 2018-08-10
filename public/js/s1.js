@@ -503,13 +503,20 @@ Ybigh = {
     clear: function(){
 
         Ybigh.$colors.fadeOut(Ybigh.$colors.remove);
+
         Ybigh.timeoutHandle = window.setTimeout(function(){
+
             Ybigh.show();
             $(".cl.world").css({'background-color':'white'});
             $(".cl.others").css({'background-color':'white'});
             $(".cl.activities").css({'background-color':'white'});
             $(".cl.himself").css({'background-color':'white'});
-            Ybigh.saveSelection.length = 0;
+            
+            Ybigh.blue=null;
+            Ybigh.green=null; 
+            Ybigh.red=null;
+            Ybigh.yellow=null;
+            
         },500);
     },
     startCounter: function(){
