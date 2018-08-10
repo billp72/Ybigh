@@ -522,9 +522,28 @@ Ybigh = {
         },500);
     },
     submitCleared: function(){
+        var obj = {name:Ybigh.current, wordID:123};
         
-        $("#"+Ybigh.current).removeClass('make-bold');
-        $("#removeSelections").prop("disabled", true);
+        $.ajax({
+            type: "POST",
+            url: "/symbol",
+            data: JSON.stringify(obj),
+            error: function(jqXHR, textStatus, errorThrown){
+
+            },
+            success: function(res){
+                console.log(res);
+                
+                $("#"+Ybigh.current).removeClass('make-bold');
+                $("#removeSelections").prop("disabled", true);
+
+                if(Ybigh.counter > 3){
+                    $("#done").prop("disabled", false).removeClass("dis");
+                }
+
+            }
+        });
+
     },
     startCounter: function(){
        
