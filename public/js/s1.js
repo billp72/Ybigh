@@ -516,8 +516,7 @@ Ybigh = {
        
         Ybigh.timeoutHandle = window.setTimeout(function(){
             Ybigh.show();
-            //Ybigh.index++;
-            
+     
         },500);
         //Ybigh.next();
     },
@@ -543,7 +542,7 @@ Ybigh = {
         Ybigh.$colors
             .on('touchstart mouseup',function (e) {
                 e.preventDefault();
-
+               
                 if(!Ybigh.current){
                     alert('Click a term on the right then make selection(s)');
 
@@ -738,6 +737,7 @@ Ybigh = {
 
                                 if($(this).attr('class') === 'make-bold'){
                                     Ybigh.getPreviousState(this);
+                                    prev = this;
                                     return;
                                 }
 
@@ -750,7 +750,7 @@ Ybigh = {
                                 }
                                 $(prev).css({"font-style":"normal"});
                                 prev = this;
-                                Ybigh.state = false;
+                             
                             });
                     dataList.append(element);
                 });
@@ -771,10 +771,6 @@ Ybigh = {
         //$("#block").remove();
 
         Ybigh.close();
-
-        if(Ybigh.counter_hash.length === 0){
-            return;
-        }
 
         //Ybigh.saveSelection = Object.values(Ybigh.saveSelection.reduce((c, v) => Object.assign(c, {[v.category]: v}), {}));
         let result = Ybigh.counter_hash.filter(function(value, index, self){
@@ -828,12 +824,12 @@ Ybigh = {
      
     },
     getPreviousState: function(t){
-
+        var name = $(t).html()
         var state = [
-                    {"c":"#81dea2","x":329,"y":92,"percentx":59.49367088607595,"percenty":16.636528028933093,"name":"Lie","category":2,"clicked":1},
-                    {"c":"#cadbff","x":451,"y":278,"percentx":81.55515370705244,"percenty":50.27124773960217,"name":"Lie","category":8,"clicked":2},
-                    {"c":"#ffe3e2","x":156,"y":283,"percentx":28.20976491862568,"percenty":51.17540687160941,"name":"Lie","category":4,"clicked":3},
-                    {"c":"#e0ffa2","x":266,"y":489,"percentx":48.10126582278481,"percenty":88.42676311030742,"name":"Lie","category":1,"clicked":4}
+                    {"c":"#81dea2","x":329,"y":92,"percentx":59.49367088607595,"percenty":16.636528028933093,"name":name,"category":2,"clicked":1},
+                    {"c":"#cadbff","x":451,"y":278,"percentx":81.55515370705244,"percenty":50.27124773960217,"name":name,"category":8,"clicked":2},
+                    {"c":"#ffe3e2","x":156,"y":283,"percentx":28.20976491862568,"percenty":51.17540687160941,"name":name,"category":4,"clicked":3},
+                    {"c":"#e0ffa2","x":266,"y":489,"percentx":48.10126582278481,"percenty":88.42676311030742,"name":name,"category":1,"clicked":4}
         ]
         
 
@@ -846,31 +842,30 @@ Ybigh = {
             switch(state[i].category){
                 case 1:
                     $(".cl.himself").css({'background-color': state[i].c});
-                    Ybigh.yellow = state[i];
+                    Ybigh.yellow  = state[i];
+                    Ybigh.counter_hash.push({count:state[i].click, category: state[i].category});
                     break;
                 case 2:
                     $(".cl.others").css({'background-color': state[i].c});
-                    Ybigh.green = state[i];
+                    Ybigh.green  = state[i];
+                    Ybigh.counter_hash.push({count:state[i].click, category: state[i].category});
                     break;
                 case 4:
                     $(".cl.activities").css({'background-color': state[i].c});
-                    Ybigh.red = state[i];
+                    Ybigh.red  = state[i];
+                    Ybigh.counter_hash.push({count:state[i].click, category: state[i].category});
                     break;
                 case 8:
                     $(".cl.world").css({'background-color': state[i].c});
-                    Ybigh.blue = state[i];
+                    Ybigh.blue  = state[i];
+                    Ybigh.counter_hash.push({count:state[i].click, category: state[i].category});
                     break;
-                default:
-                    $(".cl.world").css({'background-color': '#ffffff'});
-                    $(".cl.activities").css({'background-color': '#ffffff'});
-                    $(".cl.others").css({'background-color': '#ffffff'});
-                    $(".cl.himself").css({'background-color': '#ffffff'});
             }
             
         }
-        Ybigh.counter_hash.length = 0;
-        Ybigh.current = state[0].name;
-        $(".word").val("test state".toUpperCase());
+
+        Ybigh.current = name;
+        $(".word").val(name.toUpperCase());
     },
     done: function(e){
         if(!!Ybigh.yellow || !!Ybigh.blue || !!Ybigh.red || !!Ybigh.green){
