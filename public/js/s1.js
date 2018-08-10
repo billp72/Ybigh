@@ -494,7 +494,7 @@ Ybigh = {
     red:null,
     yellow:null,
     data:null,
-    state:null,
+    state:false,
     
     to_hex: function (dec) {
         hex = dec.toString(16);
@@ -735,13 +735,9 @@ Ybigh = {
                     var element = $("<li id=\"" + this +"\">" + this + "</li>")
                          .on('touchstart mouseup', function () { 
                                 //TODO check for bold class and retireve previous state
-                                if(Ybigh.state && !Ybigh.blue && !Ybigh.green && !Ybigh.red && !Ybigh.yellow){
-                                    $(prev).removeClass('make-bold');
-                                }
+
                                 if($(this).attr('class') === 'make-bold'){
                                     Ybigh.getPreviousState(this);
-                                    Ybigh.state = true;
-                                    prev = this;
                                     return;
                                 }
 
@@ -775,6 +771,10 @@ Ybigh = {
         //$("#block").remove();
 
         Ybigh.close();
+
+        if(Ybigh.counter_hash.length === 0){
+            return;
+        }
 
         //Ybigh.saveSelection = Object.values(Ybigh.saveSelection.reduce((c, v) => Object.assign(c, {[v.category]: v}), {}));
         let result = Ybigh.counter_hash.filter(function(value, index, self){
@@ -846,15 +846,19 @@ Ybigh = {
             switch(state[i].category){
                 case 1:
                     $(".cl.himself").css({'background-color': state[i].c});
+                    Ybigh.yellow = state[i];
                     break;
                 case 2:
                     $(".cl.others").css({'background-color': state[i].c});
+                    Ybigh.green = state[i];
                     break;
                 case 4:
                     $(".cl.activities").css({'background-color': state[i].c});
+                    Ybigh.red = state[i];
                     break;
                 case 8:
                     $(".cl.world").css({'background-color': state[i].c});
+                    Ybigh.blue = state[i];
                     break;
                 default:
                     $(".cl.world").css({'background-color': '#ffffff'});
@@ -864,6 +868,7 @@ Ybigh = {
             }
             
         }
+        Ybigh.counter_hash.length = 0;
         Ybigh.current = state[0].name;
         $(".word").val("test state".toUpperCase());
     },
