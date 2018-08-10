@@ -505,7 +505,10 @@ Ybigh = {
         Ybigh.$colors.fadeOut(Ybigh.$colors.remove);
 
         Ybigh.timeoutHandle = window.setTimeout(function(){
-            $("#removeSelections").prop("disabled", false)
+            if($("#"+Ybigh.current).attr("class") === "make-bold"){
+                $("#removeSelections").prop("disabled", false);
+            }
+            
             Ybigh.show();
             $(".cl.world").css({'background-color':'white'});
             $(".cl.others").css({'background-color':'white'});
