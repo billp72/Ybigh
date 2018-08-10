@@ -516,7 +516,7 @@ Ybigh = {
             Ybigh.green=null; 
             Ybigh.red=null;
             Ybigh.yellow=null;
-            
+
         },500);
     },
     startCounter: function(){
@@ -915,7 +915,8 @@ Ybigh = {
                 obj.length = 0;
                 Ybigh.counter += 1;
 
-                if(!!cur){
+                if(!!cur && !!prev){
+                    
                     Ybigh.current = $(cur).html();
                     $(".word").val($(cur).html().toUpperCase());
                     $(prev).addClass('make-bold');//make this addClass
