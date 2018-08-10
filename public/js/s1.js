@@ -734,13 +734,31 @@ Ybigh = {
                     var element = $("<li id=\"" + this +"\">" + this + "</li>")
                          .on('touchstart mouseup', function () { 
                                 //TODO check for bold class and retireve previous state
+                               if($(this).attr('class') === 'make-bold'){
+                                    if(!Ybigh.blue){
+                                        if(!Ybigh.green){
+                                            if(!Ybigh.red){
+                                                if(!Ybigh.yellow){
 
-                                if($(this).attr('class') === 'make-bold'){
-                                    Ybigh.getPreviousState(this);
-                                    prev = this;
-                                    return;
+                                                        $(prev).css({"font-style":"normal"});
+                                                        Ybigh.getPreviousState(this);
+                                                        prev = this;
+                                                        return;
+                                              
+                                                }else{
+                                                   return; 
+                                                }
+                                            }else{
+                                                return;
+                                            }
+                                        }else{
+                                            return;
+                                        }
+                                    }else{
+                                        return;
+                                    }
+                                   
                                 }
-
                                 Ybigh.current = $(this).html();
                                 $(".word").val($(this).html().toUpperCase());
                                 $(this).css({"font-style":"italic"});
@@ -748,6 +766,7 @@ Ybigh = {
                                 if(Ybigh.blue || Ybigh.green || Ybigh.red || Ybigh.yellow){
                                     Ybigh.next(this, prev);
                                 }
+                                
                                 $(prev).css({"font-style":"normal"});
                                 prev = this;
                              
