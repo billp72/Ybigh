@@ -505,7 +505,7 @@ Ybigh = {
         Ybigh.$colors.fadeOut(Ybigh.$colors.remove);
 
         Ybigh.timeoutHandle = window.setTimeout(function(){
-
+            $("#removeSelections").prop("disabled", false)
             Ybigh.show();
             $(".cl.world").css({'background-color':'white'});
             $(".cl.others").css({'background-color':'white'});
@@ -518,6 +518,11 @@ Ybigh = {
             Ybigh.yellow=null;
 
         },500);
+    },
+    submitCleared: function(){
+        
+        $("#"+Ybigh.current).removeClass('make-bold');
+        $("#removeSelections").prop("disabled", true);
     },
     startCounter: function(){
        
@@ -732,6 +737,7 @@ Ybigh = {
                 //$("#next").click(Ybigh.next);
                 $("#clear").click(Ybigh.clear);
                 $("#done").click(Ybigh.done);
+                $("#removeSelections").click(Ybigh.submitCleared);
          
                 Ybigh.show();
                 var prev;
@@ -741,6 +747,8 @@ Ybigh = {
                     var element = $("<li id=\"" + this +"\">" + this + "</li>")
                          .on('touchstart mouseup', function () { 
                                 //TODO check for bold class and retireve previous state
+                               $("#removeSelections").prop("disabled", true);
+
                                if($(this).attr('class') === 'make-bold'){
                                     if(!Ybigh.blue){
                                         if(!Ybigh.green){
@@ -916,7 +924,7 @@ Ybigh = {
                 Ybigh.counter += 1;
 
                 if(!!cur && !!prev){
-                    
+
                     Ybigh.current = $(cur).html();
                     $(".word").val($(cur).html().toUpperCase());
                     $(prev).addClass('make-bold');//make this addClass
