@@ -757,7 +757,7 @@ Ybigh = {
                                 Ybigh.next(next,_this);
                                 $(_this).css({"font-style":"normal"});
                             }else{
-                                 alert("The term/symbol "+$(next).html()+" is done. click on any unbolded term in the list to proceed. To see previous selected symbols, the current shapes must be clear before clicking.");
+                                 alert("To see " +$(next).html()+ " ,or any other finished symbol, submit your current selections by clicking an unbolded word in the list or by clearing shapes using the 'Clear Selections' button.");
                             }
                                 
                             
