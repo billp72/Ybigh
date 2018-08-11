@@ -743,7 +743,7 @@ Ybigh = {
                                 if(Ybigh.checkIfDone(next)){
                                     Ybigh.next(next,_this); 
                                 }else{
-                                    alert("click on any unbolded term in the list to proceed");
+                                    alert("The term "+$(next).html()+" is done. You must click directly on it to see selection. Otherwise, click on any unbolded term in the list to proceed");
                                 }
                                     
                             }
@@ -753,7 +753,7 @@ Ybigh = {
                             if(Ybigh.checkIfDone(next)){
                                 Ybigh.next(next,_this);
                             }else{
-                                alert("click on any unbolded term in the list to proceed");
+                                alert("The term "+$(next).html()+" is done. You must click directly on it to see selection. Otherwise, click on any unbolded term in the list to proceed");
                             }
                                 
                             
