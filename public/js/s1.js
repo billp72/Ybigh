@@ -533,7 +533,7 @@ Ybigh = {
             },
             success: function(res){
                 console.log(res);
-                
+
                 $("#"+Ybigh.current).removeClass('make-bold');
                 $("#removeSelections").prop("disabled", true);
 
@@ -724,6 +724,14 @@ Ybigh = {
                         $(".cl"+"."+Ybigh.paths[i].objID).css({'background-color': new_color.c});
                         
                         //.trigger('change').removeClass('color-picker-binded');
+              }else{
+                if(Ybigh.blue || Ybigh.red || Ybigh.green || Ybigh.yellow){
+                    
+                    var Ind = parseInt($("#"+Ybigh.current).attr("data")) + 1;
+                    var elm = $("#word_list").find("[data='"+Ind+"']")[0];
+                    alert("up next: "+$(elm).html())
+                }
+                
               }
             });
             Ybigh.$colors.on('mousemove',function (e) {
@@ -765,7 +773,7 @@ Ybigh = {
                 var dataList = $('#word_list');
        
                 $.each(Ybigh.data, function (index, val) {
-                    var element = $("<li id=\"" + this +"\">" + this + "</li>")
+                    var element = $("<li data=\"" +index+ "\" id=\"" + this +"\">" + this + "</li>")
                          .on('touchstart mouseup', function () { 
                                 //TODO check for bold class and retireve previous state
                                $("#removeSelections").prop("disabled", true);
