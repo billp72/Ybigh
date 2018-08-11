@@ -741,7 +741,9 @@ Ybigh = {
                             var n = confirm("You will not see this message again. Click OK to submit "+$(_this).html()+" and proceed to "+$(next).html()+" or click cancel");
                             if(n){
                                 if(Ybigh.checkIfDone(next)){
-                                    Ybigh.next(next,_this); 
+                                    $(next).css({"font-style":"italic"});
+                                    Ybigh.next(next,_this);
+                                    $(_this).css({"font-style":"normal"}); 
                                 }else{
                                     alert("The term/symbol "+$(next).html()+" is done. click on any unbolded term in the list to proceed. To see previous selected symbols, the current shapes must be clear before clicking.");
                                 }
@@ -751,7 +753,9 @@ Ybigh = {
                         }else{
 
                             if(Ybigh.checkIfDone(next)){
+                                $(next).css({"font-style":"italic"});
                                 Ybigh.next(next,_this);
+                                $(_this).css({"font-style":"normal"});
                             }else{
                                  alert("The term/symbol "+$(next).html()+" is done. click on any unbolded term in the list to proceed. To see previous selected symbols, the current shapes must be clear before clicking.");
                             }
