@@ -494,6 +494,7 @@ Ybigh = {
     red:null,
     yellow:null,
     data:null,
+    confirmIndex:0,
     
     to_hex: function (dec) {
         hex = dec.toString(16);
@@ -725,11 +726,25 @@ Ybigh = {
                         
                         //.trigger('change').removeClass('color-picker-binded');
               }else{
+
                 if(Ybigh.blue || Ybigh.red || Ybigh.green || Ybigh.yellow){
-                    
-                    var Ind = parseInt($("#"+Ybigh.current).attr("data")) + 1;
-                    var elm = $("#word_list").find("[data='"+Ind+"']")[0];
-                    alert("up next: "+$(elm).html())
+
+                    Ybigh.confirmIndex +=1;
+
+                        var Ind = parseInt($("#"+Ybigh.current).attr("data"));
+                        var _this = $("#word_list").find("[data='"+Ind+"']")[0];
+                        var added = Ind+1;
+                        var next = $("#word_list").find("[data='"+added+"']")[0];
+
+                        if(Ybigh.confirmIndex < 2){
+                            var n = confirm("click OK to submit "+$(_this).html()+" and select "+$(next).html());
+                            if(n){
+                                Ybigh.next(next,_this);
+                            }
+
+                        }else{
+                            Ybigh.next(next,_this);
+                        }
                 }
                 
               }
