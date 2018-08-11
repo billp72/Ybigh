@@ -736,14 +736,27 @@ Ybigh = {
                         var added = Ind+1;
                         var next = $("#word_list").find("[data='"+added+"']")[0];
 
+
                         if(Ybigh.confirmIndex < 2){
                             var n = confirm("click OK to submit "+$(_this).html()+" and select "+$(next).html());
                             if(n){
-                                Ybigh.next(next,_this);
+                                if(Ybigh.checkIfDone(next)){
+                                    Ybigh.next(next,_this); 
+                                }else{
+                                    alert("click on any unbolded term in the list to proceed");
+                                }
+                                    
                             }
 
                         }else{
-                            Ybigh.next(next,_this);
+
+                            if(Ybigh.checkIfDone(next)){
+                                Ybigh.next(next,_this);
+                            }else{
+                                alert("click on any unbolded term in the list to proceed");
+                            }
+                                
+                            
                         }
                 }
                 
@@ -769,7 +782,17 @@ Ybigh = {
         });*/
       
     },
-  
+    checkIfDone: function(next){
+
+        if($(next).attr('class') === 'make-bold'){
+
+            return false;
+                                   
+        }else{
+            return true;
+        }   
+                
+    },
     bind_inputs: function (userID) {
         //$('input[type="color-picker"]').not('.color-picker-binded').each(function () {
             $("#overlay").css("display","block");
