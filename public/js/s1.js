@@ -743,7 +743,7 @@ Ybigh = {
                                 if(Ybigh.checkIfDone(next)){
                                     Ybigh.next(next,_this); 
                                 }else{
-                                    alert("The term "+$(next).html()+" is done. You must click directly on it to see selection. Otherwise, click on any unbolded term in the list to proceed");
+                                    alert("The term/symbol "+$(next).html()+" is done. click on any unbolded term in the list to proceed. To see previous selected symbols, the current shapes must be clear before clicking.");
                                 }
                                     
                             }
@@ -753,7 +753,7 @@ Ybigh = {
                             if(Ybigh.checkIfDone(next)){
                                 Ybigh.next(next,_this);
                             }else{
-                                alert("The term "+$(next).html()+" is done. You must click directly on it to see selection. Otherwise, click on any unbolded term in the list to proceed");
+                                 alert("The term/symbol "+$(next).html()+" is done. click on any unbolded term in the list to proceed. To see previous selected symbols, the current shapes must be clear before clicking.");
                             }
                                 
                             
