@@ -738,7 +738,7 @@ Ybigh = {
 
 
                         if(Ybigh.confirmIndex < 2){
-                            var n = confirm("click OK to submit "+$(_this).html()+" and select "+$(next).html());
+                            var n = confirm("You will not see this message again. Click OK to submit "+$(_this).html()+" and proceed to "+$(next).html()+" or click cancel");
                             if(n){
                                 if(Ybigh.checkIfDone(next)){
                                     Ybigh.next(next,_this); 
