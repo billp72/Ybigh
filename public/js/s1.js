@@ -841,7 +841,6 @@ Ybigh = {
                                                 if(!Ybigh.yellow){
 
                                                         //$(prev).removeClass("active");
-                                                        $("#word_list li").removeClass("active");
                                                         Ybigh.getPreviousState(this);
                                                         prev = this;
                                                         return;
