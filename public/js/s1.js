@@ -835,12 +835,13 @@ Ybigh = {
                                $("#word_list li").removeClass("active");
                                
                                if($(this).attr('class') === 'make-bold'){
+              
                                     if(!Ybigh.blue){
                                         if(!Ybigh.green){
                                             if(!Ybigh.red){
                                                 if(!Ybigh.yellow){
 
-                                                        //$(prev).removeClass("active");
+                                                        $(this).addClass("active");
                                                         Ybigh.getPreviousState(this);
                                                         prev = this;
                                                         return;
