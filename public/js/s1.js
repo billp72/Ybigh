@@ -997,7 +997,7 @@ Ybigh = {
         window.location.href='/Stage2';    
     },
     submit: function(obj, cur, prev){
-         //$("#overlay").css("display","block");
+         $("#overlay").css("display","block");
 
         $.ajax({
             type: "POST",
@@ -1020,7 +1020,7 @@ Ybigh = {
                 if(Ybigh.counter > 3){
                     $("#done").prop("disabled", false).removeClass("dis");
                 }
-                 //$("#overlay").css("display","none");
+                 $("#overlay").css("display","none");
             }
         });
         
