@@ -505,7 +505,7 @@ Ybigh = {
         Ybigh.$colors.fadeOut(Ybigh.$colors.remove);
 
         Ybigh.timeoutHandle = window.setTimeout(function(){
-            if($("#"+Ybigh.current).attr("class") === "make-bold"){
+            if($("#"+Ybigh.current).attr("class") === "make-bold active"){
                 $("#removeSelections").prop("disabled", false);
             }
             
