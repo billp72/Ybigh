@@ -23,6 +23,10 @@
     font-weight: 400 !important;
     font-size: 15px !important;
   }
+  .active{
+    font-weight:600; 
+    font-size:17px;
+  }
   #word_list{
     height:480px; 
     width:200px; 

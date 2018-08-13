@@ -741,11 +741,12 @@ Ybigh = {
                             var n = confirm("You will not see this message again. Click OK to submit "+$(_this).html()+" and proceed to "+$(next).html()+" or click cancel");
                             if(n){
                                 if(Ybigh.checkIfDone(next)){
-                                    $(next).css({"font-weight":"600", "font-size":"17px"});
+                                    //$(_this).removeClass("active");
+                                    $("#word_list li").removeClass("active");
+                                    $(next).addClass("active");
+
                                     Ybigh.next(next,_this);
-                                    $(_this).css({"font-weight":"400", "font-size":"15px"}); 
-                                    //$('#scrollTarget').scrollTo('li:eq(7)', 800);
-                                    //$('#scrollTarget').scrollTo($('#scrollTarget li:eq(14)') , 800);
+                                  
                                     if(Ind > 19){
                                         $('#word_list').scrollTo('+=35', 800);
                                     }
@@ -758,11 +759,12 @@ Ybigh = {
                         }else{
 
                             if(Ybigh.checkIfDone(next)){
-                                $(next).css({"font-weight":"600", "font-size":"17px"});
+                                //$(_this).removeClass("active");
+                                $("#word_list li").removeClass("active");
+                                $(next).addClass("active");
+
                                 Ybigh.next(next,_this);
-                                $(_this).css({"font-weight":"400", "font-size":"15px"});
-                                //$('#scrollTarget').scrollTo('li:eq(7)', 800);
-                                //$('#scrollTarget').scrollTo($('#scrollTarget li:eq(14)') , 800);
+                  
                                 if(Ind > 19){
                                     $('#word_list').scrollTo('+=35', 800);
                                 }
@@ -830,14 +832,16 @@ Ybigh = {
                          .on('touchstart mouseup', function () { 
                                 //TODO check for bold class and retireve previous state
                                $("#removeSelections").prop("disabled", true);
-
+                               $("#word_list li").removeClass("active");
+                               
                                if($(this).attr('class') === 'make-bold'){
                                     if(!Ybigh.blue){
                                         if(!Ybigh.green){
                                             if(!Ybigh.red){
                                                 if(!Ybigh.yellow){
 
-                                                        $(prev).css({"font-weight":"400","font-size":"15px"});
+                                                        //$(prev).removeClass("active");
+                                                        $("#word_list li").removeClass("active");
                                                         Ybigh.getPreviousState(this);
                                                         prev = this;
                                                         return;
@@ -858,7 +862,7 @@ Ybigh = {
                                 }
                                 Ybigh.current = $(this).html();
                                 $(".word").val($(this).html().toUpperCase());
-                                $(this).css({"font-weight":"600","font-size":"17px"});
+                                $(this).addClass("active");
 
                                 if(Ybigh.blue || Ybigh.green || Ybigh.red || Ybigh.yellow){
                                     if(Ybigh.current !== $(prev).html()){
@@ -866,7 +870,8 @@ Ybigh = {
                                     }
                                 }
                                 
-                                $(prev).css({"font-weight":"400","font-size":"15px"});
+                                //$(prev).removeClass("active");
+                                
                                 prev = this;
                              
                             });
