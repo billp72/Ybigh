@@ -741,23 +741,34 @@ Ybigh = {
                             var n = confirm("You will not see this message again. Click OK to submit "+$(_this).html()+" and proceed to "+$(next).html()+" or click cancel");
                             if(n){
                                 if(Ybigh.checkIfDone(next)){
-                                    $(next).css({"font-style":"italic"});
+                                    $(next).css({"font-weight":"600", "font-size":"17px"});
                                     Ybigh.next(next,_this);
-                                    $(_this).css({"font-style":"normal"}); 
+                                    $(_this).css({"font-weight":"400", "font-size":"15px"}); 
+                                    //$('#scrollTarget').scrollTo('li:eq(7)', 800);
+                                    //$('#scrollTarget').scrollTo($('#scrollTarget li:eq(14)') , 800);
+                                    if(Ind > 19){
+                                        $('#word_list').scrollTo('+=35', 800);
+                                    }
                                 }else{
-                                    alert("The term/symbol "+$(next).html()+" is done. click on any unbolded term in the list to proceed. To see previous selected symbols, the current shapes must be clear before clicking.");
+                                    alert("The term/symbol "+$(next).html()+" is done. click on any term not in italics to proceed.");
                                 }
-                                    
+                                  //To see previous selected symbols, the current shapes must be clear before clicking.  
                             }
 
                         }else{
 
                             if(Ybigh.checkIfDone(next)){
-                                $(next).css({"font-style":"italic"});
+                                $(next).css({"font-weight":"600", "font-size":"17px"});
                                 Ybigh.next(next,_this);
-                                $(_this).css({"font-style":"normal"});
+                                $(_this).css({"font-weight":"400", "font-size":"15px"});
+                                //$('#scrollTarget').scrollTo('li:eq(7)', 800);
+                                //$('#scrollTarget').scrollTo($('#scrollTarget li:eq(14)') , 800);
+                                if(Ind > 19){
+                                    $('#word_list').scrollTo('+=35', 800);
+                                }
+                                
                             }else{
-                                 alert("To see " +$(next).html()+ " ,or any other finished symbol, submit your current selections by clicking an unbolded word in the list or by clearing shapes using the 'Clear Selections' button.");
+                                 alert("To see " +$(next).html()+ " ,or any other finished symbol, submit your current selections by clicking any term not in italics or by clearing the shapes using the 'Clear Selections' button.");
                             }
                                 
                             
@@ -826,7 +837,7 @@ Ybigh = {
                                             if(!Ybigh.red){
                                                 if(!Ybigh.yellow){
 
-                                                        $(prev).css({"font-style":"normal"});
+                                                        $(prev).css({"font-weight":"400","font-size":"15px"});
                                                         Ybigh.getPreviousState(this);
                                                         prev = this;
                                                         return;
@@ -847,7 +858,7 @@ Ybigh = {
                                 }
                                 Ybigh.current = $(this).html();
                                 $(".word").val($(this).html().toUpperCase());
-                                $(this).css({"font-style":"italic"});
+                                $(this).css({"font-weight":"600","font-size":"17px"});
 
                                 if(Ybigh.blue || Ybigh.green || Ybigh.red || Ybigh.yellow){
                                     if(Ybigh.current !== $(prev).html()){
@@ -855,7 +866,7 @@ Ybigh = {
                                     }
                                 }
                                 
-                                $(prev).css({"font-style":"normal"});
+                                $(prev).css({"font-weight":"400","font-size":"15px"});
                                 prev = this;
                              
                             });
