@@ -835,7 +835,7 @@ Ybigh = {
                                $("#word_list li").removeClass("active");
                                
                                if($(this).attr('class') === 'make-bold'){
-              
+
                                     if(!Ybigh.blue){
                                         if(!Ybigh.green){
                                             if(!Ybigh.red){
@@ -997,16 +997,17 @@ Ybigh = {
         window.location.href='/Stage2';    
     },
     submit: function(obj, cur, prev){
-      
+         //$("#overlay").css("display","block");
+
         $.ajax({
             type: "POST",
             url: "/symbol",
             data: JSON.stringify(obj),
             error: function(jqXHR, textStatus, errorThrown){
-
+                $("#overlay").css("display","none");
             },
             success: function(res){
-                console.log(res);
+                
                 obj.length = 0;
                 Ybigh.counter += 1;
 
@@ -1019,7 +1020,7 @@ Ybigh = {
                 if(Ybigh.counter > 3){
                     $("#done").prop("disabled", false).removeClass("dis");
                 }
-
+                 //$("#overlay").css("display","none");
             }
         });
         
