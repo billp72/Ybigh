@@ -80,7 +80,7 @@ Ybigh = {
 
         let insideCL;
     
-        Ybigh.$colors  = $('<canvas id="can" height="553" width="553"></canvas>');
+        Ybigh.$colors  = $('<canvas title="Once selections are made, click whitespace to submit current and load the next word" id="can" height="553" width="553"></canvas>');
         
         $('#container').append(Ybigh.$colors.fadeIn());
  
@@ -248,7 +248,7 @@ Ybigh = {
 
                 if(Ybigh.blue || Ybigh.red || Ybigh.green || Ybigh.yellow){
 
-                    Ybigh.confirmIndex +=1;
+                   
 
                         var Ind = parseInt($("#"+Ybigh.current).attr("data"));
                         var _this = $("#word_list").find("[data='"+Ind+"']")[0];
@@ -256,28 +256,7 @@ Ybigh = {
                         var next = $("#word_list").find("[data='"+added+"']")[0];
 
 
-                        if(Ybigh.confirmIndex < 2){
-                            var n = confirm("You will not see this message again. Click OK to submit "+$(_this).html()+" and proceed to "+$(next).html()+" or click cancel");
-                            if(n){
-                                if(Ybigh.checkIfDone(next)){
-                                    //$(_this).removeClass("active");
-                                    $("#word_list li").removeClass("active");
-                                    $(next).addClass("active");
-
-                                    Ybigh.next(next,_this);
-                                  
-                                    if(Ind > 19){
-                                        $('#word_list').scrollTo('+=35', 800);
-                                    }
-                                }else{
-                                    alert("The term/symbol "+$(next).html()+" is done. click on any term not in italics to proceed.");
-                                }
-                                  //To see previous selected symbols, the current shapes must be clear before clicking.  
-                            }
-
-                        }else{
-
-                            if(Ybigh.checkIfDone(next)){
+                       if(Ybigh.checkIfDone(next)){
                                 //$(_this).removeClass("active");
                                 $("#word_list li").removeClass("active");
                                 $(next).addClass("active");
@@ -288,12 +267,10 @@ Ybigh = {
                                     $('#word_list').scrollTo('+=35', 800);
                                 }
                                 
-                            }else{
-                                 alert("To see " +$(next).html()+ " ,or any other symbol, submit your current selections by clicking another term not italicized or by clearing current shapes.");
-                            }
-                                
-                            
+                        }else{
+                            alert("To see " +$(next).html()+ " ,or any other symbol, submit your current selections by clicking an unitalicized term or by clearing the current shapes.");
                         }
+                            
                 }
                 
               }
