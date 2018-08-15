@@ -365,6 +365,7 @@ Ybigh = {
 
                                     }else{
                                         $(prev).addClass("active");
+                                        alert("Clear or submit active term before viewing previous");
                                         return;
                                     }
                                     
