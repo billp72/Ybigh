@@ -289,7 +289,7 @@ Ybigh = {
                                 }
                                 
                             }else{
-                                 alert("To see " +$(next).html()+ " ,or any other finished symbol, submit your current selections by clicking any term not in italics or by clearing the shapes using the 'Clear Selections' button.");
+                                 alert("To see " +$(next).html()+ " ,or any other symbol, submit your current selections by clicking another term not italicized or by clearing current shapes.");
                             }
                                 
                             
@@ -365,7 +365,7 @@ Ybigh = {
 
                                     }else{
                                         $(prev).addClass("active");
-                                        alert("Clear or submit active term before viewing previous");
+                                        alert("Clear or submit active term before viewing a symbol");
                                         return;
                                     }
                                     
