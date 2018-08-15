@@ -336,13 +336,14 @@ Ybigh = {
             $.get("/Stage1/data", function(response){
 
                 Ybigh.data = response.data;
+                Ybigh.show();
 
                 //$("#next").click(Ybigh.next);
                 $("#clear").click(Ybigh.clear);
                 $("#done").click(Ybigh.done);
                 $("#removeSelections").click(Ybigh.submitCleared);
          
-                Ybigh.show();
+                
                 var prev;
                 var dataList = $('#word_list');
        
@@ -355,30 +356,21 @@ Ybigh = {
                                
                                if($(this).attr('class') === 'make-bold'){
 
-                                    if(!Ybigh.blue){
-                                        if(!Ybigh.green){
-                                            if(!Ybigh.red){
-                                                if(!Ybigh.yellow){
+                                    if(!Ybigh.blue && !Ybigh.green && !Ybigh.red && !Ybigh.yellow){
 
-                                                        $(this).addClass("active");
-                                                        Ybigh.getPreviousState(this);
-                                                        prev = this;
-                                                        return;
-                                              
-                                                }else{
-                                                   return; 
-                                                }
-                                            }else{
-                                                return;
-                                            }
-                                        }else{
-                                            return;
-                                        }
+                                        $(this).addClass("active");
+                                        Ybigh.getPreviousState(this);
+                                        prev = this;
+                                        return;
+
                                     }else{
+                                        $(prev).addClass("active");
                                         return;
                                     }
+                                    
                                    
                                 }
+
                                 Ybigh.current = $(this).html();
                                 $(".word").val($(this).html().toUpperCase());
                                 $(this).addClass("active");
