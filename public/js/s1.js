@@ -342,7 +342,7 @@ Ybigh = {
 
                                     }else{
                                         $(prev).addClass("active");
-                                        alert("Clear or submit active term before viewing a symbol");
+                                        alert("Clear or submit active symbol before viewing another symbol");
                                         return;
                                     }
                                     
