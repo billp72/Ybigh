@@ -257,18 +257,29 @@ Ybigh = {
 
 
                        if(Ybigh.checkIfDone(next)){
-                                //$(_this).removeClass("active");
-                                $("#word_list li").removeClass("active");
-                                $(next).addClass("active");
+                              
+                            $("#word_list li").removeClass("active");
+                            $(next).addClass("active");
 
-                                Ybigh.next(next,_this);
+                            Ybigh.next(next,_this);
                   
-                                if(Ind > 19){
-                                    $('#word_list').scrollTo('+=35', 800);
-                                }
+                            if(Ind > 18){
+                                $('#word_list').scrollTo('+=35', 800);
+                            }
                                 
                         }else{
-                            alert("To see " +$(next).html()+ " ,or any other symbol, submit your current selections by clicking an unitalicized term or by clearing the current shapes.");
+
+                            var bytwo = added+1;
+                            var skipped= $("#word_list").find("[data='"+bytwo+"']")[0];
+                            $("#word_list li").removeClass("active");
+                            $(skipped).addClass("active");
+
+                            Ybigh.next(skipped,_this);
+                  
+                            if(bytwo > 18){
+                                $('#word_list').scrollTo('+=35', 800);
+                            }
+                            
                         }
                             
                 }
