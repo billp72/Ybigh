@@ -513,7 +513,9 @@ Ybigh = {
 
                     Ybigh.current = $(cur).html();
                     $(".word").val($(cur).html().toUpperCase());
-                    $(prev).addClass('make-bold');//make this addClass
+                    $(prev).addClass('make-bold');
+                }else{
+                    $(prev).addClass('make-bold');
                 }
                 if(Ybigh.counter > 3){
                     $("#done").prop("disabled", false).removeClass("dis");
