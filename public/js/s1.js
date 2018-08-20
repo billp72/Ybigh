@@ -248,7 +248,7 @@ Ybigh = {
 
                 if(Ybigh.blue || Ybigh.red || Ybigh.green || Ybigh.yellow){
 
-                   
+                        $("#word_list li").removeClass("active");
 
                         var Ind = parseInt($("#"+Ybigh.current).attr("data"));
                         var _this = $("#word_list").find("[data='"+Ind+"']")[0];
@@ -258,7 +258,6 @@ Ybigh = {
 
                        if(Ybigh.checkIfDone(next)){
                               
-                            $("#word_list li").removeClass("active");
                             $(next).addClass("active");
 
                             Ybigh.next(next,_this);
@@ -271,7 +270,7 @@ Ybigh = {
 
                             var bytwo = added+1;
                             var skipped= $("#word_list").find("[data='"+bytwo+"']")[0];
-                            $("#word_list li").removeClass("active");
+                            
                             $(skipped).addClass("active");
 
                             Ybigh.next(skipped,_this);
