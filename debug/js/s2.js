@@ -172,7 +172,7 @@ let indifferenceBox = [
 var ybigh = {
   scene: null, camera: null, renderer: null,
   container: null, controls: null,
-  clock: null, stats: null,
+  clock: null, /*stats: null,*/
   plane: null, selection: null, offset: new THREE.Vector3(), objects: [],
   raycaster: new THREE.Raycaster(),
   textlabels: [],
@@ -316,12 +316,12 @@ var ybigh = {
     this.clock = new THREE.Clock();
 
     // Prepare stats
-    this.stats = new Stats();
+    /*this.stats = new Stats();
     this.stats.domElement.style.position = 'absolute';
     this.stats.domElement.style.left = '50px';
     this.stats.domElement.style.bottom = '50px';
     this.stats.domElement.style.zIndex = 1;
-    this.container.appendChild( this.stats.domElement );
+    this.container.appendChild( this.stats.domElement );*/
 
     // Add lights
     this.scene.add( new THREE.AmbientLight(0x444444));
@@ -806,7 +806,7 @@ function update() {
   var delta = ybigh.clock.getDelta();
 
   ybigh.controls.update(delta);
-  ybigh.stats.update();
+  //ybigh.stats.update();
 }
 
 // Render the scene
