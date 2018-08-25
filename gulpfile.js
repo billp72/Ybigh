@@ -5,9 +5,9 @@ const minify = require('gulp-minify');
 
 gulp.task('default', function() {
   let sheet = [
-  	{src:'debug/js/*.js',out:'public/js'}, 
-  	{src:'debug/node/*.js',out:'./'},
-  	{src:'debug/mod/*.js',out:'modules'}
+  	{src:'public/js/*.js',out:'public/js'}, 
+  	{src:'./*.js',out:'./'},
+  	{src:'modules/*.js',out:'modules'}
   ]
   // place code for your default task here
  sheet.map(function(file){
@@ -18,7 +18,7 @@ gulp.task('default', function() {
             min:'-min.js'
         },
         exclude: ['tasks'],
-        ignoreFiles: ['*-min.js', '*-min.71.js', '*.min.js']
+        ignoreFiles: ['*-min.js', '*-min.71.js', '*.min.js', 'gulpfile.js']
     }))
     .pipe(gulp.dest(file.out))
    })
