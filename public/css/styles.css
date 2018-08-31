@@ -3,7 +3,10 @@
 .navbar.navbar-expand-lg.navbar-light.bg-light{
   background-color: transparent !important;
 }
-
+#mobile-msg{
+  padding: 10px;
+  background-color: #E8E8E8;
+}
 #overlay{
     position: fixed;
     z-index: 1000;
@@ -211,7 +214,7 @@
 
   /*#383535;*/
   #welcome{
-      width:70%; 
+      width:100%; 
       margin:0 auto;
       padding:20px;
       color: black;
