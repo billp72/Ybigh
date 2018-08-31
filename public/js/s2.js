@@ -194,17 +194,11 @@ var ybigh = {
   requestData: function(callback){
 
       ybigh.UIBlock.style.display = "block";
-      let userID = localStorage.getItem('userID');
-      console.log(userID);
-      if(!!userID){
 
-          window.setTimeout(function(){
+      window.setTimeout(function(){
               callback();
               
-          },1000);
-      }else{
-        alert("please complete stage 1, first");
-      }
+      },1000);
       
   },
 
