@@ -122,19 +122,19 @@ Ybigh = {
                     
                         let new_color = Ybigh.get_color(touchEvent);
 
-                        if(Ybigh.paths[i].objID == "world"){//done done
+                        if(Ybigh.paths[i].objID == "world"){//done done done
 
-                            let gradient = Ybigh.colorctx.createLinearGradient(575, 0, 375, 0);
+                            let gradient = Ybigh.colorctx.createLinearGradient(580, 300, 90, 90);
 
-                            gradient.addColorStop(0,    "#014421");
-                            gradient.addColorStop(0.4,  "#4f87ff");
-                            gradient.addColorStop(1,    "white");
+                            gradient.addColorStop(0,    "#36454F");//0
+                            gradient.addColorStop(0.1,  "#4f87ff");//2
+                            gradient.addColorStop(0.37,    "white");//1
 
                             Ybigh.colorctx.beginPath()
                             Ybigh.colorctx.moveTo(550, 185);
-                            Ybigh.colorctx.lineTo(370, 265);
+                            Ybigh.colorctx.lineTo(370, 280);
                             Ybigh.colorctx.lineTo(370, 300);
-                            Ybigh.colorctx.lineTo(550, 380);
+                            Ybigh.colorctx.lineTo(550, 400);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
@@ -153,17 +153,17 @@ Ybigh = {
                             //Ybigh.colorctx.fillText(mouseX+","+mouseY, mouseX-2, mouseY-2);
                             //console.log(new_color);
                         }else if(Ybigh.paths[i].objID == "others"){//done done
-            
-                            let gradient = Ybigh.colorctx.createLinearGradient(-90, 30, -100, 200);
 
-                            gradient.addColorStop(0,    "#014421"); 
-                            gradient.addColorStop(0.4,    "#0fc14e");
-                            gradient.addColorStop(1,    "white");                        
+                            let gradient = Ybigh.colorctx.createLinearGradient(-45, 120, 27, 323);
+
+                            gradient.addColorStop(0.1,     "#014421"); 
+                            gradient.addColorStop(0.37,    "#0fc14e");
+                            gradient.addColorStop(1,       "white");                        
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(190, 50);
-                            Ybigh.colorctx.lineTo(270, 235);
-                            Ybigh.colorctx.lineTo(310, 235);
-                            Ybigh.colorctx.lineTo(380, 50);
+                            Ybigh.colorctx.lineTo(285, 235);
+                            Ybigh.colorctx.lineTo(305, 235);
+                            Ybigh.colorctx.lineTo(390, 50);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
@@ -182,19 +182,19 @@ Ybigh = {
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                             //Ybigh.colorctx.fillText(mouseX+","+mouseY, mouseX-2, mouseY-2);
                             //console.log(new_color);
-                        }else if(Ybigh.paths[i].objID == "activities"){//done done
-                 
-                            let gradient = Ybigh.colorctx.createLinearGradient(190, 0, -50, 0);
+                        }else if(Ybigh.paths[i].objID == "activities"){//done done done
 
-                            gradient.addColorStop(0,    "white");
-                            gradient.addColorStop(0.4,  "#ff5f57");
-                            gradient.addColorStop(1,    "#600F0C");
+                            let gradient = Ybigh.colorctx.createLinearGradient(-10, 300, 380, 90);
+
+                            gradient.addColorStop(0,    "#662825");
+                            gradient.addColorStop(0.1,  "#ff5f57");
+                            gradient.addColorStop(0.43,  "white");
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(20, 185);
-                            Ybigh.colorctx.lineTo(200, 265);
+                            Ybigh.colorctx.lineTo(200, 280);
                             Ybigh.colorctx.lineTo(200, 300);
-                            Ybigh.colorctx.lineTo(20, 380);
+                            Ybigh.colorctx.lineTo(20, 400);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
@@ -214,17 +214,17 @@ Ybigh = {
                             //console.log(new_color);
                         }else{ //done done
 
-                            let gradient = Ybigh.colorctx.createLinearGradient(0, 530, 0, 350); //x,y,x,y
+                            let gradient = Ybigh.colorctx.createLinearGradient(-25, 485, 50, 250); //x,y,x,y
 
-                            gradient.addColorStop(0,    "#525100");
+                            gradient.addColorStop(0.2,    "#525100");
                             gradient.addColorStop(0.4,    "#c5ff52");
                             gradient.addColorStop(1,    "white");
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(185, 510);
-                            Ybigh.colorctx.lineTo(265, 335);
-                            Ybigh.colorctx.lineTo(305, 335);
-                            Ybigh.colorctx.lineTo(380, 510);
+                            Ybigh.colorctx.lineTo(275, 335);
+                            Ybigh.colorctx.lineTo(300, 335);
+                            Ybigh.colorctx.lineTo(395, 510);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
@@ -550,7 +550,7 @@ Ybigh = {
             percenty: percentY
         }
     },
-    
+   
   // Build Color palette
     render: function (renderFont) {
         var colors = [
@@ -561,18 +561,18 @@ Ybigh = {
                     col0: "#014421",
                     x: 190,//190
                     y: 50,
-                    xlt:270,//225
+                    xlt:285,//225
                     ylt:235,//
-                    xlt1:310,//350
+                    xlt1:305,//350
                     ylt1:235,//
-                    xlt2:380,//390
+                    xlt2:390,//390
                     ylt2:50,//
-                    sy: 30,
-                    fy: 200,
-                    sx: -90,
-                    fx: -100,
-                    stop1:0,
-                    stop2:0.4,
+                    sy: 120,
+                    fy: 323,
+                    sx: -45,
+                    fx: 27,
+                    stop1:0.1,
+                    stop2:0.37,
                     stop3:1,
                     labelX: 185,
                     labelY: 35,
@@ -580,24 +580,24 @@ Ybigh = {
                 },
                 {
                     nameID: "activities",
-                    col1: "#600F0C", //red 
+                    col1: "white", //red 
                     col2: "#ff5f57",
-                    col0: "white",
+                    col0: "#772d29",
                     x: 20,//20
                     y: 185,//
                     xlt:200,//200
-                    ylt:265,//225
+                    ylt:280,//narrow
                     xlt1:200,//200
                     ylt1:300,//chg
                     xlt2:20,//20
-                    ylt2:380,//
-                    sy:0,
-                    fy:0,
-                    sx: 190,
-                    fx: -50,
+                    ylt2:400,//narrow
+                    sy:300,
+                    fy:90,
+                    sx: -10,
+                    fx: 380,
                     stop1:0,
-                    stop2:0.4,
-                    stop3:1,
+                    stop2:0.1,
+                    stop3:0.43,
                     labelX: 20,
                     labelY: 170,
                     label: "Man\'s Physical Activities"
@@ -606,22 +606,22 @@ Ybigh = {
                     nameID: "world",
                     col1: "white", //blue
                     col2: "#4f87ff",
-                    col0: "#014421",
+                    col0: "#36454F",
                     x: 550,//550
                     y: 185,//
                     xlt:370,//370
-                    ylt:265,//chg
+                    ylt:280,//chg
                     xlt1:370,//370
                     ylt1:300,//chg
                     xlt2:550,//550
-                    ylt2:380,//
-                    sy:0,
-                    fy:0,
-                    sx: 575,
-                    fx: 375,
+                    ylt2:400,//
+                    sy:300,  //x0, y0, x1, y1
+                    fy:90,
+                    sx: 580,
+                    fx: 90,
                     stop1:0,
-                    stop2:0.4,
-                    stop3:1,
+                    stop2:0.1,
+                    stop3:0.37,
                     labelX: 405,
                     labelY: 170,
                     label: "Man\'s View of the World"
@@ -633,17 +633,17 @@ Ybigh = {
                     col0: "#525100",
                     x: 185,//190
                     y: 510,
-                    xlt:265,//225
+                    xlt:275,//225
                     ylt:335,
-                    xlt1:305,//350
+                    xlt1:300,//350
                     ylt1:335,
-                    xlt2:380,//390
+                    xlt2:395,//390
                     ylt2:510,
-                    sy: 530,
-                    fy: 350,
-                    sx: 0,
-                    fx: 0,
-                    stop1:0,
+                    sy: 485,
+                    fy: 250,
+                    sx: -25,
+                    fx: 50,
+                    stop1:0.2,
                     stop2:0.4,
                     stop3:1,
                     labelX: 220,
