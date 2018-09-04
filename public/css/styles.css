@@ -40,6 +40,10 @@
     list-style-type: none;
     color:blue;
   }
+  .about li{
+    list-style-type: none;
+
+  }
 
   .cl{
     width:150px;
