@@ -222,9 +222,9 @@ Ybigh = {
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(185, 510);
-                            Ybigh.colorctx.lineTo(275, 335);
+                            Ybigh.colorctx.lineTo(280, 335);
                             Ybigh.colorctx.lineTo(300, 335);
-                            Ybigh.colorctx.lineTo(395, 510);
+                            Ybigh.colorctx.lineTo(390, 510);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
@@ -633,11 +633,11 @@ Ybigh = {
                     col0: "#525100",
                     x: 185,//190
                     y: 510,
-                    xlt:275,//225
+                    xlt:280,//225
                     ylt:335,
                     xlt1:300,//350
                     ylt1:335,
-                    xlt2:395,//390
+                    xlt2:390,//390
                     ylt2:510,
                     sy: 485,
                     fy: 250,
