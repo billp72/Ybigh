@@ -216,7 +216,7 @@ Ybigh = {
 
                             let gradient = Ybigh.colorctx.createLinearGradient(-35, 485, 50, 250); //x,y,x,y
 
-                            gradient.addColorStop(0.25,    "#877548");
+                            gradient.addColorStop(0.25,    "#666600");
                             gradient.addColorStop(0.4,    "#c5ff52");
                             gradient.addColorStop(1,    "white");
 
@@ -630,7 +630,7 @@ Ybigh = {
                     nameID: "himself",
                     col1: "white", //yellow done
                     col2: "#c5ff52",
-                    col0: "#877548", //938200
+                    col0: "#666600", //938200  86942A
                     x: 175,//190
                     y: 510,
                     xlt:285,//225
