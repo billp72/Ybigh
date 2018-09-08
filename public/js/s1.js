@@ -591,7 +591,7 @@ Ybigh = {
                     nameID: "activities",
                     col1: "white", //red 
                     col2: "#ff5f57",
-                    col0: "#993832",
+                    col0: "#84342f",
                     x: 20,//20
                     y: 185,//
                     xlt:200,//200
@@ -600,13 +600,13 @@ Ybigh = {
                     ylt1:295,//chg
                     xlt2:20,//20
                     ylt2:400,//narrow
-                    sy:225,
-                    fy:265,
-                    sx: 110,
-                    fx: 290,
+                    sy:230,
+                    fy:300,
+                    sx: 100,
+                    fx: 265,
                     stop1:0,
-                    stop2:0.17,
-                    stop3:0.65,
+                    stop2:0.25,
+                    stop3:0.8,
                     r1:150,
                     r2:20,
                     labelX: 20,
