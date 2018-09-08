@@ -124,11 +124,11 @@ Ybigh = {
 
                         if(Ybigh.paths[i].objID == "world"){//done done done
 
-                            let gradient = Ybigh.colorctx.createLinearGradient(585, 310, 90, 95);
+                            let gradient = Ybigh.colorctx.createRadialGradient(585, 265, 150, 90, 190, 20);
 
-                            gradient.addColorStop(0,    "#36454F");//0
-                            gradient.addColorStop(0.1,  "#4f87ff");//2
-                            gradient.addColorStop(0.37,    "white");//1
+                            gradient.addColorStop(0.15,    "#36454F");//0
+                            gradient.addColorStop(0.29,    "#4f87ff");//2
+                            gradient.addColorStop(0.51,    "white");//1
 
                             Ybigh.colorctx.beginPath()
                             Ybigh.colorctx.moveTo(550, 185);
@@ -150,15 +150,14 @@ Ybigh = {
                             Ybigh.colorctx.fillStyle = "#000000";  
                             Ybigh.colorctx.fillRect(new_color.x-2, new_color.y-2, 4, 4);
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
-                            //Ybigh.colorctx.fillText(mouseX+","+mouseY, mouseX-2, mouseY-2);
-                            //console.log(new_color);
-                        }else if(Ybigh.paths[i].objID == "others"){//done done done
+                            
+                        }else if(Ybigh.paths[i].objID == "others"){//done done done yay
 
-                            let gradient = Ybigh.colorctx.createRadialGradient(210, 120, 150, 300, 220, 20);
+                            let gradient = Ybigh.colorctx.createRadialGradient(220, 120, 150, 300, 220, 20);
 
-                            gradient.addColorStop(0,     "#258040"); 
-                            gradient.addColorStop(0.59,    "#0fc14e");
-                            gradient.addColorStop(1,       "white");                        
+                            gradient.addColorStop(0,     "#1f6b36"); 
+                            gradient.addColorStop(0.49,  "#0fc14e");
+                            gradient.addColorStop(1,     "white");                        
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(175, 50);
                             Ybigh.colorctx.lineTo(287, 235);
@@ -180,15 +179,14 @@ Ybigh = {
                             Ybigh.colorctx.fillStyle = "#000000";  
                             Ybigh.colorctx.fillRect(new_color.x-2, new_color.y-2, 4, 4);
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
-                            //Ybigh.colorctx.fillText(mouseX+","+mouseY, mouseX-2, mouseY-2);
-                            //console.log(new_color);
-                        }else if(Ybigh.paths[i].objID == "activities"){//done done done
+                          
+                        }else if(Ybigh.paths[i].objID == "activities"){//done done done yay
 
-                            let gradient = Ybigh.colorctx.createRadialGradient(110, 215, 150, 340, 250, 20);
+                            let gradient = Ybigh.colorctx.createRadialGradient(100, 230, 150, 265, 300, 20);
 
-                            gradient.addColorStop(0,    "#993832");
-                            gradient.addColorStop(0.23,  "#ff5f57");
-                            gradient.addColorStop(0.56,  "white");
+                            gradient.addColorStop(0,    "#84342f");
+                            gradient.addColorStop(0.25, "#ff5f57");
+                            gradient.addColorStop(0.8,  "white");
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(20, 185);
@@ -214,11 +212,11 @@ Ybigh = {
                             //console.log(new_color);
                         }else{ //done done
 
-                            let gradient = Ybigh.colorctx.createLinearGradient(-35, 485, 50, 250); //x,y,x,y
+                            let gradient = Ybigh.colorctx.createRadialGradient(220, 450, 150, 300, 300, 20); //x,y,x,y
 
-                            gradient.addColorStop(0.25,    "#666600");
-                            gradient.addColorStop(0.4,    "#c5ff52");
-                            gradient.addColorStop(1,    "white");
+                            gradient.addColorStop(0,    "#92ab59");
+                            gradient.addColorStop(0.26, "#c5ff52");
+                            gradient.addColorStop(0.9,  "white");
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(175, 510);
@@ -322,7 +320,7 @@ Ybigh = {
     bind_inputs: function (userID) {
         //$('input[type="color-picker"]').not('.color-picker-binded').each(function () {
             $("#overlay").css("display","block");
-            //mock ajax call
+         
             $.get("/Stage1/data", function(response){
 
                 Ybigh.data = response.data;
@@ -643,7 +641,7 @@ Ybigh = {
                     nameID: "himself",
                     col1: "white", //yellow done
                     col2: "#c5ff52",
-                    col0: "#666600", //938200  86942A
+                    col0: "#92ab59", //938200  86942A
                     x: 175,//190
                     y: 510,
                     xlt:285,//225
@@ -652,13 +650,13 @@ Ybigh = {
                     ylt1:335,
                     xlt2:400,//390
                     ylt2:510,
-                    sy: 430,
+                    sy: 450,
                     fy: 300,
-                    sx: 250,
-                    fx: 50,
+                    sx: 220,
+                    fx: 300,
                     stop1:0,
-                    stop2:0.5,
-                    stop3:1,
+                    stop2:0.26,
+                    stop3:0.9,
                     r1:150,
                     r2:20,
                     labelX: 220,
