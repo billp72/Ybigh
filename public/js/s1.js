@@ -182,11 +182,11 @@ Ybigh = {
                           
                         }else if(Ybigh.paths[i].objID == "activities"){//done done done yay
 
-                            let gradient = Ybigh.colorctx.createRadialGradient(85, 235, 150, 250, 305, 20);
+                            let gradient = Ybigh.colorctx.createRadialGradient(105, 235, 160, 300, 310, 30);
 
-                            gradient.addColorStop(0,    "#84342f");
+                            gradient.addColorStop(0.1,    "#84342f");
                             gradient.addColorStop(0.25, "#ff5f57");
-                            gradient.addColorStop(0.87,  "white");
+                            gradient.addColorStop(0.75,  "white");
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(20, 185);
@@ -212,11 +212,11 @@ Ybigh = {
                             //console.log(new_color);
                         }else{ //done done
 
-                            let gradient = Ybigh.colorctx.createRadialGradient(220, 450, 150, 300, 300, 20); //x,y,x,y
+                            let gradient = Ybigh.colorctx.createRadialGradient(210, 450, 160, 290, 320, 30); //x,y,x,y
 
-                            gradient.addColorStop(0,    "#92ab59");
-                            gradient.addColorStop(0.26, "#c5ff52");
-                            gradient.addColorStop(0.9,  "white");
+                            gradient.addColorStop(0,    "#66753d");
+                            gradient.addColorStop(0.5, "#c5ff52");
+                            gradient.addColorStop(1,  "white");
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(175, 510);
@@ -599,14 +599,14 @@ Ybigh = {
                     xlt2:20,//20
                     ylt2:400,//narrow
                     sy:235,
-                    fy:305,
-                    sx: 85,
-                    fx: 250,
-                    stop1:0,
+                    fy:310,
+                    sx: 105,
+                    fx: 300,
+                    stop1:0.1,
                     stop2:0.25,
-                    stop3:0.87,
-                    r1:150,
-                    r2:20,
+                    stop3:0.75,
+                    r1:160,
+                    r2:30,
                     labelX: 20,
                     labelY: 170,
                     label: "Man\'s Physical Activities"
@@ -641,7 +641,7 @@ Ybigh = {
                     nameID: "himself",
                     col1: "white", //yellow done
                     col2: "#c5ff52",
-                    col0: "#92ab59", //938200  86942A
+                    col0: "#66753d", //938200  86942A
                     x: 175,//190
                     y: 510,
                     xlt:285,//225
@@ -651,14 +651,14 @@ Ybigh = {
                     xlt2:400,//390
                     ylt2:510,
                     sy: 450,
-                    fy: 300,
-                    sx: 220,
-                    fx: 300,
+                    fy: 320,
+                    sx: 210,
+                    fx: 290,
                     stop1:0,
-                    stop2:0.26,
-                    stop3:0.9,
-                    r1:150,
-                    r2:20,
+                    stop2:0.5,
+                    stop3:1,
+                    r1:160,
+                    r2:30,
                     labelX: 220,
                     labelY: 540,
                     label: "Man\'s View of Himself"
