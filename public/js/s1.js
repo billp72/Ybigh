@@ -182,11 +182,11 @@ Ybigh = {
                           
                         }else if(Ybigh.paths[i].objID == "activities"){//done done done yay
 
-                            let gradient = Ybigh.colorctx.createRadialGradient(100, 230, 150, 265, 300, 20);
+                            let gradient = Ybigh.colorctx.createRadialGradient(85, 235, 150, 250, 305, 20);
 
                             gradient.addColorStop(0,    "#84342f");
                             gradient.addColorStop(0.25, "#ff5f57");
-                            gradient.addColorStop(0.8,  "white");
+                            gradient.addColorStop(0.87,  "white");
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(20, 185);
@@ -598,13 +598,13 @@ Ybigh = {
                     ylt1:295,//chg
                     xlt2:20,//20
                     ylt2:400,//narrow
-                    sy:230,
-                    fy:300,
-                    sx: 100,
-                    fx: 265,
+                    sy:235,
+                    fy:305,
+                    sx: 85,
+                    fx: 250,
                     stop1:0,
                     stop2:0.25,
-                    stop3:0.8,
+                    stop3:0.87,
                     r1:150,
                     r2:20,
                     labelX: 20,
