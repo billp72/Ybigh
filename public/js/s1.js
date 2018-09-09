@@ -137,7 +137,7 @@ Ybigh = {
                             Ybigh.colorctx.lineTo(550, 400);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
-                            Ybigh.colorctx.strokeStyle = "#c2bebb"; 
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
                             Ybigh.colorctx.stroke();
                             Ybigh.colorctx.fill();
 
@@ -165,7 +165,7 @@ Ybigh = {
                             Ybigh.colorctx.lineTo(400, 50);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
-                            Ybigh.colorctx.strokeStyle = "#c2bebb"; 
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
                             Ybigh.colorctx.stroke();
                             Ybigh.colorctx.fill();
 
@@ -195,7 +195,7 @@ Ybigh = {
                             Ybigh.colorctx.lineTo(20, 400);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
-                            Ybigh.colorctx.strokeStyle = "#c2bebb"; 
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
                             Ybigh.colorctx.stroke();
                             Ybigh.colorctx.fill();
 
@@ -225,7 +225,7 @@ Ybigh = {
                             Ybigh.colorctx.lineTo(400, 510);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
-                            Ybigh.colorctx.strokeStyle = "#c2bebb"; 
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
                             Ybigh.colorctx.stroke();
                             Ybigh.colorctx.fill();
 
@@ -689,7 +689,7 @@ Ybigh = {
             path1.getID(colors[i].nameID);
 
             Ybigh.colorctx.fillStyle = gradient;
-            Ybigh.colorctx.strokeStyle = "#c2bebb"; 
+            Ybigh.colorctx.strokeStyle = "#b0aaa6"; //
             Ybigh.colorctx.stroke(path1);
             Ybigh.colorctx.fill(path1);
 
