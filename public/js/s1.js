@@ -124,11 +124,11 @@ Ybigh = {
 
                         if(Ybigh.paths[i].objID == "world"){//done done done
 
-                            let gradient = Ybigh.colorctx.createLinearGradient(585, 310, 90, 95);
+                            let gradient = Ybigh.colorctx.createRadialGradient(585, 265, 150, 90, 190, 20);
 
-                            gradient.addColorStop(0,    "#36454F");//0
-                            gradient.addColorStop(0.1,  "#4f87ff");//2
-                            gradient.addColorStop(0.37,    "white");//1
+                            gradient.addColorStop(0.15,    "#36454F");//0
+                            gradient.addColorStop(0.29,    "#4f87ff");//2
+                            gradient.addColorStop(0.51,    "white");//1
 
                             Ybigh.colorctx.beginPath()
                             Ybigh.colorctx.moveTo(550, 185);
@@ -137,7 +137,7 @@ Ybigh = {
                             Ybigh.colorctx.lineTo(550, 400);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
-                            Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
                             Ybigh.colorctx.stroke();
                             Ybigh.colorctx.fill();
 
@@ -150,15 +150,14 @@ Ybigh = {
                             Ybigh.colorctx.fillStyle = "#000000";  
                             Ybigh.colorctx.fillRect(new_color.x-2, new_color.y-2, 4, 4);
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
-                            //Ybigh.colorctx.fillText(mouseX+","+mouseY, mouseX-2, mouseY-2);
-                            //console.log(new_color);
-                        }else if(Ybigh.paths[i].objID == "others"){//done done
+                            
+                        }else if(Ybigh.paths[i].objID == "others"){//done done done yay
 
-                            let gradient = Ybigh.colorctx.createLinearGradient(-55, 115, 27, 323);
+                            let gradient = Ybigh.colorctx.createRadialGradient(220, 140, 150, 300, 240, 20);
 
-                            gradient.addColorStop(0.2,     "#0B6623"); 
-                            gradient.addColorStop(0.37,    "#0fc14e");
-                            gradient.addColorStop(1,       "white");                        
+                            gradient.addColorStop(0,     "#1f6b36"); 
+                            gradient.addColorStop(0.4,  "#0fc14e");
+                            gradient.addColorStop(1,     "white");                        
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(175, 50);
                             Ybigh.colorctx.lineTo(287, 235);
@@ -166,7 +165,7 @@ Ybigh = {
                             Ybigh.colorctx.lineTo(400, 50);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
-                            Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
                             Ybigh.colorctx.stroke();
                             Ybigh.colorctx.fill();
 
@@ -180,15 +179,14 @@ Ybigh = {
                             Ybigh.colorctx.fillStyle = "#000000";  
                             Ybigh.colorctx.fillRect(new_color.x-2, new_color.y-2, 4, 4);
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
-                            //Ybigh.colorctx.fillText(mouseX+","+mouseY, mouseX-2, mouseY-2);
-                            //console.log(new_color);
-                        }else if(Ybigh.paths[i].objID == "activities"){//done done done
+                          
+                        }else if(Ybigh.paths[i].objID == "activities"){//done done done yay
 
-                            let gradient = Ybigh.colorctx.createLinearGradient(-15, 295, 380, 85);
+                            let gradient = Ybigh.colorctx.createRadialGradient(135, 330, 160, 200, 290, 30);
 
-                            gradient.addColorStop(0,    "#662825");
-                            gradient.addColorStop(0.1,  "#ff5f57");
-                            gradient.addColorStop(0.42,  "white");
+                            gradient.addColorStop(0,    "#84342f");
+                            gradient.addColorStop(0.25, "#ff5f57");
+                            gradient.addColorStop(1,  "white");
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(20, 185);
@@ -197,7 +195,7 @@ Ybigh = {
                             Ybigh.colorctx.lineTo(20, 400);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
-                            Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
                             Ybigh.colorctx.stroke();
                             Ybigh.colorctx.fill();
 
@@ -214,11 +212,11 @@ Ybigh = {
                             //console.log(new_color);
                         }else{ //done done
 
-                            let gradient = Ybigh.colorctx.createLinearGradient(-35, 485, 50, 250); //x,y,x,y
+                            let gradient = Ybigh.colorctx.createRadialGradient(310, 520, 150, 370, 230, 20); //x,y,x,y
 
-                            gradient.addColorStop(0.25,    "#666600");
-                            gradient.addColorStop(0.4,    "#c5ff52");
-                            gradient.addColorStop(1,    "white");
+                            gradient.addColorStop(0.157, "#8c7d38");
+                            gradient.addColorStop(0.35,  "#ffe539");
+                            gradient.addColorStop(0.685, "white");
 
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(175, 510);
@@ -227,7 +225,7 @@ Ybigh = {
                             Ybigh.colorctx.lineTo(400, 510);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
-                            Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
                             Ybigh.colorctx.stroke();
                             Ybigh.colorctx.fill();
 
@@ -322,7 +320,7 @@ Ybigh = {
     bind_inputs: function (userID) {
         //$('input[type="color-picker"]').not('.color-picker-binded').each(function () {
             $("#overlay").css("display","block");
-            //mock ajax call
+         
             $.get("/Stage1/data", function(response){
 
                 Ybigh.data = response.data;
@@ -552,13 +550,20 @@ Ybigh = {
     },
    
   // Build Color palette
+
+  /*
+        sy: -300,
+                    fy: 380,
+                    sx: 270,
+                    fx: 290,
+  */
     render: function (renderFont) {
         var colors = [
                 {   
                     nameID: "others",
                     col1: "white", //green
                     col2: "#0fc14e",
-                    col0: "#0B6623",//  014421
+                    col0: "#1f6b36",//  014421
                     x: 175,//190
                     y: 50,
                     xlt:287,//225
@@ -567,22 +572,24 @@ Ybigh = {
                     ylt1:235,//
                     xlt2:400,//390
                     ylt2:50,//
-                    sy: 115,
-                    fy: 323,
-                    sx: -55,
-                    fx: 27,
-                    stop1:0.2,
-                    stop2:0.37,
+                    sy: 140,
+                    fy: 240,
+                    sx: 220,
+                    fx: 300,
+                    stop1:0,
+                    stop2:0.4,
                     stop3:1,
+                    r1:150,
+                    r2:20,
                     labelX: 185,
                     labelY: 35,
                     label: "Man\'s Connections with Other than Himself"
                 },
                 {
-                    nameID: "activities",
+                    nameID: "activities", //YAY
                     col1: "white", //red 
                     col2: "#ff5f57",
-                    col0: "#772d29",
+                    col0: "#84342f",
                     x: 20,//20
                     y: 185,//
                     xlt:200,//200
@@ -591,13 +598,15 @@ Ybigh = {
                     ylt1:295,//chg
                     xlt2:20,//20
                     ylt2:400,//narrow
-                    sy:295,
-                    fy:85,
-                    sx: -15,
-                    fx: 380,
+                    sy:330,
+                    fy:290,
+                    sx: 135,
+                    fx: 200,
                     stop1:0,
-                    stop2:0.1,
-                    stop3:0.42,
+                    stop2:0.25,
+                    stop3:1,
+                    r1:160,
+                    r2:30,
                     labelX: 20,
                     labelY: 170,
                     label: "Man\'s Physical Activities"
@@ -615,13 +624,15 @@ Ybigh = {
                     ylt1:295,//chg
                     xlt2:550,//550
                     ylt2:400,//
-                    sy:310,  //x0, y0, x1, y1
-                    fy:95,
+                    sy:265,  //x0, y0, x1, y1
+                    fy:190,
                     sx: 585,
                     fx: 90,
-                    stop1:0,
-                    stop2:0.1,
-                    stop3:0.37,
+                    stop1:0.15,
+                    stop2:0.29,
+                    stop3:0.51,
+                    r1:150,
+                    r2:20,
                     labelX: 405,
                     labelY: 170,
                     label: "Man\'s View of the World"
@@ -629,8 +640,8 @@ Ybigh = {
                 {
                     nameID: "himself",
                     col1: "white", //yellow done
-                    col2: "#c5ff52",
-                    col0: "#666600", //938200  86942A
+                    col2: "#ffe539", //  c5ff52
+                    col0: "#8c7d38", //938200  86942A
                     x: 175,//190
                     y: 510,
                     xlt:285,//225
@@ -639,13 +650,15 @@ Ybigh = {
                     ylt1:335,
                     xlt2:400,//390
                     ylt2:510,
-                    sy: 485,
-                    fy: 250,
-                    sx: -35,
-                    fx: 50,
-                    stop1:0.25,
-                    stop2:0.4,
-                    stop3:1,
+                    sy: 520,
+                    fy: 230,
+                    sx: 310,
+                    fx: 370,
+                    stop1:0.157,
+                    stop2:0.35,
+                    stop3:0.685,
+                    r1:150,
+                    r2:20,
                     labelX: 220,
                     labelY: 540,
                     label: "Man\'s View of Himself"
@@ -661,15 +674,11 @@ Ybigh = {
         //Ybigh.colorctx.translate(Ybigh.$colors.width()/2, Ybigh.$colors.height()/2);
        for(var i=0; i<colors.length; i++){
 
-            if (colors[i].nameID == "others" || colors[i].nameID == "himself"){
-                gradient = Ybigh.colorctx.createLinearGradient(colors[i].sx, colors[i].sy, colors[i].fx, colors[i].fy);
-            }else{
-                gradient = Ybigh.colorctx.createLinearGradient(colors[i].sx, colors[i].sy ,colors[i].fx, colors[i].fy);
-            }
-            
+            gradient = Ybigh.colorctx.createRadialGradient(colors[i].sx, colors[i].sy, colors[i].r1, colors[i].fx, colors[i].fy, colors[i].r2);
             gradient.addColorStop(colors[i].stop1,    colors[i].col0);
             gradient.addColorStop(colors[i].stop2,    colors[i].col2);
             gradient.addColorStop(colors[i].stop3,    colors[i].col1);
+
             var path1 = new Path2D();
 
             path1.moveTo(colors[i].x, colors[i].y);
@@ -680,10 +689,10 @@ Ybigh = {
             path1.getID(colors[i].nameID);
 
             Ybigh.colorctx.fillStyle = gradient;
-            Ybigh.colorctx.strokeStyle = "#D0D0D0"; 
+            Ybigh.colorctx.strokeStyle = "#b0aaa6"; //
             Ybigh.colorctx.stroke(path1);
             Ybigh.colorctx.fill(path1);
-            
+
             if(renderFont){
                 Ybigh.paths.push(path1);
                 Ybigh.colorctx.strokeStyle = "black";
