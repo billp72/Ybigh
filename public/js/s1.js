@@ -14,7 +14,8 @@ Ybigh = {
     yellow:null,
     data:null,
     confirmIndex:0,
-    
+    hasclicked:false,
+
     to_hex: function (dec) {
         hex = dec.toString(16);
         return hex.length == 2 ? hex : '0' + hex;
@@ -93,7 +94,7 @@ Ybigh = {
         Ybigh.render(true);
         
         Ybigh.$colors
-            .on('touchstart mouseup',function (e) {
+            .on('touchstart mousedown',function (e) {
                 e.preventDefault();
                
                 if(!Ybigh.current){
@@ -119,8 +120,9 @@ Ybigh = {
                     }
                 } 
                 if(insideCL){
-                    
+                        
                         let new_color = Ybigh.get_color(touchEvent);
+                        Ybigh.hasclicked = true;
 
                         if(Ybigh.paths[i].objID == "world"){//done done done
 
@@ -146,9 +148,9 @@ Ybigh = {
                             new_color.category = 0x08;
                             Ybigh.blue = new_color;
                                 
-                            Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
+                            //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
                             Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(new_color.x-2, new_color.y-2, 4, 4);
+                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                             
                         }else if(Ybigh.paths[i].objID == "others"){//done done done yay
@@ -174,10 +176,9 @@ Ybigh = {
                             new_color.category = 0x02; //
                             Ybigh.green = new_color;
 
-                            Ybigh.colorctx.beginPath();
-                            Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
+                            //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
                             Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(new_color.x-2, new_color.y-2, 4, 4);
+                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                           
                         }else if(Ybigh.paths[i].objID == "activities"){//done done done yay
@@ -204,12 +205,11 @@ Ybigh = {
                             new_color.category = 0x04;
                             Ybigh.red = new_color;
 
-                            Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
+                            //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
                             Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(new_color.x-2, new_color.y-2, 4, 4);
+                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
-                            //Ybigh.colorctx.fillText(mouseX+","+mouseY, mouseX-2, mouseY-2);
-                            //console.log(new_color);
+                     
                         }else{ //done done
 
                             let gradient = Ybigh.colorctx.createRadialGradient(310, 520, 150, 370, 230, 20); //x,y,x,y
@@ -234,15 +234,15 @@ Ybigh = {
                             new_color.category = 0x01;
                             Ybigh.yellow = new_color;
 
-                            Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
+                            //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
                             Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(new_color.x-2, new_color.y-2, 4, 4);
+                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
-                            //Ybigh.colorctx.fillText(mouseX+","+mouseY, mouseX-2, mouseY-2);
-                            //console.log(new_color);
+                      
                         }
-
+                      
                         $(".cl"+"."+Ybigh.paths[i].objID).css({'background-color': new_color.c});
+                        
                         
                         //.trigger('change').removeClass('color-picker-binded');
               }else{
@@ -286,24 +286,159 @@ Ybigh = {
                 
               }
             });
-            Ybigh.$colors.on('mousemove',function (e) {
-                e.preventDefault();
-             
-                let mouseX=parseInt(e.clientX-offsetX);
-                let mouseY=parseInt(e.clientY-offsetY);
-                for(var j=0; j<Ybigh.paths.length; j++){   
+            
+            Ybigh.$colors.on('mousemove',function (evt) {
+                evt.preventDefault();
+                var move_color,
+                    insideCL,
+                    i=0;
+                                
+                if(Ybigh.hasclicked){
 
-                    let inside=Ybigh.colorctx.isPointInPath(Ybigh.paths[j], mouseX,mouseY);
-                    if(inside){
-                        Ybigh.$colors.css('cursor','crosshair');
+                    let te = (isMobile==="true" ? evt.changedTouches[0] : evt); 
+                    let mouseX=parseInt(evt.clientX-offsetX);
+                    let mouseY=parseInt(evt.clientY-offsetY);
+                    move_color = Ybigh.get_color(te);
+
+                    for(i=0; i<Ybigh.paths.length; i++){
+
+                        insideCL=Ybigh.colorctx.isPointInPath(Ybigh.paths[i], mouseX,mouseY);
+
+                        if(insideCL){
+                            break
+                        }
+                    } 
+                                
+                    if(insideCL){
+                        if(Ybigh.paths[i].objID == "world"){//done done done
+
+                            let gradient = Ybigh.colorctx.createRadialGradient(585, 265, 150, 90, 190, 20);
+
+                            gradient.addColorStop(0.15,    "#36454F");//0
+                            gradient.addColorStop(0.29,    "#4f87ff");//2
+                            gradient.addColorStop(0.51,    "white");//1
+
+                            Ybigh.colorctx.beginPath()
+                            Ybigh.colorctx.moveTo(550, 185);
+                            Ybigh.colorctx.lineTo(370, 285);
+                            Ybigh.colorctx.lineTo(370, 295);
+                            Ybigh.colorctx.lineTo(550, 400);
+                            Ybigh.colorctx.closePath();
+                            Ybigh.colorctx.fillStyle = gradient;
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
+                            Ybigh.colorctx.stroke();
+                            Ybigh.colorctx.fill();
+
+                            Ybigh.click_counter += 1;
+                            move_color.name = Ybigh.current; //Ybigh.data[Ybigh.index-1];
+                            move_color.category = 0x08;
+                            Ybigh.blue = move_color;
+                                
+                            //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
+                            Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);
+                            Ybigh.counter_hash.push({count:Ybigh.click_counter, category: move_color.category});
+                            
+                        }else if(Ybigh.paths[i].objID == "others"){//done done done yay
+
+                            let gradient = Ybigh.colorctx.createRadialGradient(220, 140, 150, 300, 240, 20);
+
+                            gradient.addColorStop(0,     "#1f6b36"); 
+                            gradient.addColorStop(0.4,  "#0fc14e");
+                            gradient.addColorStop(1,     "white");                        
+                            Ybigh.colorctx.beginPath();
+                            Ybigh.colorctx.moveTo(175, 50);
+                            Ybigh.colorctx.lineTo(287, 235);
+                            Ybigh.colorctx.lineTo(297, 235);
+                            Ybigh.colorctx.lineTo(400, 50);
+                            Ybigh.colorctx.closePath();
+                            Ybigh.colorctx.fillStyle = gradient;
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
+                            Ybigh.colorctx.stroke();
+                            Ybigh.colorctx.fill();
+
+                            Ybigh.click_counter += 1;
+                            move_color.name = Ybigh.current;
+                            move_color.category = 0x02; //
+                            Ybigh.green = move_color;
+
+                            //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
+                            Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);
+                            Ybigh.counter_hash.push({count:Ybigh.click_counter, category: move_color.category});
+                          
+                        }else if(Ybigh.paths[i].objID == "activities"){//done done done yay
+
+                            let gradient = Ybigh.colorctx.createRadialGradient(135, 330, 160, 200, 290, 30);
+
+                            gradient.addColorStop(0,    "#84342f");
+                            gradient.addColorStop(0.25, "#ff5f57");
+                            gradient.addColorStop(1,  "white");
+
+                            Ybigh.colorctx.beginPath();
+                            Ybigh.colorctx.moveTo(20, 185);
+                            Ybigh.colorctx.lineTo(200, 285);
+                            Ybigh.colorctx.lineTo(200, 295);
+                            Ybigh.colorctx.lineTo(20, 400);
+                            Ybigh.colorctx.closePath();
+                            Ybigh.colorctx.fillStyle = gradient;
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
+                            Ybigh.colorctx.stroke();
+                            Ybigh.colorctx.fill();
+
+                            Ybigh.click_counter += 1;
+                            move_color.name = Ybigh.current;
+                            move_color.category = 0x04;
+                            Ybigh.red = move_color;
+
+                            //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
+                            Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);
+                            Ybigh.counter_hash.push({count:Ybigh.click_counter, category: move_color.category});
+                         
+                        }else{ //done done
+
+                            let gradient = Ybigh.colorctx.createRadialGradient(310, 520, 150, 370, 230, 20); //x,y,x,y
+
+                            gradient.addColorStop(0.157, "#8c7d38");
+                            gradient.addColorStop(0.35,  "#ffe539");
+                            gradient.addColorStop(0.685, "white");
+
+                            Ybigh.colorctx.beginPath();
+                            Ybigh.colorctx.moveTo(175, 510);
+                            Ybigh.colorctx.lineTo(285, 335);
+                            Ybigh.colorctx.lineTo(295, 335);
+                            Ybigh.colorctx.lineTo(400, 510);
+                            Ybigh.colorctx.closePath();
+                            Ybigh.colorctx.fillStyle = gradient;
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
+                            Ybigh.colorctx.stroke();
+                            Ybigh.colorctx.fill();
+
+                            Ybigh.click_counter += 1;
+                            move_color.name = Ybigh.current;
+                            move_color.category = 0x01;
+                            Ybigh.yellow = move_color;
+
+                            //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
+                            Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);
+                            Ybigh.counter_hash.push({count:Ybigh.click_counter, category: move_color.category});
+                            
+                        }
+                      
+                        $(".cl"+"."+Ybigh.paths[i].objID).css({'background-color': move_color.c});
+                                
+                        } 
                     }
-                }
-
+                            
             });
 
-        /*$("body").mouseup(function () {
-            //if (!Ybigh.mouse_is_inside) Ybigh.close();
-        });*/
+            $("body").mouseup(function () {
+             
+                Ybigh.hasclicked=false;
+        
+            });
       
     },
     checkIfDone: function(next){
@@ -536,7 +671,7 @@ Ybigh = {
         var pos_x = e.pageX - Ybigh.$colors.offset().left;
         var pos_y = e.pageY - Ybigh.$colors.offset().top;
         var data = Ybigh.colorctx.getImageData(pos_x, pos_y, 1, 1).data;
-
+        console.log(data)
         var percentX = (pos_x / $('#can').width()) * 100;
         var percentY = (pos_y / $('#can').height()) * 100;
     
@@ -551,12 +686,6 @@ Ybigh = {
    
   // Build Color palette
 
-  /*
-        sy: -300,
-                    fy: 380,
-                    sx: 270,
-                    fx: 290,
-  */
     render: function (renderFont) {
         var colors = [
                 {   
