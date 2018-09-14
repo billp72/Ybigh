@@ -287,7 +287,7 @@ Ybigh = {
               }
             });
             
-            Ybigh.$colors.on('mousemove',function (evt) {
+            Ybigh.$colors.on('touchmove mousemove',function (evt) {
                 evt.preventDefault();
                 var move_color,
                     insideCL,
@@ -671,7 +671,7 @@ Ybigh = {
         var pos_x = e.pageX - Ybigh.$colors.offset().left;
         var pos_y = e.pageY - Ybigh.$colors.offset().top;
         var data = Ybigh.colorctx.getImageData(pos_x, pos_y, 1, 1).data;
-        console.log(data)
+
         var percentX = (pos_x / $('#can').width()) * 100;
         var percentY = (pos_y / $('#can').height()) * 100;
     
