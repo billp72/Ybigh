@@ -13,7 +13,7 @@ Ybigh = {
     red:null,
     yellow:null,
     data:null,
-    confirmIndex:0,
+    rectPosition:null,
     hasclicked:false,
 
     to_hex: function (dec) {
@@ -149,8 +149,9 @@ Ybigh = {
                             Ybigh.blue = new_color;
                                 
                             //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
-                            Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);
+                            /*Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);*/
+                            Ybigh.rectPosition = {"x":new_color.x,"y":new_color.y};
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                             
                         }else if(Ybigh.paths[i].objID == "others"){//done done done yay
@@ -177,8 +178,9 @@ Ybigh = {
                             Ybigh.green = new_color;
 
                             //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
-                            Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);
+                            /*Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);*/
+                            Ybigh.rectPosition = {"x":new_color.x,"y":new_color.y};
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                           
                         }else if(Ybigh.paths[i].objID == "activities"){//done done done yay
@@ -206,8 +208,9 @@ Ybigh = {
                             Ybigh.red = new_color;
 
                             //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
-                            Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);
+                            /*Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);*/
+                            Ybigh.rectPosition = {"x":new_color.x,"y":new_color.y};
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                      
                         }else{ //done done
@@ -235,8 +238,9 @@ Ybigh = {
                             Ybigh.yellow = new_color;
 
                             //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
-                            Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);
+                            /*Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(new_color.x-5, new_color.y-5, 3, 3);*/
+                            Ybigh.rectPosition = {"x":new_color.x,"y":new_color.y};
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                       
                         }
@@ -335,8 +339,9 @@ Ybigh = {
                             Ybigh.blue = move_color;
                                 
                             //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
-                            Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);
+                            /*Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);*/
+                            Ybigh.rectPosition = {"x":move_color.x,"y":move_color.y};
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: move_color.category});
                             
                         }else if(Ybigh.paths[i].objID == "others"){//done done done yay
@@ -363,8 +368,9 @@ Ybigh = {
                             Ybigh.green = move_color;
 
                             //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
-                            Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);
+                            /*Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);*/
+                            Ybigh.rectPosition = {"x":move_color.x,"y":move_color.y};
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: move_color.category});
                           
                         }else if(Ybigh.paths[i].objID == "activities"){//done done done yay
@@ -392,8 +398,9 @@ Ybigh = {
                             Ybigh.red = move_color;
 
                             //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
-                            Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);
+                            /*Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);*/
+                            Ybigh.rectPosition = {"x":move_color.x,"y":move_color.y};
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: move_color.category});
                          
                         }else{ //done done
@@ -411,7 +418,7 @@ Ybigh = {
                             Ybigh.colorctx.lineTo(400, 510);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
-                            Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
+                            Ybigh.colorctx.strokeStyle = "#b0aaa6";
                             Ybigh.colorctx.stroke();
                             Ybigh.colorctx.fill();
 
@@ -421,8 +428,9 @@ Ybigh = {
                             Ybigh.yellow = move_color;
 
                             //Ybigh.colorctx.setTransform(1, 0, 0, 1, 0, 0);
-                            Ybigh.colorctx.fillStyle = "#000000";  
-                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);
+                            /*Ybigh.colorctx.fillStyle = "#000000";  
+                            Ybigh.colorctx.fillRect(move_color.x-5, move_color.y-5, 3, 3);*/
+                            Ybigh.rectPosition = {"x":move_color.x,"y":move_color.y};
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: move_color.category});
                             
                         }
@@ -437,6 +445,9 @@ Ybigh = {
             $("body").mouseup(function () {
              
                 Ybigh.hasclicked=false;
+                Ybigh.colorctx.fillStyle = "#000000";  
+                Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 4, 4);
+                
         
             });
       
