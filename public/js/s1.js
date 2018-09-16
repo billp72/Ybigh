@@ -442,11 +442,12 @@ Ybigh = {
                             
             });
 
-            $("body").mouseup(function () {
+            $("canvas").mouseup(function () {
              
                 Ybigh.hasclicked=false;
+       
                 Ybigh.colorctx.fillStyle = "#000000";  
-                Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 4, 4);
+                Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 3, 3);
                 
         
             });
