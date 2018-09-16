@@ -120,7 +120,8 @@ Ybigh = {
                     }
                 } 
                 if(insideCL){
-                        
+                        console.log(this)
+                        $(this).css("cursor","crosshair");
                         let new_color = Ybigh.get_color(touchEvent);
                         Ybigh.hasclicked = true;
 
@@ -314,6 +315,7 @@ Ybigh = {
                     } 
                                 
                     if(insideCL){
+                        //$(this).css("cursor","crosshair");
                         if(Ybigh.paths[i].objID == "world"){//done done done
 
                             let gradient = Ybigh.colorctx.createRadialGradient(585, 265, 150, 90, 190, 20);
@@ -442,10 +444,11 @@ Ybigh = {
                             
             });
 
-            $("canvas").mouseup(function () {
-             
+            Ybigh.$colors.on("mouseup",function () {
+
+                $(this).css("cursor","default");
                 Ybigh.hasclicked=false;
-       
+            
                 Ybigh.colorctx.fillStyle = "#000000";  
                 Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 3, 3);
                 
