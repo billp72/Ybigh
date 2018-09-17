@@ -480,8 +480,8 @@ Ybigh = {
                 $("#clear").click(Ybigh.clear);
                 $("#done").click(Ybigh.done);
                 $("#removeSelections").click(Ybigh.submitCleared);
-         
-                
+                //TODO this must display the actual done which is different from the total array
+                $("#done").val("Done "+Ybigh.data.length+" of "+ Ybigh.data.length);
                 var prev;
                 var dataList = $('#word_list');
        
@@ -672,6 +672,9 @@ Ybigh = {
                     $("#done").prop("disabled", false).removeClass("dis");
                 }
                  $("#overlay").css("display","none");
+
+                 let done = Ybigh.data.length-1;
+                 $("#done").val("Done "+Ybigh.data.length+" of "+ done);
             }
         });
         

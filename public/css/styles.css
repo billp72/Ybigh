@@ -165,6 +165,10 @@
   /*.stage1_btns{
     margin-left: 21%;
   }*/
+  #done{
+    color: black;
+    font-weight: 700;
+  }
   #buttons{
     position: absolute;
     top: 5px;
