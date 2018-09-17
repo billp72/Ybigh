@@ -16,7 +16,7 @@ let results = [
     },
     {
         name:"Sign up",
-        link:"Signup"
+        link:"signup"
     },
     {
         name:"Dashboard",
@@ -24,19 +24,19 @@ let results = [
     },
     {
         name:"How to use",
-        link:"Howtouse"
+        link:"howtouse"
     },
     {
         name:"Stage 1",
-        link:"Stage1"
+        link:"stage1"
     },
     {
         name:"Stage 2",
-        link:"Stage2"
+        link:"stage2"
     },
     {
         name:"Stage 3",
-        link:"Stage3"
+        link:"stage3"
     }
     
 ]
@@ -102,7 +102,7 @@ app.get('/:name', function(req, res, next) {
   connection.query(sql, function (error, result, fields) {
        if (error) throw error;
 
-       if(req.params.name == 'Signup'){
+       if(req.params.name == 'signup'){
 
             res.render('pages/index', {data: results});
   
@@ -110,19 +110,19 @@ app.get('/:name', function(req, res, next) {
      
 	   if(result.length > 0){//check for results
 
-            if(req.params.name == 'Howtouse'){
+            if(req.params.name == 'howtouse'){
 
                 res.render('pages/how_to_use', {data: results});
 
-            }else if(req.params.name == 'Stage1'){
+            }else if(req.params.name == 'stage1'){
 
                 res.render('pages/stage_1', {data: results});
 
-            }else if(req.params.name == 'Stage2'){
+            }else if(req.params.name == 'stage2'){
 
                 res.render('pages/stage_2', {data: results});
 
-            }else if(req.params.name == 'Stage3'){
+            }else if(req.params.name == 'stage3'){
 
                 //stage 3
 
@@ -137,7 +137,7 @@ app.get('/:name', function(req, res, next) {
 
   //connection.end();
 });
-app.get('/S*/data', function(req, res, next) {
+app.get('/s*/data', function(req, res, next) {
 
 res.send({
     data:[
@@ -624,7 +624,7 @@ res.send({
 
 });
 
-app.post('/Signup', function(req, res, next) {
+app.post('/signup', function(req, res, next) {
     //req.query
     results.push({
         name:'',

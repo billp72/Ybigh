@@ -471,7 +471,7 @@ Ybigh = {
         //$('input[type="color-picker"]').not('.color-picker-binded').each(function () {
             $("#overlay").css("display","block");
          
-            $.get("/Stage1/data", function(response){
+            $.get("/stage1/data", function(response){
 
                 Ybigh.data = response.data;
                 Ybigh.show();
