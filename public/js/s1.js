@@ -674,7 +674,7 @@ Ybigh = {
                  $("#overlay").css("display","none");
 
                  let done = Ybigh.data.length-1;
-                 $("#done").val("Done "+Ybigh.data.length+" of "+ done);
+                 $("#done").val("Done "+done+" of "+ Ybigh.data.length);
             }
         });
         
