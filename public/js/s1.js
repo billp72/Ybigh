@@ -18,6 +18,7 @@ Ybigh = {
     copylength:0,
     symbol:false,
     clickwhite:false,
+
     to_hex: function (dec) {
         hex = dec.toString(16);
         return hex.length == 2 ? hex : '0' + hex;
@@ -258,13 +259,13 @@ Ybigh = {
 
                 if(Ybigh.blue || Ybigh.red || Ybigh.green || Ybigh.yellow){
 
-                        var Ind = parseInt($("#"+Ybigh.current).attr("data"));
-                        var _this = $("#word_list").find("[data='"+Ind+"']")[0];
-                        var added = Ind+1;
-                        var next = $("#word_list").find("[data='"+added+"']")[0];
+                        let Ind = parseInt($("#"+Ybigh.current).attr("data")),
+                            _this = $("#word_list").find("[data='"+Ind+"']")[0],
+                            added = Ind+1,
+                            next = $("#word_list").find("[data='"+added+"']")[0],
+                            hasClassNext = $("#word_list").find("[data='"+added+"']");
 
-
-                       if(!Ybigh.symbol){
+                       if(!Ybigh.symbol && !hasClassNext.hasClass('make-bold')){
                             
                             $("#word_list li").removeClass("active");
 
@@ -439,14 +440,10 @@ Ybigh = {
 
                 $(this).css("cursor","default");
                 Ybigh.hasclicked=false;
-
-                if(Ybigh.symbol && !Ybigh.clickwhite){
-                    Ybigh.colorctx.fillStyle = "#000000";  
-                    Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 3, 3);
-                }
-                if(!Ybigh.symbol){
-                    Ybigh.colorctx.fillStyle = "#000000";  
-                    Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 3, 3);
+              
+                if(!Ybigh.clickwhite){
+                        Ybigh.colorctx.fillStyle = "#000000";  
+                        Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 3, 3);
                 }
                 
                 Ybigh.clickwhite = false;
