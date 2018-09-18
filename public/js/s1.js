@@ -84,7 +84,7 @@ Ybigh = {
 
         let insideCL;
     
-        Ybigh.$colors  = $('<canvas title="Once selections are made, click whitespace to submit current and load the next word" id="can" height="552" width="552"></canvas>');
+        Ybigh.$colors  = $('<canvas title="click whitespace to submit current and load the next word" id="can" height="552" width="552"></canvas>');
         
         $('#container').append(Ybigh.$colors.fadeIn());
  
