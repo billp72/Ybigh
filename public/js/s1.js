@@ -15,7 +15,7 @@ Ybigh = {
     data:null,
     rectPosition:null,
     hasclicked:false,
-
+    copylength:0,
     to_hex: function (dec) {
         hex = dec.toString(16);
         return hex.length == 2 ? hex : '0' + hex;
@@ -481,6 +481,7 @@ Ybigh = {
                 $("#done").click(Ybigh.done);
                 $("#removeSelections").click(Ybigh.submitCleared);
                 //TODO this must display the actual done which is different from the total array
+                Ybigh.copylength = Ybigh.data.length;
                 $("#done").val("Done "+Ybigh.data.length+" of "+ Ybigh.data.length);
                 var prev;
                 var dataList = $('#word_list');
@@ -672,9 +673,9 @@ Ybigh = {
                     $("#done").prop("disabled", false).removeClass("dis");
                 }
                  $("#overlay").css("display","none");
-
-                 let done = Ybigh.data.length-1;
-                 $("#done").val("Done "+done+" of "+ Ybigh.data.length);
+                 
+                 Ybigh.copylength -= 1;
+                 $("#done").val("Done "+Ybigh.copylength+" of "+ Ybigh.data.length);
             }
         });
         
