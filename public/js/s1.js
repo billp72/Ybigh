@@ -466,7 +466,7 @@ Ybigh = {
                 $("#removeSelections").click(Ybigh.submitCleared);
                 //TODO this must display the actual done which is different from the total array
                 Ybigh.copylength = Ybigh.data.length;
-                $("#done").val("Done "+Ybigh.data.length+" of "+ Ybigh.data.length);
+                $("#done").val(Ybigh.data.length+" of "+ Ybigh.data.length);
                 var prev;
                 var dataList = $('#word_list');
        
@@ -662,7 +662,7 @@ Ybigh = {
                     
                  }
                  Ybigh.symbol = false;
-                 $("#done").val("Done "+Ybigh.copylength+" of "+ Ybigh.data.length);
+                 $("#done").val(Ybigh.copylength+" of "+ Ybigh.data.length);
             }
         });
         
