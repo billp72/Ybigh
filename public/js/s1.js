@@ -16,6 +16,8 @@ Ybigh = {
     rectPosition:null,
     hasclicked:false,
     copylength:0,
+    symbol:false,
+    clickwhite:false,
     to_hex: function (dec) {
         hex = dec.toString(16);
         return hex.length == 2 ? hex : '0' + hex;
@@ -252,9 +254,9 @@ Ybigh = {
                         //.trigger('change').removeClass('color-picker-binded');
               }else{
 
-                if(Ybigh.blue || Ybigh.red || Ybigh.green || Ybigh.yellow){
+                Ybigh.clickwhite = true;
 
-                        $("#word_list li").removeClass("active");
+                if(Ybigh.blue || Ybigh.red || Ybigh.green || Ybigh.yellow){
 
                         var Ind = parseInt($("#"+Ybigh.current).attr("data"));
                         var _this = $("#word_list").find("[data='"+Ind+"']")[0];
@@ -262,8 +264,10 @@ Ybigh = {
                         var next = $("#word_list").find("[data='"+added+"']")[0];
 
 
-                       if(Ybigh.checkIfDone(next)){
-                              
+                       if(!Ybigh.symbol){
+                            
+                            $("#word_list li").removeClass("active");
+
                             $(next).addClass("active");
 
                             Ybigh.next(next,_this);
@@ -272,19 +276,6 @@ Ybigh = {
                                 $('#word_list').scrollTo('+=35', 800);
                             }
                                 
-                        }else{
-
-                            var bytwo = added+1;
-                            var skipped= $("#word_list").find("[data='"+bytwo+"']")[0];
-                            
-                            $(skipped).addClass("active");
-
-                            Ybigh.next(skipped,_this);
-                  
-                            if(bytwo > 18){
-                                $('#word_list').scrollTo('+=35', 800);
-                            }
-                            
                         }
                             
                 }
@@ -448,25 +439,21 @@ Ybigh = {
 
                 $(this).css("cursor","default");
                 Ybigh.hasclicked=false;
-            
-                Ybigh.colorctx.fillStyle = "#000000";  
-                Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 3, 3);
+
+                if(Ybigh.symbol && !Ybigh.clickwhite){
+                    Ybigh.colorctx.fillStyle = "#000000";  
+                    Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 3, 3);
+                }
+                if(!Ybigh.symbol){
+                    Ybigh.colorctx.fillStyle = "#000000";  
+                    Ybigh.colorctx.fillRect(Ybigh.rectPosition.x, Ybigh.rectPosition.y, 3, 3);
+                }
                 
-        
+                Ybigh.clickwhite = false;
             });
       
     },
-    checkIfDone: function(next){
-
-        if($(next).attr('class') === 'make-bold'){
-
-            return false;
-                                   
-        }else{
-            return true;
-        }   
-                
-    },
+  
     bind_inputs: function (userID) {
         //$('input[type="color-picker"]').not('.color-picker-binded').each(function () {
             $("#overlay").css("display","block");
@@ -636,7 +623,7 @@ Ybigh = {
             }
             
         }
-
+        Ybigh.symbol = true;
         Ybigh.current = name;
         $(".word").val(name.toUpperCase());
     },
@@ -673,8 +660,11 @@ Ybigh = {
                     $("#done").prop("disabled", false).removeClass("dis");
                 }
                  $("#overlay").css("display","none");
-                 
-                 Ybigh.copylength -= 1;
+                 if(!Ybigh.symbol){
+                    Ybigh.copylength -= 1;
+                    
+                 }
+                 Ybigh.symbol = false;
                  $("#done").val("Done "+Ybigh.copylength+" of "+ Ybigh.data.length);
             }
         });
