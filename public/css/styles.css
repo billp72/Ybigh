@@ -7,6 +7,10 @@
   padding: 10px;
   background-color: #E8E8E8;
 }
+#howto-msg{
+  padding: 10px;
+  background-color:#ffff7f;
+}
 #overlay{
     position: fixed;
     z-index: 1000;
