@@ -10,6 +10,7 @@
 #howto-msg{
   padding: 10px;
   background-color:#ffff7f;
+  clear: both;
 }
 #overlay{
     position: fixed;
