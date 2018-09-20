@@ -77,9 +77,8 @@ app.use('/', function (req, res, next) {
        res.render('pages/index', {data: results});
 
         return;
-    }else{
-        return next();
     }
+    
     if(!req.session.user && req.method === 'GET'){
 
         res.render('pages/index', {data: results});
