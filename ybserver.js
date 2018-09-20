@@ -71,7 +71,15 @@ device.enableViewRouting(app);
 app.set('view engine', 'ejs');
 
 app.use('/', function (req, res, next) {
-    //console.log(req.session.user, req.method);
+
+    if(req.url !== '/signup' && req.method === 'POST' && !req.session.user){
+
+       res.render('pages/index', {data: results});
+
+        return;
+    }else{
+        return next();
+    }
     if(!req.session.user && req.method === 'GET'){
 
         res.render('pages/index', {data: results});
