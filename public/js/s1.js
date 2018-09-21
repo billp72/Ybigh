@@ -123,7 +123,7 @@ Ybigh = {
                     }
                 } 
                 if(insideCL){
-                        console.log(this)
+
                         $(this).css("cursor","crosshair");
                         let new_color = Ybigh.get_color(touchEvent);
                         Ybigh.hasclicked = true;
