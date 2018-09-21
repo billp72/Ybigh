@@ -431,6 +431,11 @@ Ybigh = {
                       
                         $(".cl"+"."+Ybigh.paths[i].objID).css({'background-color': move_color.c});
                                 
+                        }else{
+                            
+                            $(this).css("cursor","default");
+                            Ybigh.hasclicked=false;
+                            
                         } 
                     }
                             
