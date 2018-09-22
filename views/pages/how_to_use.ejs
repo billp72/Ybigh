@@ -36,7 +36,7 @@
 		<div id="welcome">
 
 			<h4>*STAGE 1</h4>
-			Each or any of the <i>Terms, Concept or Specific Objects</i>[words] presented in Stage 1 may invoke personal feelings, spark a particular philosophical interest, connect with you on spiritual level, all three or none at all. Based on your understanding of the words, it’s up to you to reflect on your life’s experience and select the category, or categories, you feel best fit it.<br /><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#reminder">UI Example</a>
+			Each or any of the <i>Terms, Concept or Specific Objects</i>[words] presented in Stage 1 may invoke personal feelings, spark a particular philosophical interest, connect with you on spiritual level, all three or none at all. Based on your understanding of the words, it’s up to you to reflect on your life’s experience and select the category, or categories, you feel best fit it.<br /><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="UI Example">UI Example</a>
 			<br /><br />
 			<img src="img/s1Img.jpg" style="float:left; margin:0 20px 15px 0;"/>
 			<div>
@@ -55,10 +55,10 @@
             	</ul>
 				<strong>Trapezoid selection space</strong><br />
 			<ul class="about">
-				<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition">Spiritual</a> -- incorruptible, intangible, genuine, and essential</li>
-				<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition">Material</a> -- composed of parts, occupies physical space, can be degraded</li>
-				<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition">Spiritual & Material converging</a> -- together they're more than their parts seperately.</li><br /><br /><strong>Spiritual & material converging examples</strong>:<br />Hypothetical 1: Someone you know was stranded out at sea and all they had to drink was their own Urin. It saves their life. Niether of you may ever think about Urin the same way again.<br /> 
-				Hypothetical 2: An out-of-control truck kills 5 people on the sidewalk your walking. To you, trucks aren't just for transporting cargo anymore.
+				<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Spiritual">Spiritual</a> -- incorruptible, intangible, genuine, and essential</li>
+				<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Material">Material</a> -- composed of parts, occupies physical space, can be degraded</li>
+				<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Material Spiritual Converging">Spiritual & Material Converging</a> -- Unification where, together, they're more than their parts are seperately.</li><br /><br /><strong>Spiritual & Material Converging examples</strong>:<br />Hypothetical 1: Someone you know was stranded out at sea and all they had to drink was their own Urin. It saves their life. Niether of you may ever think about Urin the same way again.<br /> 
+				Hypothetical 2: An out-of-control truck kills 5 people on the sidewalk your walking. Suddenly, trucks aren't just for transporting cargo anymore.
 				
 			</ul>
 			<!-- is like steal reinforcing concrete. The steal gives flexibility to the concrete, and the concrete gives strength to the steal, together it's more than either of the parts. In this way,-->
@@ -67,26 +67,6 @@
 			<div id="howto-msg">Continue on to<a href="https://ybigh.herokuapp.com/stage1"> Stage 1</a></div>
 		 	
 		</div>
-		<!-- UI Modal -->
-  <div class="modal fade" id="reminder" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Stage 1 UI</h4>
-        </div>
-        <div class="modal-body">
-          <img src="img/s1Img1.jpg" style="margin:10px;"/>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
 
   	<!-- definitions Modal -->
   <div class="modal fade" id="definition" role="dialog">
@@ -94,25 +74,9 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Stage 1 definitions</h4>
+          <h4 class="modal-title"></h4>
         </div>
         <div class="modal-body">
-          
-          <h3>Spiritual</h3>
-           <ul>
-          	<li><strong>incurruptable</strong>: behaves in a manner that's fundemental -- like a snake, or a lion -- and that needs no justification</li>
-          	<li><strong>intangible</strong>: can't be held or touched. Has no physical presence</li>
-          	<li><strong>genuin</strong>: corroborates with what the mind knows it should be and what the thing actually is</li> 
-          	<li><strong>essential</strong>: unified in a way where removing even one part makes it cease to exist</li>
-           </ul>
-          <h3>Material</h3>
-          <ul>
-          	<li><strong>composed of parts</strong>: remove any or all of its pieces and it still exists, albeit potentially in a limited way</li>
-          	<li><strong>occupies physical space</strong>: has form and exists in space and time</li>
-          	<li><strong>degradable</strong>: can be ruined or destroyed by a person or over time</li>
-           </ul>
-           <h3>Material and Spiritual Converging</h3>
-           the spiritual adds depth to the material object while the material object gives strength by being the physical embodiment. Like steal reinforcing concrete. The steal gives flexibility and the concrete gives strength where, together, it's more than either of the parts seperate.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -123,5 +87,37 @@
   </div>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script type="text/javascript" src="libs/boostrap4/js/bootstrap.min.js"></script>
+
+  	<script type="text/javascript">
+
+  	let content = {
+  		Material_Spiritual_Converging: "The spiritual adds depth to the material object while the "+ "material object gives strength to the spiritual by being the physical embodiment.<br /> Like steal reinforcing "+ "concrete. The steal gives flexibility and the concrete gives strength where, together, "+ "it's more than either of the parts are when seperate.<br /><br /> In this way, a material object can have "+ "spiritual characteristics. Think of a car. A car has a spiritual essense that must exist. And if you remove any of it, it ceases to be a car."+" If you remove two of the wheels of a car, it ceases to be a "+ "car anymore. It's still a motor vehicle perhaps, but not a car. Not just physically removing"+" the wheels, but creating a new, functioning vehicle that can opperate with only two"+ " wheels like, say, a motorcycle. We can say four wheels is fundemental to a thing being a "+ "car.<br /><br />If you like: the spirit of the car is that it has four wheels.",
+  		Spiritual: "<ul>"+
+          	"<li><strong>incurruptable</strong>: behaves in a manner that's fundemental -- like a snake, or a lion -- and that needs no justification</li>"+
+          	"<li><strong>intangible</strong>: can't be held or touched. Has no physical presence</li>"+
+          	"<li><strong>genuin</strong>: corroborates with what the mind knows it should be and what the thing actually is</li>"+ 
+          	"<li><strong>essential</strong>: unified in a way where removing even one part makes it cease to exist</li>"+
+           "</ul>",
+        Material: "<ul>"+
+          	"<li><strong>composed of parts</strong>: remove any or all of its parts and it still exists, albeit potentially in a limited way</li>"+
+          	"<li><strong>occupies physical space</strong>: has form and exists in space and time</li>"+
+          	"<li><strong>degradable</strong>: can be ruined or destroyed by a person or over time</li>"+
+           "</ul>",
+        UI_Example: "<img src='img/s1Img1.jpg' style='margin:10px;'/>"
+
+  	}
+  		$('#definition').on('show.bs.modal', function (event) {
+  			var button = $(event.relatedTarget); // Button that triggered the modal
+  			var recipient = button.data('whatever'); // Extract info from data-* attributes
+  			var key = recipient.replace(/ /g, "_");
+  			console.log(key)
+  			var gcontent = content[key];
+  			var modal = $(this)
+  			modal.find('.modal-title').text(recipient);
+  			$('.modal-body').empty();
+  			modal.find('.modal-body').append(gcontent);
+		})
+
+  	</script>
 	</body>
 </html>
