@@ -110,9 +110,8 @@
   			var button = $(event.relatedTarget); // Button that triggered the modal
   			var recipient = button.data('whatever'); // Extract info from data-* attributes
   			var key = recipient.replace(/ /g, "_");
-  			console.log(key)
   			var gcontent = content[key];
-  			var modal = $(this)
+  			var modal = $(this);
   			modal.find('.modal-title').text(recipient);
   			$('.modal-body').empty();
   			modal.find('.modal-body').append(gcontent);
