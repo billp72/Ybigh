@@ -16,27 +16,27 @@ let results = [
     },
     {
         name:"Sign up",
-        link:"signup"
+        link:"n-signup"
     },
     {
         name:"Dashboard",
-        link:"dashboard"
+        link:"n-dashboard"
     },
     {
         name:"How to use",
-        link:"howtouse"
+        link:"n-howtouse"
     },
     {
         name:"Stage 1",
-        link:"stage1"
+        link:"n-stage1"
     },
     {
         name:"Stage 2",
-        link:"stage2"
+        link:"n-stage2"
     },
     {
         name:"Stage 3",
-        link:"stage3"
+        link:"n-stage3"
     }
     
 ]
@@ -74,7 +74,7 @@ app.use('/', function (req, res, next) {
 
     res.header('Node-server' , 0 );
 
-    if(req.url !== '/signup' && req.method === 'POST' && !req.session.user){
+    if(req.url !== '/n-signup' && req.method === 'POST' && !req.session.user){
 
        res.render('pages/index', {data: results});
 
@@ -111,7 +111,7 @@ app.get('/:name', function(req, res, next) {
   connection.query(sql, function (error, result, fields) {
        if (error) throw error;
 
-       if(req.params.name == 'signup'){
+       if(req.params.name == 'n-signup'){
 
             res.render('pages/index', {data: results});
   
@@ -119,19 +119,19 @@ app.get('/:name', function(req, res, next) {
      
 	   if(result.length > 0){//check for results
 
-            if(req.params.name == 'howtouse'){
+            if(req.params.name == 'n-howtouse'){
 
                 res.render('pages/how_to_use', {data: results});
 
-            }else if(req.params.name == 'stage1'){
+            }else if(req.params.name == 'n-stage1'){
 
                 res.render('pages/stage_1', {data: results});
 
-            }else if(req.params.name == 'stage2'){
+            }else if(req.params.name == 'n-stage2'){
 
                 res.render('pages/stage_2', {data: results});
 
-            }else if(req.params.name == 'stage3'){
+            }else if(req.params.name == 'n-stage3'){
 
                 //stage 3
 
@@ -633,7 +633,7 @@ res.send({
 
 });
 
-app.post('/signup', function(req, res, next) {
+app.post('/n-signup', function(req, res, next) {
     //req.query
     results.push({
         name:'',
