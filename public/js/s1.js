@@ -131,16 +131,16 @@ Ybigh = {
                         if(Ybigh.paths[i].objID == "world"){//done done done
 
                             let gradient = Ybigh.colorctx.createRadialGradient(585, 265, 150, 90, 190, 20);
-
+//done
                             gradient.addColorStop(0.15,    "#36454F");//0
                             gradient.addColorStop(0.29,    "#4f87ff");//2
                             gradient.addColorStop(0.51,    "white");//1
 
                             Ybigh.colorctx.beginPath()
-                            Ybigh.colorctx.moveTo(550, 185);
-                            Ybigh.colorctx.lineTo(370, 285);
-                            Ybigh.colorctx.lineTo(370, 295);
-                            Ybigh.colorctx.lineTo(550, 400);
+                            Ybigh.colorctx.moveTo(550, 175);
+                            Ybigh.colorctx.lineTo(365, 289);
+                            Ybigh.colorctx.lineTo(365, 289);
+                            Ybigh.colorctx.lineTo(550, 401);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
@@ -159,7 +159,7 @@ Ybigh = {
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                             
                         }else if(Ybigh.paths[i].objID == "others"){//done done done yay
-
+//done
                             let gradient = Ybigh.colorctx.createRadialGradient(220, 140, 150, 300, 240, 20);
 
                             gradient.addColorStop(0,     "#1f6b36"); 
@@ -167,9 +167,9 @@ Ybigh = {
                             gradient.addColorStop(1,     "white");                        
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(175, 50);
-                            Ybigh.colorctx.lineTo(287, 235);
-                            Ybigh.colorctx.lineTo(297, 235);
-                            Ybigh.colorctx.lineTo(400, 50);
+                            Ybigh.colorctx.lineTo(288, 235);
+                            Ybigh.colorctx.lineTo(288, 235);
+                            Ybigh.colorctx.lineTo(401, 50);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
@@ -190,16 +190,16 @@ Ybigh = {
                         }else if(Ybigh.paths[i].objID == "activities"){//done done done yay
 
                             let gradient = Ybigh.colorctx.createRadialGradient(135, 330, 160, 200, 290, 30);
-
+//done
                             gradient.addColorStop(0,    "#84342f");
                             gradient.addColorStop(0.25, "#ff5f57");
                             gradient.addColorStop(1,  "white");
 
                             Ybigh.colorctx.beginPath();
-                            Ybigh.colorctx.moveTo(20, 185);
-                            Ybigh.colorctx.lineTo(200, 285);
-                            Ybigh.colorctx.lineTo(200, 295);
-                            Ybigh.colorctx.lineTo(20, 400);
+                            Ybigh.colorctx.moveTo(15, 175);
+                            Ybigh.colorctx.lineTo(200, 289);
+                            Ybigh.colorctx.lineTo(200, 289);
+                            Ybigh.colorctx.lineTo(15, 401);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
@@ -218,7 +218,7 @@ Ybigh = {
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                      
                         }else{ //done done
-
+//done
                             let gradient = Ybigh.colorctx.createRadialGradient(310, 520, 150, 370, 230, 20); //x,y,x,y
 
                             gradient.addColorStop(0.157, "#8c7d38");
@@ -226,10 +226,10 @@ Ybigh = {
                             gradient.addColorStop(0.685, "white");
 
                             Ybigh.colorctx.beginPath();
-                            Ybigh.colorctx.moveTo(175, 510);
-                            Ybigh.colorctx.lineTo(285, 335);
-                            Ybigh.colorctx.lineTo(295, 335);
-                            Ybigh.colorctx.lineTo(400, 510);
+                            Ybigh.colorctx.moveTo(175, 515);
+                            Ybigh.colorctx.lineTo(288, 330);
+                            Ybigh.colorctx.lineTo(288, 330);
+                            Ybigh.colorctx.lineTo(401, 515);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
@@ -317,10 +317,10 @@ Ybigh = {
                             gradient.addColorStop(0.51,    "white");//1
 
                             Ybigh.colorctx.beginPath()
-                            Ybigh.colorctx.moveTo(550, 185);
-                            Ybigh.colorctx.lineTo(370, 285);
-                            Ybigh.colorctx.lineTo(370, 295);
-                            Ybigh.colorctx.lineTo(550, 400);
+                            Ybigh.colorctx.moveTo(550, 175);
+                            Ybigh.colorctx.lineTo(365, 289);
+                            Ybigh.colorctx.lineTo(365, 289);
+                            Ybigh.colorctx.lineTo(550, 401);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
@@ -347,9 +347,9 @@ Ybigh = {
                             gradient.addColorStop(1,     "white");                        
                             Ybigh.colorctx.beginPath();
                             Ybigh.colorctx.moveTo(175, 50);
-                            Ybigh.colorctx.lineTo(287, 235);
-                            Ybigh.colorctx.lineTo(297, 235);
-                            Ybigh.colorctx.lineTo(400, 50);
+                            Ybigh.colorctx.lineTo(288, 235);
+                            Ybigh.colorctx.lineTo(288, 235);
+                            Ybigh.colorctx.lineTo(401, 50);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
@@ -376,10 +376,10 @@ Ybigh = {
                             gradient.addColorStop(1,  "white");
 
                             Ybigh.colorctx.beginPath();
-                            Ybigh.colorctx.moveTo(20, 185);
-                            Ybigh.colorctx.lineTo(200, 285);
-                            Ybigh.colorctx.lineTo(200, 295);
-                            Ybigh.colorctx.lineTo(20, 400);
+                            Ybigh.colorctx.moveTo(15, 175);
+                            Ybigh.colorctx.lineTo(200, 289);
+                            Ybigh.colorctx.lineTo(200, 289);
+                            Ybigh.colorctx.lineTo(15, 401);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#b0aaa6"; 
@@ -406,10 +406,10 @@ Ybigh = {
                             gradient.addColorStop(0.685, "white");
 
                             Ybigh.colorctx.beginPath();
-                            Ybigh.colorctx.moveTo(175, 510);
-                            Ybigh.colorctx.lineTo(285, 335);
-                            Ybigh.colorctx.lineTo(295, 335);
-                            Ybigh.colorctx.lineTo(400, 510);
+                            Ybigh.colorctx.moveTo(175, 515);
+                            Ybigh.colorctx.lineTo(288, 330);
+                            Ybigh.colorctx.lineTo(288, 330);
+                            Ybigh.colorctx.lineTo(401, 515);
                             Ybigh.colorctx.closePath();
                             Ybigh.colorctx.fillStyle = gradient;
                             Ybigh.colorctx.strokeStyle = "#b0aaa6";
@@ -706,11 +706,11 @@ Ybigh = {
                     col0: "#1f6b36",//  014421
                     x: 175,//190
                     y: 50,
-                    xlt:287,//225
+                    xlt:288,//225
                     ylt:235,//
-                    xlt1:297,//350
+                    xlt1:288,//350
                     ylt1:235,//
-                    xlt2:400,//390
+                    xlt2:401,//390
                     ylt2:50,//
                     sy: 140,
                     fy: 240,
@@ -730,14 +730,14 @@ Ybigh = {
                     col1: "white", //red 
                     col2: "#ff5f57",
                     col0: "#84342f",
-                    x: 20,//20
-                    y: 185,//
+                    x: 15,//20
+                    y: 175,//
                     xlt:200,//200
-                    ylt:285,//narrow
+                    ylt:289,//narrow
                     xlt1:200,//200
-                    ylt1:295,//chg
-                    xlt2:20,//20
-                    ylt2:400,//narrow
+                    ylt1:289,//chg
+                    xlt2:15,//20
+                    ylt2:401,//narrow
                     sy:330,
                     fy:290,
                     sx: 135,
@@ -757,13 +757,13 @@ Ybigh = {
                     col2: "#4f87ff",
                     col0: "#36454F",
                     x: 550,//550
-                    y: 185,//
-                    xlt:370,//370
-                    ylt:285,//chg
-                    xlt1:370,//370
-                    ylt1:295,//chg
+                    y: 175,//
+                    xlt:365,//370
+                    ylt:289,//chg
+                    xlt1:365,//370
+                    ylt1:289,//chg
                     xlt2:550,//550
-                    ylt2:400,//
+                    ylt2:401,//
                     sy:265,  //x0, y0, x1, y1
                     fy:190,
                     sx: 585,
@@ -783,13 +783,13 @@ Ybigh = {
                     col2: "#ffe539", //  c5ff52
                     col0: "#8c7d38", //938200  86942A
                     x: 175,//190
-                    y: 510,
-                    xlt:285,//225
-                    ylt:335,
-                    xlt1:295,//350
-                    ylt1:335,
-                    xlt2:400,//390
-                    ylt2:510,
+                    y: 515,
+                    xlt:288,//225
+                    ylt:330,
+                    xlt1:288,//350
+                    ylt1:330,
+                    xlt2:401,//390
+                    ylt2:515,
                     sy: 520,
                     fy: 230,
                     sx: 310,
