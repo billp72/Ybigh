@@ -72,6 +72,8 @@ app.set('view engine', 'ejs');
 
 app.use('/', function (req, res, next) {
 
+    res.header('Node-server' , 0 );
+
     if(req.url !== '/signup' && req.method === 'POST' && !req.session.user){
 
        res.render('pages/index', {data: results});
