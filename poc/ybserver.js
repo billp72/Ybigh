@@ -1,7 +1,7 @@
 /*
 Ybigh simple server 1
 */
-const { connection, mysql } = require("./modules/dbconnection-min.js");
+const { connection, mysql } = require("../modules/dbconnection-min.js");
 const express    = require('express');
 const bodyParser = require('body-parser');
 const session    = require('client-sessions');
@@ -9,7 +9,7 @@ const device     = require('express-device');
 const app        = express();
 //const router     = express.Router();
 
-let results = [
+let nav = [
     {
         name:"Introduction",
         link:""
@@ -51,7 +51,7 @@ app.use(session({
   /*activeDuration: 5 * 60 * 1000,*/
 }));
 
-app.use('/', express.static(__dirname + '/public')); // ← adjust
+app.use('/', express.static(__dirname + '/../public')); // ← adjust
 
 setInterval(function () {
     connection.query('SELECT 1');
@@ -76,14 +76,14 @@ app.use('/', function (req, res, next) {
 
     if(req.url !== '/n-signup' && req.method === 'POST' && !req.session.user){
 
-       res.render('pages/index', {data: results});
+       res.render(__dirname +'/../views/pages/index', {data: nav});
 
         return;
     }
     
     if(!req.session.user && req.method === 'GET'){
 
-        res.render('pages/index', {data: results});
+        res.render(__dirname + '/../views/pages/index', {data: nav});
 
         return;
 
@@ -97,7 +97,7 @@ app.use('/', function (req, res, next) {
 
 // index page 
 app.get('/', function(req, res, next){
-   res.render('pages/introduction', {data: results});  
+   res.render(__dirname +'/../views/pages/introduction', {data: nav});  
 })
 
 
@@ -113,23 +113,23 @@ app.get('/:name', function(req, res, next) {
 
        if(req.params.name == 'n-signup'){
 
-            res.render('pages/index', {data: results});
+            res.render(__dirname +'/../views/pages/index', {data: nav});
   
         }
      
-	   if(result.length > 0){//check for results
+	   if(result.length > 0){//check for nav
 
             if(req.params.name == 'n-howtouse'){
 
-                res.render('pages/how_to_use', {data: results});
+                res.render(__dirname +'/../views/pages/how_to_use', {data: nav});
 
             }else if(req.params.name == 'n-stage1'){
 
-                res.render('pages/stage_1', {data: results});
+                res.render(__dirname +'/../views/pages/stage_1', {data: nav});
 
             }else if(req.params.name == 'n-stage2'){
 
-                res.render('pages/stage_2', {data: results});
+                res.render(__dirname +'/../views/pages/stage_2', {data: nav});
 
             }else if(req.params.name == 'n-stage3'){
 
@@ -635,7 +635,7 @@ res.send({
 
 app.post('/n-signup', function(req, res, next) {
     //req.query
-    results.push({
+    nav.push({
         name:'',
         link:''
     });
@@ -651,12 +651,12 @@ app.post('/n-signup', function(req, res, next) {
             if(result_user.length > 0){
                 
                 if(!!req.session.user){
-                    results[results.length-1].msg = 'You are already logged in';
-                    res.render('pages/index', {data: results});
+                    nav[nav.length-1].msg = 'You are already logged in';
+                    res.render(__dirname +'/../views/pages/index', {data: nav});
                 }else{
                     req.session.user = mysql.escape(result_user[0].id_user);
-                    results[results.length-1].msg = 'New session created';
-                    res.render('pages/index', {data: results});
+                    nav[nav.length-1].msg = 'New session created';
+                    res.render(__dirname +'/../views/pages/index', {data: nav});
                 }
                 
             }else{
@@ -668,21 +668,21 @@ app.post('/n-signup', function(req, res, next) {
                
                     req.session.user = row.insertId;
 
-                    results[results.length-1].msg = 'Email sent. Please proceed to "How to use"';
+                    nav[nav.length-1].msg = 'Email sent. Please proceed to "How to use"';
 
-                    res.render('pages/index', {data: results});
+                    res.render(__dirname +'/../views/pages/index', {data: nav});
                 })
             }
           }else{
-            results[results.length-1].msg = error;
-            res.render('pages/index', {data: results});
+            nav[nav.length-1].msg = error;
+            res.render(__dirname +'/../views/pages/index', {data: nav});
           }
         });
     }else{
 
-      results[results.length-1].msg = 'Please add your email';
+      nav[nav.length-1].msg = 'Please add your email';
 
-      res.render('pages/index', {data: results});
+      res.render(__dirname +'/../views/pages/index', {data: nav});
     }
 
     

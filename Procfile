@@ -1,1 +1,1 @@
-web: node ybserver-min.js
+web: node poc/ybserver-min.js
