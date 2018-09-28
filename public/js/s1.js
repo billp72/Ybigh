@@ -459,7 +459,9 @@ Ybigh = {
     bind_inputs: function (userID) {
         //$('input[type="color-picker"]').not('.color-picker-binded').each(function () {
             $("#overlay").css("display","block");
-         
+            $.ajaxSetup({
+                headers: { 'Node-server': '0' }
+            });
             $.get("/stage1/data", function(response){
 
                 Ybigh.data = response.data;

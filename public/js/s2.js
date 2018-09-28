@@ -817,6 +817,7 @@ function render() {
 function initializeYbigh() {
   
   ybigh.requestData(function(){
+    $.ajaxSetup({headers: { 'Node-server': '0' }});
     ybigh.init();
     animate();
    
