@@ -26,7 +26,7 @@
     background-position: center;
     display: none;
   }
-  .how_to_cats li:nth-child(2){
+  .modal-body ul.how_to_cats > li:nth-child(2){
       color:blue;
   }
   .make-bold{
