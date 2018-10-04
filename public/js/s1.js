@@ -725,7 +725,7 @@ Ybigh = {
                     r2:20,
                     labelX: 185,
                     labelY: 35,
-                    label: "Man\'s Connections with Other than Himself"
+                    label: "Man\'s Connections with Other than himself"
                 },
                 {
                     nameID: "activities", //YAY
