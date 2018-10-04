@@ -218,11 +218,11 @@ Ybigh = {
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: new_color.category});
                      
                         }else{ //done done
-//done
-                            let gradient = Ybigh.colorctx.createRadialGradient(310, 520, 150, 370, 230, 20); //x,y,x,y
+
+                            let gradient = Ybigh.colorctx.createRadialGradient(310, 525, 150, 370, 230, 20); //x,y,x,y
 
                             gradient.addColorStop(0.157, "#8c7d38");
-                            gradient.addColorStop(0.35,  "#ffe539");
+                            gradient.addColorStop(0.4,  "#ffe539");
                             gradient.addColorStop(0.685, "white");
 
                             Ybigh.colorctx.beginPath();
@@ -398,11 +398,11 @@ Ybigh = {
                             Ybigh.counter_hash.push({count:Ybigh.click_counter, category: move_color.category});
                          
                         }else{ //done done
-
-                            let gradient = Ybigh.colorctx.createRadialGradient(310, 520, 150, 370, 230, 20); //x,y,x,y
+  
+                            let gradient = Ybigh.colorctx.createRadialGradient(310, 525, 150, 370, 230, 20); //x,y,x,y
 
                             gradient.addColorStop(0.157, "#8c7d38");
-                            gradient.addColorStop(0.35,  "#ffe539");
+                            gradient.addColorStop(0.4,  "#ffe539");
                             gradient.addColorStop(0.685, "white");
 
                             Ybigh.colorctx.beginPath();
@@ -792,12 +792,12 @@ Ybigh = {
                     ylt1:330,
                     xlt2:401,//390
                     ylt2:515,
-                    sy: 520,
+                    sy: 525,
                     fy: 230,
                     sx: 310,
                     fx: 370,
                     stop1:0.157,
-                    stop2:0.35,
+                    stop2:0.4,
                     stop3:0.685,
                     r1:150,
                     r2:20,
