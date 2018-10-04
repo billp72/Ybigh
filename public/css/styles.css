@@ -26,6 +26,9 @@
     background-position: center;
     display: none;
   }
+  .how_to_cats li:nth-child(2){
+      color:blue;
+  }
   .make-bold{
     font-style:italic;
     font-weight: 400;
