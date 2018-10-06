@@ -46,6 +46,7 @@ Ybigh = {
         },500);
     },
     submitCleared: function(){
+        $("#overlay").css("display","block");
         var obj = {name:Ybigh.current, wordID:123};
         
         $.ajax({
@@ -53,18 +54,22 @@ Ybigh = {
             url: "/symbol",
             data: JSON.stringify(obj),
             error: function(jqXHR, textStatus, errorThrown){
-
+                 $("#overlay").css("display","none");
             },
-            success: function(res){
-                console.log(res);
+            success: function(res, textStatus){
+                if(res){
 
-                $("#"+Ybigh.current).removeClass('make-bold');
-                $("#removeSelections").prop("disabled", true);
+                    $("#"+Ybigh.current).removeClass('make-bold');
+                    $("#removeSelections").prop("disabled", true);
 
-                if(Ybigh.counter > 3){
-                    $("#done").prop("disabled", false).removeClass("dis");
+                    if(Ybigh.counter > 3){
+                        $("#done").prop("disabled", false).removeClass("dis");
+                    }
+                }else{
+                    window.location.href='/n-signup';
                 }
 
+                $("#overlay").css("display","none");
             }
         });
 
@@ -648,28 +653,31 @@ Ybigh = {
                 $("#overlay").css("display","none");
             },
             success: function(res){
-                
-                obj.length = 0;
-                Ybigh.counter += 1;
+                if(res){
+                    obj.length = 0;
+                    Ybigh.counter += 1;
 
-                if(!!cur && !!prev){
+                    if(!!cur && !!prev){
 
-                    Ybigh.current = $(cur).html();
-                    $(".word").val($(cur).html().toUpperCase());
-                    $(prev).addClass('make-bold');
-                }else{
-                    $(prev).addClass('make-bold');
-                }
-                if(Ybigh.counter > 3){
-                    $("#done").prop("disabled", false).removeClass("dis");
-                }
-                 $("#overlay").css("display","none");
-                 if(!Ybigh.symbol){
-                    Ybigh.copylength -= 1;
+                        Ybigh.current = $(cur).html();
+                        $(".word").val($(cur).html().toUpperCase());
+                        $(prev).addClass('make-bold');
+                    }else{
+                        $(prev).addClass('make-bold');
+                    }
+                    if(Ybigh.counter > 3){
+                        $("#done").prop("disabled", false).removeClass("dis");
+                    }
+                    if(!Ybigh.symbol){
+                        Ybigh.copylength -= 1;
                     
-                 }
-                 Ybigh.symbol = false;
-                 $("#done").val(Ybigh.copylength+" of "+ Ybigh.data.length);
+                    }
+                    Ybigh.symbol = false;
+                    $("#done").val(Ybigh.copylength+" of "+ Ybigh.data.length);
+                }else{
+                    window.location.href='/n-signup';
+                }
+                $("#overlay").css("display","none");
             }
         });
         

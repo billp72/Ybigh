@@ -76,7 +76,7 @@ app.use('/', function (req, res, next) {
 
     if(req.url !== '/n-signup' && req.method === 'POST' && !req.session.user){
 
-       res.render(__dirname +'/../views/pages/index', {data: nav});
+       res.status(200).send(false);
 
         return;
     }
@@ -691,7 +691,7 @@ app.post('/n-signup', function(req, res, next) {
 app.post('/symbol', function(req, res, next){
   //console.log(req.body);
   res.set({'Content-Type': 'text/plain'});
-  res.send('submitted');
+  res.status(200).send(true);
 });
 
 app.listen(app.get('port'), function() {
