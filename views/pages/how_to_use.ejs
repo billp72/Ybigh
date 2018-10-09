@@ -76,12 +76,23 @@
           <h4 class="modal-title"></h4>
         </div>
         <div class="modal-body">
+
+          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
+      <script type="text/javascript">
+          function spiritual(){
       
+              var gcontent = content["Essential"];
+              var modal = $("#definition");
+              modal.find('.modal-title').text("Essential");
+              $('.modal-body').empty();
+              modal.find('.modal-body').append(gcontent);
+            }
+          </script>
     </div>
   </div>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -98,11 +109,12 @@
           	"<li><strong>ideal</strong>: satisfying a conception of what is perfect; most suitable. <strong>(1)</strong> The ideal circle has perfect symmetry at every dimension. <strong>(2)</strong> While one could argue that love exist in many forms, 'ideal' love has caring, respect, and understanding.</li>"+
               "<li><strong>intangible</strong>: can't be held or touched. Has no physical presence <strong>(1)</strong> Some spiritual objects, Evil, Love, etc., are only expressed in the material world through the intent of sentient beings. <strong>(2)</strong> While other spiritual objects requires more knowldge than is attainable to manifest them materially. What's the precise volume of water needed before a puddle becomes a pond, as an example?</li>"+
           	"<li><strong>genuine</strong>: corroborates with what the mind knows it should be and what the thing actually is <strong>(1)</strong> Actual gold vs. fools gold</li>"+ 
-          	"<li><strong>essential</strong>: is a necessary part of it, and it alone. Will cease to exist in any other form <strong>(1)</strong> What feature(s) constitutes a car, and a car alone?</li>" +
+          	"<li><strong>essential</strong>: is a necessary part of it, and it alone. Will cease to exist in any other form <strong>(1)</strong> What feature(s) constitutes a car, and only a car?</li>" +
            "</ul>",
+        Essential:"<strong>essential</strong>: is a necessary part of it, and it alone. Will cease to exist in any other form <strong>(1)</strong> What feature(s) constitutes a car, and only a car?",
         Material: "<ul>"+
             "<li><strong>can be sensed or detected</strong>: sensed using one or all of the four senses or detected using instruments (microscopes, clocks, etc). <strong>(1)</strong> Bacteria, birthdays and Broadway plays are some examples</li>"+
-          	"<li><strong>composed of parts</strong>: remove any of its parts and it still exists as that thing <strong>(1)</strong> (all material things, including plays, have spiritual twins but that must meet the critaria of the spritual. See <a style=\"font-weight:700;\" href=\"#\" data-dismiss=\"modal\" data-toggle=\"modal\" data-target=\"#definition\" data-whatever=\"Spiritual\">Spiritual</a>) </li>"+
+          	"<li><strong>composed of parts</strong>: material objects are composed of essential and non-essential parts. While the non-essential parts are found in the material world, the essential part(s) can [only] be found in the spiritual realm. <strong>(1)</strong> See <a style=\"font-weight:700;\" onclick=\"spiritual()\" href=\"#\">Spiritual Essentialness</a></li>"+
           	"<li><strong>degradable</strong>: can be ruined or destroyed by a person or over time <strong>(1)</strong> Steel on a car eventually corrodes <strong>(2)</strong> a copy machine can be crushed using a bat <strong>(3)</strong> your 25th birthday wasn't as exciting as your 24th</li>"+
             "</ul>",
         UI_Example: "<img src='img/s1Img1.jpg' style='margin:10px;'/>",
