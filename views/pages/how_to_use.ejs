@@ -80,17 +80,23 @@
           
         </div>
         <div class="modal-footer">
+          <div class="back"></div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
       <script type="text/javascript">
-          function spiritual(){
-      
-              var gcontent = content["Essential"];
+          function spiritual(p){ 
+              var html = "<a style=\"font-weight:700;\" onclick=\"spiritual('Material')\" href=\"#\">Back</a>";
+              var gcontent = content[p];
+              var title = p.replace("_", / /g);
               var modal = $("#definition");
-              modal.find('.modal-title').text("Spiritual Essential");
+              modal.find('.modal-title').text(title);
+              modal.find('.back').empty();
               $('.modal-body').empty();
               modal.find('.modal-body').append(gcontent);
+              if(p === "Spiritual_Essential"){
+                  modal.find('.back').append(html);
+              }
             }
           </script>
     </div>
@@ -109,12 +115,12 @@
           	"<li><strong>ideal</strong>: satisfying a conception of what is perfect; most suitable. <strong>(1)</strong> The ideal circle has perfect symmetry at every dimension. <strong>(2)</strong> While one could argue that love exist in many forms, 'ideal' love, perhaps, has caring, respect, and understanding.</li>"+
               "<li><strong>intangible</strong>: can't be held or touched. Has no physical presence </li>"+
           	"<li><strong>genuine</strong>: corroborates with what the mind knows it should be and what the thing actually is <strong>(1)</strong> Actual gold vs. fools gold</li>"+ 
-          	"<li><strong>essential</strong>: The exact distillation of pieces, parts, quantities, or features for which [it] could now be said to be it and only it. <strong>(1)</strong> Consider, if you can, the essential parts and features that make up a car and only a car--the essense of a car</li>" +
+          	"<li><strong>essential</strong>: The exact distillation of pieces, parts, quantities, or features for which [it] could now be said to be that thing and only that thing. <strong>(1)</strong> Consider, if you can, the essential parts and features that make up a car and only a car--the essense of a car</li>" +
            "</ul>",
-        Essential:"<strong>essential</strong>: The exact distillation of pieces, parts, quantities, or features for which it could now be said to be it and only it. <strong>(1)</strong> Consider, if you can, the essential parts and features that make up a car and only a car--the essense of a car",
+        Spiritual_Essential:"<strong>essential</strong>: The exact distillation of pieces, parts, quantities, or features for which it could now be said to be that thing and only that thing. <strong>(1)</strong> Consider, if you can, the essential parts and features that make up a car and only a car--the essense of a car",
         Material: "<ul>"+
             "<li><strong>can be sensed or detected</strong>: sensed using one or all of the four senses or detected using instruments (microscopes, clocks, etc). <strong>(1)</strong> Bacteria, birthdays and Broadway plays are some examples</li>"+
-          	"<li><strong>composed of parts</strong>: objects are composed of essential and non-essential parts. While the non-essential parts are found in the material world, the essential part(s) (the essence) can [only] be found in the spiritual realm. <strong>(1)</strong> See <a style=\"font-weight:700;\" onclick=\"spiritual()\" href=\"#\">Spiritual Essential</a></li>"+
+          	"<li><strong>composed of parts</strong>: objects are composed of essential and non-essential parts. While the non-essential parts are found in the material world, the essential part(s) (the essence) can [only] be found in the spiritual realm. <strong>(1)</strong> See <a style=\"font-weight:700;\" onclick=\"spiritual('Spiritual_Essential')\" href=\"#\">Spiritual Essential</a></li>"+
           	"<li><strong>degradable</strong>: can be ruined or destroyed by a person or over time <strong>(1)</strong> Steel on a car eventually corrodes <strong>(2)</strong> a copy machine can be crushed using a bat <strong>(3)</strong> your 25th birthday wasn't as exciting as your 24th</li>"+
             "</ul>",
         UI_Example: "<img src='img/s1Img1.jpg' style='margin:10px;'/>",
