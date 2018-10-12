@@ -86,7 +86,12 @@
       </div>
       <script type="text/javascript">
           function spiritual(p){ 
-              var html = "<a style=\"font-weight:700;\" onclick=\"spiritual("+p+")\" href=\"#\">Back</a>";
+            var html;
+            if(p === "Material_Spiritual_Converging"){
+                html = "<a style=\"font-weight:700;\" onclick=\"spiritual('Spiritual')\" href=\"#\">Back</a>";
+            }else{
+                html = "<a style=\"font-weight:700;\" onclick=\"spiritual('Material_Spiritual_Converging')\" href=\"#\">Back</a>";
+            }
               var gcontent = content[p];
               var title = p.replace(/_/g, " ");
               var modal = $("#definition");
