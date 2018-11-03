@@ -41,14 +41,18 @@ let nav = [
     
 ]
 
- 
-connection.connect(function(err){
-  if(err){
-    console.log(err);
-  }else{
-    console.log("database connected");
-  }
-});
+function dbconnect(){
+    connection1 = mysql.createConnection(connection);
+    connection1.connect(function(err){
+      if(err){
+        console.log(err);
+        dbconnect();
+      }else{
+        console.log("database connected");
+      }
+    });
+}
+dbconnect();
 
 app.use(session({
   cookieName: 'session',
@@ -60,7 +64,7 @@ app.use(session({
 app.use('/', express.static(__dirname + '/../public')); // ← adjust
 
 setInterval(function () {
-    connection.query('SELECT 1');
+    connection1.query('SELECT 1');
 }, 5000);
 
 app.set('port', (process.env.PORT || 5000));
