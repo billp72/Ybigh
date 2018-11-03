@@ -42,7 +42,13 @@ let nav = [
 ]
 
  
-connection.connect();
+connection.connect(function(err){
+  if(err){
+    console.log(err);
+  }else{
+    console.log("database connected");
+  }
+});
 
 app.use(session({
   cookieName: 'session',

@@ -1,1 +1,1 @@
-const mysql=require("mysql");var connection=mysql.createConnection({host:"ybighdb.db.14043432.d75.hostedresource.net",user:"ybighdb",password:"Goodbadybigh@1",database:"ybighdb"});module.exports={connection:connection,mysql:mysql};
+const mysql=require("mysql");var connection=mysql.createConnection({host:"ybighdbtest.db.14043432.e08.hostedresource.net",user:"ybighdbtest",password:"ybigh@1Test",database:"ybighdbtest"});module.exports={connection:connection,mysql:mysql};
