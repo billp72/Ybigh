@@ -9,10 +9,10 @@ const mysql  = require('mysql');
   database : 'equalmatchch'
 */
 var connection = mysql.createConnection({
-  host     : 'ybighdbtest.db.14043432.e08.hostedresource.net', 
-  user     : 'ybighdbtest',
-  password : 'ybigh@1Test',
-  database : 'ybighdbtest'
+  host     : 'ybighdb1.db.14043432.351.hostedresource.net', 
+  user     : 'ybighdb1',
+  password : 'ybigh@1Person',
+  database : 'ybighdb1'
 });
 
 module.exports = {
