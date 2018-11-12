@@ -640,7 +640,7 @@ Ybigh = {
         if(!!Ybigh.yellow || !!Ybigh.blue || !!Ybigh.red || !!Ybigh.green){
             Ybigh.next();
         }
-        window.location.href='/stage2';    
+        window.location.href='/n-stage2';    
     },
     submit: function(obj, cur, prev){
          $("#overlay").css("display","block");
