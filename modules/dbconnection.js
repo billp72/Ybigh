@@ -1,5 +1,5 @@
 const mysql  = require('mysql');
-const mariadb = require('mariadb');
+//const mariadb = require('mariadb');
 
 
 /*
