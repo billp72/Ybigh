@@ -700,7 +700,7 @@ app.post('/symbol', function(req, res, next){
   res.status(200).send(true);
 });
 
-app.listen(process.env.NODEJS_PORT || 4262, function() {
+app.listen(process.env.PORT || 4262, function() {
     console.log('Node app is running');
 });
 
