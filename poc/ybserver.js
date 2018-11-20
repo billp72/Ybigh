@@ -64,7 +64,6 @@ setInterval(function () {
     connection.query('SELECT 1');
 }, 5000);
 
-app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(device.capture({ parseUserAgent: true }));
@@ -701,7 +700,7 @@ app.post('/symbol', function(req, res, next){
   res.status(200).send(true);
 });
 
-app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
+app.listen(process.env.NODEJS_PORT || 4262, function() {
+    console.log('Node app is running');
 });
 
