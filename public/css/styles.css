@@ -52,8 +52,31 @@
     list-style-type: none;
     color:blue;
   }
-  .about li{
-    /*list-style-type: none;*/
+  .triangle{
+    position: relative;
+    margin: 0 auto 0 auto;
+    width: 400px;
+  }
+  .abouts{
+    position: absolute;
+    top: 200px;
+    left: -10px;
+    font-weight:700;
+    display: block;
+  }
+  .aboutm{
+    position: absolute;
+    top: 200px;
+    left: 210px;
+    font-weight:700;
+    display: block;
+  }
+  .aboutms{
+    position: absolute;
+    top: -7px;
+    left: 60px;
+    font-weight:700;
+    display: block;
   }
 
   .cl{
