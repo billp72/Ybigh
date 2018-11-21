@@ -680,7 +680,9 @@ Ybigh = {
                 }
                 $("#overlay").css("display","none");
                 if(Ybigh.counter === 1){
-                        alert("Congratulations! You've created your first symbol. You can click the whitespace between triangles to load the next word or, better yet, search the list to find words that speak to you.")
+                        $("#reminder").find(".modal-body").text("Congratulations! You've created your first symbol. You can click the whitespace between triangles to load the next word or, better yet, search the list to find words that speak to you.");
+                        $("#reminder").modal();
+                     
                 }
             }
         });
