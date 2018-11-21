@@ -668,6 +668,9 @@ Ybigh = {
                     if(Ybigh.counter > 3){
                         $("#done").prop("disabled", false).removeClass("dis");
                     }
+                    if(Ybigh.counter === 1){
+                        alert("Congratulations! You've created your first symbol. You can click the whitespace between triangles to load the next word or, better yet, search the list to find words that speak to you.")
+                    }
                     if(!Ybigh.symbol){
                         Ybigh.copylength -= 1;
                     
