@@ -13,7 +13,45 @@
         		margin: 0px;
         		height: 100%;
 			}
+      .steps-container{
+        margin: 100px auto 0 auto;
 
+      }
+      ol.steps li{
+        float: left;
+        margin: 0 0 0 100px;
+        list-style-type: none;
+      }
+      li .container{
+        position: relative;
+      }
+      li .step{
+        width: 280px;
+        height: 280px;
+        border-radius: 60%;
+        color: #000;
+        line-height: 25px;
+        text-align: center;
+        border: 3px solid #dab1b1;
+        font-size: 20px;
+      }
+      li .bgtext{
+        position: absolute;
+        top: 126px;
+        left: 58px;
+        bottom: 0;
+        right: 0px;
+        z-index: -1;
+        /* overflow: hidden; */
+        font-size: 352px;
+        color: beige;
+      }
+      ul.about{
+        list-style-type: none;
+      }
+      .text{
+        padding-top: 80px;
+      }
 		</style>
 	</head>
 	<body>
@@ -35,38 +73,51 @@
       </div>
   </nav>
 		<div id="welcome">
-
-			<h4>*ABOUT STAGE 1</h4>
-			Each or any of the <i>Terms, Concept or Specific Objects</i> [words] presented in Stage 1 may invoke personal feelings, spark a particular philosophical interest, connect with you on spiritual level, all three or none at all. Based on your understanding of the words, it’s up to you to reflect on your life’s experience and make selections using our custom graphic interface. (Don't feel you have to select every category for every word)<a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="UI Example"> See Example</a>
-			<br /><br />
-			<img src="img/s1Img.jpg" style="float:left; margin:0 20px 15px 0;"/>
-			<div>
-				<strong>Select up to four categories for any given word</strong><br />
-				<ul class="about">
-					<li>Man's View of Himself (Himself/Herself)</li>
-					<li>Man's Connections with Other than Himself</li>
-					<li>Man's View of the World</li>
-					<li>Man's Physical Activities</li>
-				</ul>
-				<strong>The word "Man" means the <i>universal man</i> of which you are an example. <br />As such, you may consider:</strong><br />
-            	<ul class="about">
-					<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Personalize">Personalizing some or all words to yourself</a></li>
-					<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Others Exclusively">Thinking of others exclusively</a></li>
-					<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Yourself and Others">Thinking of yourself and others together</a></li>
-            	</ul>
+      <h2 style="text-align:center;">STAGE 1: CREATING INITIAL SYMBOLS</h2>
+      <div class="steps-container">
+      <ol class="steps">
+        <li class="bgtext">
+          <div class="container">
+              <div class="bgtext">1</div>
+            </div>
+          <div class="step">
+          <div class="text">Scroll through the list of words and choose one
+          </div>
+        </div>
+        </li>
+          <li>
+            <div class="container">
+              <div class="bgtext">2</div>
+            </div>
+            <div class="step">
+            <div class="text">Look over the <a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Categories">categories</a> and select the best ones for your word
+            </div>
+          </div>
+        </li>
+        <li class="bgtext">
+          <div class="container">
+              <div class="bgtext">3</div>
+            </div>
+          <div class="step">
+          <div class="text">Click and move your mouse inside the selected categories/triangles. <br />(See <a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Triangle Selection Space">triangle selection space</a>)
+          </div>
+        </div>
+        </li>
+      </ol>
+    </div>
+			<!--<a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="UI Example"> See Example</a>-->
+	
+			<!---->
+			<!--<div>
+				
 			<strong><a style="font-weight:700;color:black;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Opinion">Opinion/Evaluation</a></strong>
-			<ul class="about">
-        <!--<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Foundation">Foundation</a> -- Existence/Essence | Substance | Accident</li>-->
-				<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Spiritual">Spiritual</a> -- Not composed of parts | will not deteriorate</li>
-				<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Material">Material</a> -- Composed of parts | can deteriorate</li>
-				<li><a style="font-weight:700;" href="#" data-toggle="modal" data-target="#definition" data-whatever="Material Spiritual Converging">Material & Spiritual Converging</a> -- unifying so to become more than the individual parts.</li>
-			</ul>
+			
 			
 			</div><br />
 			
 			<div id="howto-msg">Like anything else, using Ybigh will make you better at using Ybigh. While it may feel awkward at first, you'll get the hang of it. Continue on to<a href="https://ybigh.herokuapp.com/n-stage1"> Stage 1</a></div>
 		 	
-		</div>
+		</div>-->
 
   	<!-- definitions Modal -->
   <div class="modal fade" id="definition" role="dialog">
@@ -88,11 +139,18 @@
       <script type="text/javascript">
           function spiritual(p){ 
             var html;
-            if(p === "other"){
-                html = "<a style=\"font-weight:700;\" onclick=\"spiritual('Spiritual')\" href=\"#\">Back</a>";
-            }else{
+             console.log(p)
+            if(p === "Personalize" || 
+               p === "Others_Exclusively" || 
+               p === "Yourself_and_Others"){
+                html = "<a style=\"font-weight:700;\" onclick=\"spiritual('Categories')\" href=\"#\">Back</a>";
+            }else if(p === "Person"){
                 html = "<a style=\"font-weight:700;\" onclick=\"spiritual('Material_Spiritual_Converging')\" href=\"#\">Back</a>";
+            }else{
+                html = "<a style=\"font-weight:700;\" onclick=\"spiritual('Triangle_Selection_Space')\" href=\"#\">Back</a>";
             }
+            
+          
               var gcontent = content[p];
               var title = p.replace(/_/g, " ");
               var modal = $("#definition");
@@ -100,7 +158,14 @@
               modal.find('.back').empty();
               $('.modal-body').empty();
               modal.find('.modal-body').append(gcontent);
-              if(p === "Person"){
+
+              if(p === "Person" || 
+                 p === "Material_Spiritual_Converging" || 
+                 p === "Material" ||
+                 p === "Spiritual" ||
+                 p === "Others_Exclusively" ||
+                 p === "Personalize" ||
+                 p === "Yourself_and_Others"){
                   modal.find('.back').append(html);
               }
             }
@@ -116,8 +181,8 @@
   		Material_Spiritual_Converging: "Once you select a word, Stage 1 gives you a chance to weigh your experiences with relation to the word in each of the four categories.<br /><br />You might feel that a word represents just a material reality; in that case you would evaluate it as '<i>purely material</i>' or somewhere in that area of the triangle, based on how certain you are.  You might feel a word represents something spiritual, so you should evaluate it as '<i>purely spiritual</i>' or, again, somewhere in that area.<br /><br /><strong>1)</strong> When you evaluate a word in Stage 1, you give it meaning and make it into what Ybigh treats as a <i>symbol</i>.<br /><br /><strong>2)</strong> A symbol can sometimes be part of a terrible or a wonderful experience, or anywhere in between, for you or others. This experience lets you give the symbol special meaning, what we of Ybigh call '<i>material/spiritual converging</i>'.<br /><br /><strong>3)</strong><i> Converging</i> means a unity is forming with the word and its connections. '<i>Material/spiritual converging</i>' means that your knowledge of the word and your experience with it have unified into this special kind of symbol.<br /><br /><i>Knowledge</i> starts with the material world (your five senses, see <a style=\"font-weight:700;\" href=\"#\" onclick=\"spiritual('Person')\" data-target=\"#definition\">Person</a>). Human consciousness, including your awareness and experience, has spiritual components. Most things have a material as well as a spiritual component. How much of each? You should decide.<br /><br /><strong>Material/Spiritual Converging Examples</strong> (It's not as complicated as it sounds)<br /><br /><strong>Music/Musician</strong><br />Music can be '<i>material/spiritual converging</i>'. We can have great insight or profound feelings when listening to--or if you can--performing music.<br /><br /><strong>Urine</strong><br />Urine can be ‘material/spiritual converging’. You were stranded out at sea or in a desert and all you had to drink was your own urine.  It saved your life.  Now ‘<i>urine</i>’ has a special meaning for you.<br /><br /><strong>Knife</strong><br />If you get cut with a knife then a knives might leave a lasting impression on you, having marked your experience as well as your material body.<br /><br /><strong>Athlete</strong><br />You might recognize '<i>material/spiritual converging</i>' in yourself or in other people as well. Watching a professional basketball game, you notice how one player is truly in the zone, out-scoring and out-performing every other player on the court.<br /><br />Material/spiritual converging can readily apply to almost everything.  How you decide to evaluate ideas, terms or specific, material objects, using your knowledge, awareness and experiences, is up to you.",
   		Spiritual: "Spiritual means it has no parts and cannot be separated into parts – it\’s unitary. It can\’t be sensed or detected, but it can be thought of.<br />Spiritual Examples: <strong>Reason</strong>, <strong>Happiness</strong>, <strong>Justice</strong>, <strong>Will</strong>, <strong>Evil</strong>, <strong>Design</strong>.<br /><br />Consider <strong>Justice</strong> in itself. Not acts or circumstances that are just or lack justice, only the abstract notion of Justice. You can't break off a piece of Justice and make it stand on its own, though you may apply it or remove it from some things to make them just or unjust.<br /><br /><strong>NOTE:</strong> Even though spiritual things can be reasoned about, it\'s often very hard to do so. Don't get too hung up wondering if a word is spiritual or what is spiritual about a word. You can always go back or update your evaluations later if you change your mind.",
         Material: "Material is defined as something that has or can be <strong>composed of parts</strong>, each of which is different from the other. Material things can therefore degrade or be perfected. Cars rust, toys break, children are born, grow up, grow old, and so on.<br /><br /><strong>Bacteria</strong>, <strong>baseballs</strong> and <strong>boomerangs</strong> are material things -- they’re all around us.",
-        Foundation: "To begin to explain how this works, we’ll start with the idea that everything has a foundation. The foundation is the <strong>existence</strong> and <strong>essence</strong> of everything -- its being. <br /><br />Next comes the question, what sort of being is it?  If it\’s a <strong>substance</strong> of some sort, it is either a spiritual or material substance or it’s a combination of the two. It could also be a modification of the substance, and that\’s called an <strong>\‘accident\’</strong>. <br /><strong>Accident</strong> can be the quality of something--color, shape, form, etc.",
-        Opinion: "While we may not acknowledge it or even realize it, things have layers of meaning; deep meaning in many cases. And by presenting you with an opportunity to express how you feel about these things, will hopefully uncover these dormant layers of meaning within you. <i>You’re more than what your shopping cart says about you</i>.",
+        Triangle_Selection_Space: "<ul class=\"about\"><li><a style=\"font-weight:700;\" href=\"#\" data-target=\"#definition\" onclick=\"spiritual('Spiritual')\">Spiritual</a> -- Not composed of parts | will not deteriorate</li><li><a style=\"font-weight:700;\" href=\"#\" data-target=\"#definition\" onclick=\"spiritual('Material')\">Material</a> -- Composed of parts | can deteriorate</li><li><a style=\"font-weight:700;\" href=\"#\" data-target=\"#definition\" onclick=\"spiritual('Material_Spiritual_Converging')\">Material/Spiritual Converging</a> -- unifying so to become more than the individual parts.</li><img src=\"img/s1Img.jpg\" style=\"display:block;width:60%;margin:0 auto 0 auto;\"/></ul>",
+        Categories: "<img src='img/reminder.jpg' style='float:left;margin-right: 25px;'/><div><strong>Select up to four categories for any given word</strong><br /><ul class=\"about\"><li>Man's View of Himself (Himself/Herself)</li><li>Man's Connections with Other than Himself</li><li>Man's View of the World</li><li>Man's Physical Activities</li></ul><strong>The word \"Man\" means the <i>universal man</i> of which you are an example. <br />As such, you may consider:</strong><br /><ul class=\"about\"><li><a style=\"font-weight:700;\" href=\"#\" data-target=\"#definition\" onclick=\"spiritual('Personalize')\">Personalizing some or all words to yourself</a></li><li><a style=\"font-weight:700;\" href=\"#\" data-target=\"#definition\" onclick=\"spiritual('Others_Exclusively')\">Thinking of others exclusively</a></li><li><a style=\"font-weight:700;\" href=\"#\" data-target=\"#definition\" onclick=\"spiritual('Yourself_and_Others')\">Thinking of yourself and others together</a></li></div></ul>",
         UI_Example: "<img src='img/s1Img1.jpg' style='display:block;width:50%;margin:0 auto 0 auto;'/>",
         Personalize: "For a given word, mentally substitute <strong>My</strong> for <strong>Man</strong> when consideing yourself only.<br /><br /><ul>Example<br /><li><strong>My</strong> View of Myself</li>"+
                      "<li><strong>My</strong> Connections with Other than myself (whether humans or things)</li>"+
