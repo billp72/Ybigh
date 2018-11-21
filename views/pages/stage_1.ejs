@@ -43,7 +43,7 @@
                         <input onclick="window.location.href='/n-howtouse'" type="button" id="home" class="btn nav-link" value="Back Page" />
                     </li>
                     <li class="nav-item">
-                        <input data-toggle="modal" data-target="#reminder" type="button" id="dashboard" class="btn nav-link" value="Usage" />
+                        <input data-toggle="modal" data-target="#reminder" type="button" id="dashboard" class="btn nav-link" data-whatever="Usage" value="Usage" />
                     </li>
                     <li class="nav-item">
                         <input type="button" title="clear selections locally only" id="clear" class="btn nav-link" value="Clear Selections" />
@@ -80,27 +80,35 @@
         <div class="modal-header">
           <h4 class="modal-title">Stage 1 Usage</h4>
         </div>
-        <div class="modal-body">
-          <img src="img/reminder.jpg" style="float:left;margin-right:20px;"/>
-          <div style="padding-left:0px;">We encourge you to scroll through the entire list of words.<br />
-          You must evaluate at least <strong>50 words</strong> before moving on.
-          <br /><br />Click whitespace to load next word and submit current word and evaluations<br /><br />
-          <img src="img/reminderblank.jpg" style="float:right;"/>
-          <strong>For each or any category/word combo:</strong><br />
-          Consider yourself (me, my, I)<br />
-          Consider others (their, his/her)<br />
-          Consider both (ours, we, us)<br /><!--<br />
-          <strong>Why all the extra space?</strong><br />
-          Lots of things, most even, aren't purely spiritual, purely material, or completely converging.<br />
-          The gradient space is there for you to be as particular as you like.-->
-          </div>
+        <div class="modal-body"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-      </div>
-      
+      </div> 
     </div>
+    <!--end of modal-->
   </div>
+  <script>
+    var content = {
+      Usage: "<img src=\"img/reminder.jpg\" style=\"float:left;margin-right:20px;\"/><div style=\"padding-left:0px;\">We encourge you to scroll through the entire list of words.<br />You must evaluate at least <strong>50 words</strong> before moving on.<br /><br />Click whitespace to load next word and submit current word and evaluations<br /><br /><img src=\"img/reminderblank.jpg\" style=\"float:right;\"/><strong>For each or any category/word combo:</strong><br />Consider yourself (me, my, I)<br />Consider others (their, his/her)<br />Consider both (ours, we, us)<br />",
+      Congratulations: "You've created your first symbol. You can click the whitespace between triangles to load the next word, or, better yet, search the list to find words that speak to you."
+    }
+
+      $('#reminder').on('show.bs.modal', function (event) {
+        var evt = !!event.relatedTarget ? event.relatedTarget : event.target;
+        var button = $(evt); // Button that triggered the modal
+        var recipient = button.data('whatever'); // Extract info from data-* attributes
+        if(!recipient){
+          recipient = "Congratulations";
+        }
+        var gcontent = content[recipient];
+        var modal = $(this);
+        modal.find('.modal-title').text(recipient);
+        $('.modal-body').empty();
+        modal.find('.modal-body').append(gcontent);
+    })
+    
+  </script>
 </body>
 </html>
