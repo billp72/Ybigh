@@ -8,6 +8,7 @@
   <meta name="author" content="ybigh">
   <meta name="description" content="The HTML5 Herald">
   <link rel="stylesheet" type="text/css" href="libs/boostrap4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <style type="text/css">
     body{
@@ -21,7 +22,7 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
-
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -107,8 +108,21 @@
         modal.find('.modal-title').text(recipient);
         $('.modal-body').empty();
         modal.find('.modal-body').append(gcontent);
-    })
+    });
+
+    $( function() {
+        $( "#dialog" ).dialog();
+    });
     
   </script>
+
+  <div id="dialog" title="Basic Instrunctions">
+      <ol>
+        <li>choose a word from the list</li>
+        <li>Look over the categories and make evaluations</li>
+        <li>submit evaluations by selecting another word</li>
+      </ol>
+      *Click "Usage" button for info about categories and triangles
+  </div>
 </body>
 </html>
