@@ -4,7 +4,9 @@
   "description": "Ybigh personality project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node poc/ybserver.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,16 +19,23 @@
   },
   "homepage": "https://github.com/billp72/Ybigh#readme",
   "dependencies": {
+    "axios": "^1.7.9",
     "body-parser": "1.18.3",
     "client-sessions": "0.8.0",
     "ejs": "2.6.1",
     "express": "4.16.3",
     "express-device": "0.4.2",
     "mariadb": "2.0.1-beta",
-    "mysql": "2.16.0"
+    "mysql": "2.16.0",
+    "net-browserify": "^0.2.4",
+    "node-polyfill-webpack-plugin": "^4.1.0",
+    "tls-browserify": "^0.2.2",
+    "yamlparser": "^0.0.2"
   },
   "devDependencies": {
     "gulp": "^4.0.0",
-    "gulp-minify": "3.1.0"
+    "gulp-minify": "3.1.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
   }
 }

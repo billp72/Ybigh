@@ -1,0 +1,1 @@
+(()=>{var t=CanvasRenderingContext2D.prototype,n=document.createElement("canvas").getContext("2d");n.translate(50,0),n.moveTo(125,50),n.arc(100,50,25,0,360,!1),n.isPointInPath(150,50)||(t.isPointInPath_old=t.isPointInPath,t.isPointInPath=function(t,n){this.save(),this.setTransform(1,0,0,1,0,0);var e=this.isPointInPath_old(t,n);return this.restore(),e})})();
