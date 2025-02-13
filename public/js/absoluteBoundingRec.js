@@ -1,16 +1,4 @@
 /**
-Returns a bounding rect for _el_ with absolute coordinates corrected for
-scroll positions.
-
-The native `getBoundingClientRect()` returns coordinates for an element's
-visual position relative to the top left of the viewport, so if the element
-is part of a scrollable region that has been scrolled, its coordinates will
-be different than if the region hadn't been scrolled.
-
-This method corrects for scroll offsets all the way up the node tree, so the
-returned bounding rect will represent an absolute position on a virtual
-canvas, regardless of scrolling.
-
 @method getAbsoluteBoundingRect
 @param {HTMLElement} el HTML element.
 @return {Object} Absolute bounding rect for _el_.
