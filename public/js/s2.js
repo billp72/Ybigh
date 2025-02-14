@@ -1,13 +1,6 @@
 /**
  * Ybigh demo stage 2
  *
- *
- *
- *
- *
- *
- *
- *
  */
 
 sbVertexShader = [
