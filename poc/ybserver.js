@@ -671,7 +671,7 @@ app.post("/symbol", function (req, res, next) {
   res.set({ "Content-Type": "text/plain" });
   res.status(200).send(true);
 });
-
-app.listen(process.env.PORT || 4262, function () {
-  console.log("Node app is running");
+const port = process.env.PORT || 4262
+app.listen(port, function () {
+  console.log(`Node app is running ${port}`);
 });
