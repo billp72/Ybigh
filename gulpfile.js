@@ -5,7 +5,8 @@ const minify = require('gulp-minify');
 
 gulp.task('default', function() {
   let sheet = [
-  	{src:'public/js/*.js',out:'public/js'}, 
+  	{src:'public/js/*.js',out:'public/js'},
+    {src:'poc/*.js',out:'poc'} 
   ]
   // place code for your default task here
  sheet.map(function(file){
