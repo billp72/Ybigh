@@ -1,7 +1,5 @@
 const mysql  = require('mysql');
 //const mariadb = require('mariadb');
-
-
 /*
   host     : 'equalmatchch.db.5035656.hostedresource.com', 
   user     : 'equalmatchch',
