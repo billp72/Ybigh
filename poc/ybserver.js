@@ -62,7 +62,7 @@ app.use("/", express.static(__dirname + "/../public")); // ← adjust
 
 setInterval(function () {
   connection.query("SELECT 1");
-}, 5000);
+}, 1000*60*5);//every five minutes
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
